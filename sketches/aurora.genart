@@ -1,0 +1,60 @@
+{
+  "genart": "1.1",
+  "id": "aurora",
+  "title": "Aurora",
+  "created": "2026-02-22T00:00:00Z",
+  "modified": "2026-02-22T00:00:00Z",
+  "renderer": {
+    "type": "glsl"
+  },
+  "canvas": {
+    "width": 600,
+    "height": 600
+  },
+  "parameters": [
+    {
+      "key": "waveCount",
+      "label": "Wave Count",
+      "min": 2,
+      "max": 8,
+      "step": 1,
+      "default": 4
+    },
+    {
+      "key": "intensity",
+      "label": "Intensity",
+      "min": 0.3,
+      "max": 2.0,
+      "step": 0.1,
+      "default": 1.0
+    },
+    {
+      "key": "speed",
+      "label": "Speed",
+      "min": 0.1,
+      "max": 1.5,
+      "step": 0.1,
+      "default": 0.5
+    },
+    {
+      "key": "height",
+      "label": "Height",
+      "min": 0.2,
+      "max": 0.8,
+      "step": 0.05,
+      "default": 0.5
+    }
+  ],
+  "colors": [
+    { "key": "bg", "label": "Background", "default": "#050510" },
+    { "key": "green", "label": "Green", "default": "#00ff88" },
+    { "key": "purple", "label": "Purple", "default": "#8844ff" }
+  ],
+  "state": {
+    "seed": 88,
+    "params": { "waveCount": 4, "intensity": 1.0, "speed": 0.5, "height": 0.5 },
+    "colorPalette": ["#050510", "#00ff88", "#8844ff"]
+  },
+  "snapshots": [],
+  "algorithm": "#version 300 es\nprecision highp float;\nuniform vec2 u_resolution;\nuniform float u_time;\nuniform float u_seed;\nuniform float u_waveCount;\nuniform float u_intensity;\nuniform float u_speed;\nuniform float u_height;\nuniform vec3 u_bg;\nuniform vec3 u_green;\nuniform vec3 u_purple;\nout vec4 fragColor;\n\nfloat hash(vec2 p) {\n  return fract(sin(dot(p, vec2(127.1, 311.7))) * 43758.5453);\n}\n\nfloat noise(vec2 p) {\n  vec2 i = floor(p);\n  vec2 f = fract(p);\n  f = f * f * (3.0 - 2.0 * f);\n  float a = hash(i);\n  float b = hash(i + vec2(1.0, 0.0));\n  float c = hash(i + vec2(0.0, 1.0));\n  float d = hash(i + vec2(1.0, 1.0));\n  return mix(mix(a, b, f.x), mix(c, d, f.x), f.y);\n}\n\nfloat fbm(vec2 p, int octaves) {\n  float val = 0.0, amp = 0.5;\n  for (int i = 0; i < 6; i++) {\n    if (i >= octaves) break;\n    val += amp * noise(p);\n    p *= 2.0;\n    amp *= 0.5;\n  }\n  return val;\n}\n\nvoid main() {\n  vec2 uv = gl_FragCoord.xy / u_resolution.xy;\n  float t = u_time * u_speed * 0.3;\n  int waves = int(u_waveCount);\n  float aurora = 0.0;\n  for (int i = 0; i < 8; i++) {\n    if (i >= waves) break;\n    float fi = float(i);\n    float yCenter = u_height + sin(t * 0.5 + fi * 1.5) * 0.1;\n    float yDist = abs(uv.y - yCenter);\n    float band = exp(-yDist * yDist * 40.0);\n    float wave = fbm(vec2(uv.x * 3.0 + t + fi * 10.0 + u_seed, fi * 5.0), 4);\n    aurora += band * wave * u_intensity / float(waves);\n  }\n  aurora = clamp(aurora, 0.0, 1.0);\n  float colorMix = fbm(vec2(uv.x * 2.0 + t * 0.5, uv.y * 2.0 + u_seed), 3);\n  vec3 auroraColor = mix(u_green, u_purple, colorMix);\n  vec3 color = mix(u_bg, auroraColor, aurora * aurora);\n  float stars = step(0.998, hash(uv * 500.0 + u_seed));\n  color += stars * 0.5;\n  fragColor = vec4(color, 1.0);\n}"
+}

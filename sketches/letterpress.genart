@@ -1,0 +1,61 @@
+{
+  "genart": "1.1",
+  "id": "letterpress",
+  "title": "Letterpress",
+  "created": "2026-02-22T00:00:00Z",
+  "modified": "2026-02-22T00:00:00Z",
+  "renderer": {
+    "type": "svg"
+  },
+  "canvas": {
+    "width": 600,
+    "height": 600
+  },
+  "parameters": [
+    {
+      "key": "gridDensity",
+      "label": "Grid Density",
+      "min": 3,
+      "max": 10,
+      "step": 1,
+      "default": 6
+    },
+    {
+      "key": "fillRatio",
+      "label": "Fill Ratio",
+      "min": 0.3,
+      "max": 0.9,
+      "step": 0.05,
+      "default": 0.7
+    },
+    {
+      "key": "rotation",
+      "label": "Rotation",
+      "min": 0,
+      "max": 45,
+      "step": 5,
+      "default": 0
+    },
+    {
+      "key": "shapeVariety",
+      "label": "Shape Variety",
+      "min": 1,
+      "max": 4,
+      "step": 1,
+      "default": 3
+    }
+  ],
+  "colors": [
+    { "key": "bg", "label": "Background", "default": "#f5f0e8" },
+    { "key": "primary", "label": "Primary", "default": "#c4342d" },
+    { "key": "secondary", "label": "Secondary", "default": "#1a1a1a" },
+    { "key": "accent", "label": "Accent", "default": "#e8d5a3" }
+  ],
+  "state": {
+    "seed": 33,
+    "params": { "gridDensity": 6, "fillRatio": 0.7, "rotation": 0, "shapeVariety": 3 },
+    "colorPalette": ["#f5f0e8", "#c4342d", "#1a1a1a", "#e8d5a3"]
+  },
+  "snapshots": [],
+  "algorithm": "function sketch(state) {\n  function mulberry32(a) {\n    return function() {\n      a |= 0; a = a + 0x6D2B79F5 | 0;\n      var t = Math.imul(a ^ a >>> 15, 1 | a);\n      t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t;\n      return ((t ^ t >>> 14) >>> 0) / 4294967296;\n    };\n  }\n\n  function generate() {\n    const W = state.canvas.width;\n    const H = state.canvas.height;\n    const rng = mulberry32(state.seed);\n    const n = state.params.gridDensity;\n    const fillRatio = state.params.fillRatio;\n    const rot = state.params.rotation;\n    const variety = state.params.shapeVariety;\n    const padding = 60;\n    const cellSize = (Math.min(W, H) - padding * 2) / n;\n    const gap = cellSize * 0.12;\n    const shapeSize = cellSize - gap * 2;\n    const offsetX = (W - n * cellSize) / 2;\n    const offsetY = (H - n * cellSize) / 2;\n    const colors = [state.colorPalette[1], state.colorPalette[2], state.colorPalette[3]];\n\n    let shapes = '';\n    for (let row = 0; row < n; row++) {\n      for (let col = 0; col < n; col++) {\n        if (rng() > fillRatio) continue;\n        const cx = offsetX + col * cellSize + cellSize / 2;\n        const cy = offsetY + row * cellSize + cellSize / 2;\n        const color = colors[Math.floor(rng() * colors.length)];\n        const shapeType = Math.floor(rng() * variety);\n        const r = rot > 0 ? rot * (rng() - 0.5) * 2 : 0;\n        const transform = r !== 0 ? ` transform=\"rotate(${r},${cx},${cy})\"` : '';\n        const half = shapeSize / 2;\n\n        if (shapeType === 0) {\n          shapes += `<circle cx=\"${cx}\" cy=\"${cy}\" r=\"${half}\" fill=\"${color}\"${transform} />`;\n        } else if (shapeType === 1) {\n          shapes += `<rect x=\"${cx - half}\" y=\"${cy - half}\" width=\"${shapeSize}\" height=\"${shapeSize}\" fill=\"${color}\"${transform} />`;\n        } else if (shapeType === 2) {\n          const pts = `${cx},${cy - half} ${cx + half},${cy + half} ${cx - half},${cy + half}`;\n          shapes += `<polygon points=\"${pts}\" fill=\"${color}\"${transform} />`;\n        } else {\n          shapes += `<circle cx=\"${cx}\" cy=\"${cy}\" r=\"${half * 0.5}\" fill=\"none\" stroke=\"${color}\" stroke-width=\"${half * 0.3}\"${transform} />`;\n        }\n      }\n    }\n\n    return `<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"${W}\" height=\"${H}\" viewBox=\"0 0 ${W} ${H}\"><rect width=\"${W}\" height=\"${H}\" fill=\"${state.colorPalette[0]}\" />${shapes}</svg>`;\n  }\n\n  return { generate, initializeSystem: generate };\n}"
+}

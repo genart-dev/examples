@@ -1,0 +1,60 @@
+{
+  "genart": "1.1",
+  "id": "erosion",
+  "title": "Erosion",
+  "created": "2026-02-22T00:00:00Z",
+  "modified": "2026-02-22T00:00:00Z",
+  "renderer": {
+    "type": "canvas2d"
+  },
+  "canvas": {
+    "width": 600,
+    "height": 600
+  },
+  "parameters": [
+    {
+      "key": "roughness",
+      "label": "Roughness",
+      "min": 1,
+      "max": 8,
+      "step": 1,
+      "default": 5
+    },
+    {
+      "key": "erosionPasses",
+      "label": "Erosion Passes",
+      "min": 50,
+      "max": 500,
+      "step": 50,
+      "default": 200
+    },
+    {
+      "key": "contourDensity",
+      "label": "Contour Lines",
+      "min": 5,
+      "max": 30,
+      "step": 1,
+      "default": 12
+    },
+    {
+      "key": "dropSpeed",
+      "label": "Drop Speed",
+      "min": 0.01,
+      "max": 0.1,
+      "step": 0.01,
+      "default": 0.05
+    }
+  ],
+  "colors": [
+    { "key": "bg", "label": "Background", "default": "#f5f0e8" },
+    { "key": "contour", "label": "Contour", "default": "#2a2520" },
+    { "key": "water", "label": "Water", "default": "#4a6fa5" }
+  ],
+  "state": {
+    "seed": 91,
+    "params": { "roughness": 5, "erosionPasses": 200, "contourDensity": 12, "dropSpeed": 0.05 },
+    "colorPalette": ["#f5f0e8", "#2a2520", "#4a6fa5"]
+  },
+  "snapshots": [],
+  "algorithm": "function sketch(ctx, state) {\n  const W = state.canvas.width;\n  const H = state.canvas.height;\n  const grid = 120;\n  const heightmap = new Float64Array(grid * grid);\n\n  function mulberry32(a) {\n    return function() {\n      a |= 0; a = a + 0x6D2B79F5 | 0;\n      var t = Math.imul(a ^ a >>> 15, 1 | a);\n      t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t;\n      return ((t ^ t >>> 14) >>> 0) / 4294967296;\n    };\n  }\n\n  function makeNoise(rng) {\n    const perm = new Uint8Array(512);\n    for (let i = 0; i < 256; i++) perm[i] = i;\n    for (let i = 255; i > 0; i--) {\n      const j = Math.floor(rng() * (i + 1));\n      const tmp = perm[i]; perm[i] = perm[j]; perm[j] = tmp;\n    }\n    for (let i = 0; i < 256; i++) perm[256 + i] = perm[i];\n    function fade(t) { return t * t * t * (t * (t * 6 - 15) + 10); }\n    function lerp(a, b, t) { return a + t * (b - a); }\n    function grad(hash, x, y) {\n      var h = hash & 3;\n      return ((h & 1) ? -x : x) + ((h & 2) ? -y : y);\n    }\n    return function(x, y, octaves) {\n      var val = 0, amp = 1, freq = 1, mx = 0;\n      for (var o = 0; o < octaves; o++) {\n        var fx = x * freq, fy = y * freq;\n        var xi = Math.floor(fx) & 255, yi = Math.floor(fy) & 255;\n        var xf = fx - Math.floor(fx), yf = fy - Math.floor(fy);\n        var u = fade(xf), v = fade(yf);\n        var a0 = perm[xi] + yi, a1 = perm[xi + 1] + yi;\n        val += lerp(\n          lerp(grad(perm[a0], xf, yf), grad(perm[a1], xf - 1, yf), u),\n          lerp(grad(perm[a0 + 1], xf, yf - 1), grad(perm[a1 + 1], xf - 1, yf - 1), u), v\n        ) * amp;\n        mx += amp;\n        amp *= 0.5;\n        freq *= 2;\n      }\n      return (val / mx + 1) / 2;\n    };\n  }\n\n  function clamp01(v) { return v < 0 ? 0 : v > 1 ? 1 : v; }\n\n  function initializeSystem() {\n    var rng = mulberry32(state.seed);\n    var noise = makeNoise(rng);\n    var octaves = state.params.roughness;\n    for (var y = 0; y < grid; y++) {\n      for (var x = 0; x < grid; x++) {\n        heightmap[y * grid + x] = noise(x * 0.025, y * 0.025, octaves);\n      }\n    }\n    for (var i = 0; i < state.params.erosionPasses; i++) {\n      var px = Math.floor(rng() * (grid - 2)) + 1;\n      var py = Math.floor(rng() * (grid - 2)) + 1;\n      var sed = 0;\n      for (var step = 0; step < 40; step++) {\n        var idx = py * grid + px;\n        var best = heightmap[idx], bx = px, by = py;\n        for (var ox = -1; ox <= 1; ox++) {\n          for (var oy = -1; oy <= 1; oy++) {\n            if (!ox && !oy) continue;\n            var ni = (py + oy) * grid + (px + ox);\n            if (heightmap[ni] < best) { best = heightmap[ni]; bx = px + ox; by = py + oy; }\n          }\n        }\n        if (bx === px && by === py) break;\n        var diff = heightmap[idx] - best;\n        var dep = sed * state.params.dropSpeed;\n        heightmap[idx] -= diff * 0.25 - dep;\n        sed += diff * 0.25 - dep;\n        px = bx; py = by;\n        if (px <= 0 || px >= grid - 1 || py <= 0 || py >= grid - 1) break;\n      }\n    }\n    draw();\n  }\n\n  function draw() {\n    ctx.fillStyle = state.colorPalette[0];\n    ctx.fillRect(0, 0, W, H);\n    var cellW = W / grid, cellH = H / grid;\n    var levels = state.params.contourDensity;\n    ctx.strokeStyle = state.colorPalette[1];\n    for (var level = 0; level < levels; level++) {\n      var threshold = (level + 1) / (levels + 1);\n      ctx.lineWidth = 0.6 + (level / levels) * 0.6;\n      ctx.globalAlpha = 0.2 + 0.5 * (level / levels);\n      ctx.beginPath();\n      for (var y = 0; y < grid - 1; y++) {\n        for (var x = 0; x < grid - 1; x++) {\n          var h00 = heightmap[y * grid + x];\n          var h10 = heightmap[y * grid + x + 1];\n          var h01 = heightmap[(y + 1) * grid + x];\n          var h11 = heightmap[(y + 1) * grid + x + 1];\n          var code = (h00 >= threshold ? 1 : 0) | (h10 >= threshold ? 2 : 0) | (h01 >= threshold ? 4 : 0) | (h11 >= threshold ? 8 : 0);\n          if (code === 0 || code === 15) continue;\n          var cx = x * cellW, cy = y * cellH;\n          function interp(a, b) { var d = b - a; return d === 0 ? 0.5 : clamp01((threshold - a) / d); }\n          var top = cx + cellW * interp(h00, h10);\n          var bottom = cx + cellW * interp(h01, h11);\n          var left = cy + cellH * interp(h00, h01);\n          var right = cy + cellH * interp(h10, h11);\n          if (code === 1 || code === 14) { ctx.moveTo(top, cy); ctx.lineTo(cx, left); }\n          else if (code === 2 || code === 13) { ctx.moveTo(top, cy); ctx.lineTo(cx + cellW, right); }\n          else if (code === 3 || code === 12) { ctx.moveTo(cx, left); ctx.lineTo(cx + cellW, right); }\n          else if (code === 4 || code === 11) { ctx.moveTo(cx, left); ctx.lineTo(bottom, cy + cellH); }\n          else if (code === 6 || code === 9) { ctx.moveTo(top, cy); ctx.lineTo(bottom, cy + cellH); }\n          else if (code === 7 || code === 8) { ctx.moveTo(cx + cellW, right); ctx.lineTo(bottom, cy + cellH); }\n          else if (code === 5) { ctx.moveTo(top, cy); ctx.lineTo(cx, left); ctx.moveTo(cx + cellW, right); ctx.lineTo(bottom, cy + cellH); }\n          else if (code === 10) { ctx.moveTo(top, cy); ctx.lineTo(cx + cellW, right); ctx.moveTo(cx, left); ctx.lineTo(bottom, cy + cellH); }\n        }\n      }\n      ctx.stroke();\n    }\n    ctx.globalAlpha = 0.12;\n    ctx.fillStyle = state.colorPalette[2];\n    for (var y = 0; y < grid; y++) {\n      for (var x = 0; x < grid; x++) {\n        if (heightmap[y * grid + x] < 0.35) {\n          ctx.fillRect(x * cellW, y * cellH, cellW + 0.5, cellH + 0.5);\n        }\n      }\n    }\n    ctx.globalAlpha = 1;\n  }\n\n  initializeSystem();\n  return { initializeSystem };\n}"
+}

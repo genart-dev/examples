@@ -1,0 +1,61 @@
+{
+  "genart": "1.1",
+  "id": "murmuration",
+  "title": "Murmuration",
+  "created": "2026-02-22T00:00:00Z",
+  "modified": "2026-02-22T00:00:00Z",
+  "renderer": {
+    "type": "p5",
+    "version": "1.x"
+  },
+  "canvas": {
+    "width": 600,
+    "height": 600
+  },
+  "parameters": [
+    {
+      "key": "flockSize",
+      "label": "Flock Size",
+      "min": 50,
+      "max": 500,
+      "step": 10,
+      "default": 200
+    },
+    {
+      "key": "cohesion",
+      "label": "Cohesion",
+      "min": 0.1,
+      "max": 3.0,
+      "step": 0.1,
+      "default": 1.5
+    },
+    {
+      "key": "speed",
+      "label": "Speed",
+      "min": 0.5,
+      "max": 5.0,
+      "step": 0.5,
+      "default": 2.5
+    },
+    {
+      "key": "trailOpacity",
+      "label": "Trail Opacity",
+      "min": 1,
+      "max": 40,
+      "step": 1,
+      "default": 12
+    }
+  ],
+  "colors": [
+    { "key": "bg", "label": "Background", "default": "#0a0a0a" },
+    { "key": "bird", "label": "Bird", "default": "#e8e0d4" },
+    { "key": "accent", "label": "Accent", "default": "#C4342D" }
+  ],
+  "state": {
+    "seed": 42,
+    "params": { "flockSize": 200, "cohesion": 1.5, "speed": 2.5, "trailOpacity": 12 },
+    "colorPalette": ["#0a0a0a", "#e8e0d4", "#C4342D"]
+  },
+  "snapshots": [],
+  "algorithm": "function sketch(p, state) {\n  var W = state.canvas.width, H = state.canvas.height;\n  var boids = [];\n  var perception = 100;\n  var sepDist = 25;\n\n  function initializeSystem() {\n    p.noiseSeed(state.seed);\n    boids = [];\n    var cx = W / 2, cy = H / 2;\n    for (var i = 0; i < state.params.flockSize; i++) {\n      var angle = p.random(p.TWO_PI);\n      var r = p.random(50, 150);\n      boids.push({\n        x: cx + Math.cos(angle) * r,\n        y: cy + Math.sin(angle) * r,\n        vx: p.random(-1, 1),\n        vy: p.random(-1, 1)\n      });\n    }\n  }\n\n  p.setup = function() {\n    p.createCanvas(W, H);\n    p.background(state.colorPalette[0]);\n    initializeSystem();\n  };\n\n  p.draw = function() {\n    var bg = p.color(state.colorPalette[0]);\n    bg.setAlpha(state.params.trailOpacity);\n    p.background(bg);\n    var maxSpeed = state.params.speed;\n    var cohF = state.params.cohesion;\n\n    var gcx = 0, gcy = 0;\n    for (var i = 0; i < boids.length; i++) { gcx += boids[i].x; gcy += boids[i].y; }\n    gcx /= boids.length; gcy /= boids.length;\n\n    for (var i = 0; i < boids.length; i++) {\n      var b = boids[i];\n      var sx = 0, sy = 0, ax = 0, ay = 0, cx = 0, cy = 0, count = 0;\n      for (var j = 0; j < boids.length; j++) {\n        if (i === j) continue;\n        var o = boids[j];\n        var dx = o.x - b.x, dy = o.y - b.y;\n        var d = Math.sqrt(dx * dx + dy * dy);\n        if (d < perception && d > 0) {\n          count++;\n          ax += o.vx; ay += o.vy;\n          cx += o.x; cy += o.y;\n          if (d < sepDist) {\n            sx -= dx / d; sy -= dy / d;\n          }\n        }\n      }\n      if (count > 0) {\n        ax = (ax / count - b.vx) * 0.08;\n        ay = (ay / count - b.vy) * 0.08;\n        cx = (cx / count - b.x) * cohF * 0.005;\n        cy = (cy / count - b.y) * cohF * 0.005;\n      }\n      var gx = (gcx - b.x) * 0.0003;\n      var gy = (gcy - b.y) * 0.0003;\n      b.vx += sx * 0.15 + ax + cx + gx;\n      b.vy += sy * 0.15 + ay + cy + gy;\n\n      if (b.x < 50) b.vx += 0.3;\n      if (b.x > W - 50) b.vx -= 0.3;\n      if (b.y < 50) b.vy += 0.3;\n      if (b.y > H - 50) b.vy -= 0.3;\n\n      var spd = Math.sqrt(b.vx * b.vx + b.vy * b.vy);\n      if (spd > maxSpeed) { b.vx = b.vx / spd * maxSpeed; b.vy = b.vy / spd * maxSpeed; }\n      if (spd < 0.5) { b.vx += (p.random() - 0.5) * 0.5; b.vy += (p.random() - 0.5) * 0.5; }\n      b.x += b.vx; b.y += b.vy;\n      if (b.x < 0) b.x += W; if (b.x > W) b.x -= W;\n      if (b.y < 0) b.y += H; if (b.y > H) b.y -= H;\n\n      var t = Math.min(spd / maxSpeed, 1);\n      var c = p.lerpColor(p.color(state.colorPalette[1]), p.color(state.colorPalette[2]), t);\n      p.stroke(c);\n      p.strokeWeight(2);\n      p.point(b.x, b.y);\n    }\n  };\n\n  return { initializeSystem };\n}"
+}

@@ -1,0 +1,62 @@
+{
+  "genart": "1.1",
+  "id": "tide-pool",
+  "title": "Tide Pool",
+  "created": "2026-02-22T00:00:00Z",
+  "modified": "2026-02-22T00:00:00Z",
+  "renderer": {
+    "type": "p5",
+    "version": "1.x"
+  },
+  "canvas": {
+    "width": 600,
+    "height": 600
+  },
+  "parameters": [
+    {
+      "key": "organismCount",
+      "label": "Organism Count",
+      "min": 5,
+      "max": 40,
+      "step": 1,
+      "default": 20
+    },
+    {
+      "key": "growthRate",
+      "label": "Growth Rate",
+      "min": 0.1,
+      "max": 2.0,
+      "step": 0.1,
+      "default": 0.8
+    },
+    {
+      "key": "viscosity",
+      "label": "Viscosity",
+      "min": 0.001,
+      "max": 0.01,
+      "step": 0.001,
+      "default": 0.005
+    },
+    {
+      "key": "maxRadius",
+      "label": "Max Radius",
+      "min": 20,
+      "max": 200,
+      "step": 10,
+      "default": 80
+    }
+  ],
+  "colors": [
+    { "key": "bg", "label": "Background", "default": "#0b1628" },
+    { "key": "organism1", "label": "Organism A", "default": "#4a9e8f" },
+    { "key": "organism2", "label": "Organism B", "default": "#e8c560" },
+    { "key": "rim", "label": "Rim", "default": "#1a3a5c" }
+  ],
+  "state": {
+    "seed": 19,
+    "params": { "organismCount": 20, "growthRate": 0.8, "viscosity": 0.005, "maxRadius": 80 },
+    "colorPalette": ["#0b1628", "#4a9e8f", "#e8c560", "#1a3a5c"]
+  },
+  "snapshots": [],
+  "algorithm": "function sketch(p, state) {\n  const W = state.canvas.width;\n  const H = state.canvas.height;\n  let organisms = [];\n\n  function initializeSystem() {\n    p.noiseSeed(state.seed);\n    organisms = [];\n    for (let i = 0; i < state.params.organismCount; i++) {\n      organisms.push({\n        x: p.random(60, W - 60),\n        y: p.random(60, H - 60),\n        r: 2,\n        maxR: state.params.maxRadius * (0.3 + p.random() * 0.7),\n        stopped: false,\n        color: i % 2 === 0 ? state.colorPalette[1] : state.colorPalette[2],\n        phase: p.random(p.TWO_PI)\n      });\n    }\n  }\n\n  function collides(org, idx) {\n    for (let j = 0; j < organisms.length; j++) {\n      if (j === idx) continue;\n      const other = organisms[j];\n      const d = p.dist(org.x, org.y, other.x, other.y);\n      if (d < org.r + other.r + 2) return true;\n    }\n    return false;\n  }\n\n  p.setup = () => {\n    p.createCanvas(W, H);\n    initializeSystem();\n  };\n\n  p.draw = () => {\n    p.background(state.colorPalette[0]);\n    let allStopped = true;\n    for (let i = 0; i < organisms.length; i++) {\n      const org = organisms[i];\n      if (!org.stopped) {\n        const noiseVal = p.noise(org.x * state.params.viscosity, org.y * state.params.viscosity, p.frameCount * 0.01);\n        const growth = state.params.growthRate * (0.5 + noiseVal);\n        org.r += growth;\n        if (org.r >= org.maxR || collides(org, i) || org.x - org.r < 0 || org.x + org.r > W || org.y - org.r < 0 || org.y + org.r > H) {\n          org.stopped = true;\n          org.r -= growth;\n        } else {\n          allStopped = false;\n        }\n      }\n      const c = p.color(org.color);\n      c.setAlpha(60);\n      p.fill(c);\n      p.stroke(state.colorPalette[3]);\n      p.strokeWeight(1);\n      p.beginShape();\n      const pts = 60;\n      for (let a = 0; a < pts; a++) {\n        const angle = (a / pts) * p.TWO_PI;\n        const noiseR = p.noise(Math.cos(angle) + org.phase, Math.sin(angle) + org.phase, org.r * 0.02) * org.r * 0.15;\n        const rr = org.r + noiseR;\n        p.vertex(org.x + Math.cos(angle) * rr, org.y + Math.sin(angle) * rr);\n      }\n      p.endShape(p.CLOSE);\n    }\n    if (allStopped) p.noLoop();\n  };\n\n  return { initializeSystem };\n}"
+}

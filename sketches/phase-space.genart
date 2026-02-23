@@ -1,0 +1,60 @@
+{
+  "genart": "1.1",
+  "id": "phase-space",
+  "title": "Phase Space",
+  "created": "2026-02-22T00:00:00Z",
+  "modified": "2026-02-22T00:00:00Z",
+  "renderer": {
+    "type": "canvas2d"
+  },
+  "canvas": {
+    "width": 600,
+    "height": 600
+  },
+  "parameters": [
+    {
+      "key": "lengthRatio",
+      "label": "Length Ratio",
+      "min": 0.3,
+      "max": 2.0,
+      "step": 0.1,
+      "default": 1.0
+    },
+    {
+      "key": "initialAngle",
+      "label": "Initial Angle",
+      "min": 0.5,
+      "max": 3.14,
+      "step": 0.1,
+      "default": 2.5
+    },
+    {
+      "key": "gravity",
+      "label": "Gravity",
+      "min": 5.0,
+      "max": 15.0,
+      "step": 0.5,
+      "default": 9.8
+    },
+    {
+      "key": "trailOpacity",
+      "label": "Trail Opacity",
+      "min": 2,
+      "max": 30,
+      "step": 1,
+      "default": 10
+    }
+  ],
+  "colors": [
+    { "key": "bg", "label": "Background", "default": "#0a0a0a" },
+    { "key": "trail", "label": "Trail", "default": "#22d3ee" },
+    { "key": "accent", "label": "Accent", "default": "#ff6b35" }
+  ],
+  "state": {
+    "seed": 7,
+    "params": { "lengthRatio": 1.0, "initialAngle": 2.5, "gravity": 9.8, "trailOpacity": 10 },
+    "colorPalette": ["#0a0a0a", "#22d3ee", "#ff6b35"]
+  },
+  "snapshots": [],
+  "algorithm": "function sketch(ctx, state) {\n  const W = state.canvas.width;\n  const H = state.canvas.height;\n  const g = state.params.gravity;\n  const l1 = 1.0, l2 = state.params.lengthRatio;\n  const m1 = 1.0, m2 = 1.0;\n  let th1, th2, w1, w2;\n  let frame = 0;\n  const dt = 0.02;\n  const trail = [];\n  const maxTrail = 5000;\n  let animId;\n\n  function derivatives(th1, w1, th2, w2) {\n    const dth = th1 - th2;\n    const sin_dth = Math.sin(dth);\n    const cos_dth = Math.cos(dth);\n    const den = 2 * m1 + m2 - m2 * Math.cos(2 * dth);\n    const a1 = (-g * (2 * m1 + m2) * Math.sin(th1)\n              - m2 * g * Math.sin(th1 - 2 * th2)\n              - 2 * sin_dth * m2 * (w2 * w2 * l2 + w1 * w1 * l1 * cos_dth))\n              / (l1 * den);\n    const a2 = (2 * sin_dth * (w1 * w1 * l1 * (m1 + m2)\n              + g * (m1 + m2) * Math.cos(th1)\n              + w2 * w2 * l2 * m2 * cos_dth))\n              / (l2 * den);\n    return [w1, a1, w2, a2];\n  }\n\n  function rk4Step() {\n    const k1 = derivatives(th1, w1, th2, w2);\n    const k2 = derivatives(th1 + k1[0] * dt / 2, w1 + k1[1] * dt / 2, th2 + k1[2] * dt / 2, w2 + k1[3] * dt / 2);\n    const k3 = derivatives(th1 + k2[0] * dt / 2, w1 + k2[1] * dt / 2, th2 + k2[2] * dt / 2, w2 + k2[3] * dt / 2);\n    const k4 = derivatives(th1 + k3[0] * dt, w1 + k3[1] * dt, th2 + k3[2] * dt, w2 + k3[3] * dt);\n    th1 += (k1[0] + 2 * k2[0] + 2 * k3[0] + k4[0]) * dt / 6;\n    w1 += (k1[1] + 2 * k2[1] + 2 * k3[1] + k4[1]) * dt / 6;\n    th2 += (k1[2] + 2 * k2[2] + 2 * k3[2] + k4[2]) * dt / 6;\n    w2 += (k1[3] + 2 * k2[3] + 2 * k3[3] + k4[3]) * dt / 6;\n  }\n\n  function initializeSystem() {\n    th1 = state.params.initialAngle;\n    th2 = state.params.initialAngle * 0.8;\n    w1 = 0; w2 = 0;\n    trail.length = 0;\n    frame = 0;\n    ctx.fillStyle = state.colorPalette[0];\n    ctx.fillRect(0, 0, W, H);\n    if (animId) cancelAnimationFrame(animId);\n    animate();\n  }\n\n  function animate() {\n    for (let i = 0; i < 10; i++) {\n      rk4Step();\n      const normTh1 = ((th1 % (2 * Math.PI)) + 2 * Math.PI) % (2 * Math.PI);\n      const normTh2 = ((th2 % (2 * Math.PI)) + 2 * Math.PI) % (2 * Math.PI);\n      trail.push({ x: normTh1, y: normTh2, speed: Math.sqrt(w1 * w1 + w2 * w2) });\n      if (trail.length > maxTrail) trail.shift();\n    }\n    frame++;\n\n    ctx.fillStyle = state.colorPalette[0];\n    ctx.globalAlpha = state.params.trailOpacity / 255;\n    ctx.fillRect(0, 0, W, H);\n    ctx.globalAlpha = 1;\n\n    const margin = 30;\n    const plotW = W - margin * 2;\n    const plotH = H - margin * 2;\n\n    for (let i = 1; i < trail.length; i++) {\n      const p = trail[i];\n      const pp = trail[i - 1];\n      const px = margin + (p.x / (2 * Math.PI)) * plotW;\n      const py = margin + (p.y / (2 * Math.PI)) * plotH;\n      const ppx = margin + (pp.x / (2 * Math.PI)) * plotW;\n      const ppy = margin + (pp.y / (2 * Math.PI)) * plotH;\n      if (Math.abs(px - ppx) > plotW * 0.5 || Math.abs(py - ppy) > plotH * 0.5) continue;\n      const t = Math.min(p.speed / 10, 1);\n      const alpha = 0.3 + (i / trail.length) * 0.7;\n      ctx.globalAlpha = alpha;\n      ctx.strokeStyle = t > 0.5 ? state.colorPalette[2] : state.colorPalette[1];\n      ctx.lineWidth = 0.8;\n      ctx.beginPath();\n      ctx.moveTo(ppx, ppy);\n      ctx.lineTo(px, py);\n      ctx.stroke();\n    }\n    ctx.globalAlpha = 1;\n    animId = requestAnimationFrame(animate);\n  }\n\n  initializeSystem();\n  return { initializeSystem };\n}"
+}
