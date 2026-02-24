@@ -1,5 +1,5 @@
 {
-  "genart": "1.1",
+  "genart": "1.2",
   "id": "mycelium",
   "title": "Mycelium",
   "created": "2026-02-22T00:00:00Z",
@@ -24,7 +24,7 @@
       "key": "pulseSpeed",
       "label": "Pulse Speed",
       "min": 0.1,
-      "max": 2.0,
+      "max": 2,
       "step": 0.1,
       "default": 0.8
     },
@@ -32,7 +32,7 @@
       "key": "glow",
       "label": "Glow",
       "min": 0.5,
-      "max": 3.0,
+      "max": 3,
       "step": 0.1,
       "default": 1.5
     },
@@ -46,15 +46,48 @@
     }
   ],
   "colors": [
-    { "key": "bg", "label": "Background", "default": "#0a0a05" },
-    { "key": "vein", "label": "Vein", "default": "#88cc44" },
-    { "key": "pulse", "label": "Pulse", "default": "#ccff88" }
+    {
+      "key": "bg",
+      "label": "Background",
+      "default": "#0a0a05"
+    },
+    {
+      "key": "vein",
+      "label": "Vein",
+      "default": "#88cc44"
+    },
+    {
+      "key": "pulse",
+      "label": "Pulse",
+      "default": "#ccff88"
+    }
   ],
   "state": {
     "seed": 101,
-    "params": { "branchDensity": 8, "pulseSpeed": 0.8, "glow": 1.5, "complexity": 3 },
-    "colorPalette": ["#0a0a05", "#88cc44", "#ccff88"]
+    "params": {
+      "branchDensity": 8,
+      "pulseSpeed": 0.8,
+      "glow": 1.5,
+      "complexity": 3
+    },
+    "colorPalette": [
+      "#0a0a05",
+      "#88cc44",
+      "#ccff88"
+    ]
   },
   "snapshots": [],
-  "algorithm": "#version 300 es\nprecision highp float;\nuniform vec2 u_resolution;\nuniform float u_time;\nuniform float u_seed;\nuniform float u_branchDensity;\nuniform float u_pulseSpeed;\nuniform float u_glow;\nuniform float u_complexity;\nuniform vec3 u_color1;\nuniform vec3 u_color2;\nuniform vec3 u_color3;\nout vec4 fragColor;\n\nvec2 hash2(vec2 p) {\n  p = vec2(dot(p, vec2(127.1, 311.7)), dot(p, vec2(269.5, 183.3)));\n  return fract(sin(p) * 43758.5453);\n}\n\nfloat voronoi(vec2 p, out vec2 cellId) {\n  vec2 n = floor(p);\n  vec2 f = fract(p);\n  float minDist = 10.0;\n  float secondDist = 10.0;\n  for (int j = -1; j <= 1; j++) {\n    for (int i = -1; i <= 1; i++) {\n      vec2 g = vec2(float(i), float(j));\n      vec2 o = hash2(n + g + u_seed);\n      vec2 diff = g + o - f;\n      float d = length(diff);\n      if (d < minDist) {\n        secondDist = minDist;\n        minDist = d;\n        cellId = n + g;\n      } else if (d < secondDist) {\n        secondDist = d;\n      }\n    }\n  }\n  return secondDist - minDist;\n}\n\nvoid main() {\n  vec2 uv = gl_FragCoord.xy / u_resolution.xy;\n  vec2 p = uv * u_branchDensity;\n  float t = u_time * u_pulseSpeed * 0.3;\n\n  vec2 cellId;\n  float edge = voronoi(p, cellId);\n\n  float veinWidth = 0.05 * u_complexity;\n  float vein = smoothstep(veinWidth, 0.0, edge);\n\n  float pulse = sin(length(cellId) * 2.0 - t * 5.0) * 0.5 + 0.5;\n  pulse *= vein;\n\n  vec3 color = u_color1;\n  color = mix(color, u_color2, vein * 0.6 * u_glow);\n  color += u_color3 * pulse * 0.4 * u_glow;\n\n  float glow2 = exp(-edge * edge * 20.0) * 0.3 * u_glow;\n  color += u_color2 * glow2;\n\n  fragColor = vec4(color, 1.0);\n}"
+  "components": {
+    "glsl-noise": {
+      "version": "1.0.0",
+      "code": "float hash(vec2 p) {\n  return fract(sin(dot(p, vec2(127.1, 311.7))) * 43758.5453);\n}\n\nfloat noise(vec2 p) {\n  vec2 i = floor(p);\n  vec2 f = fract(p);\n  f = f * f * (3.0 - 2.0 * f);\n  float a = hash(i);\n  float b = hash(i + vec2(1.0, 0.0));\n  float c = hash(i + vec2(0.0, 1.0));\n  float d = hash(i + vec2(1.0, 1.0));\n  return mix(mix(a, b, f.x), mix(c, d, f.x), f.y);\n}\n\nfloat fbm(vec2 p, int octaves) {\n  float val = 0.0, amp = 0.5;\n  for (int i = 0; i < 8; i++) {\n    if (i >= octaves) break;\n    val += amp * noise(p);\n    p *= 2.0;\n    amp *= 0.5;\n  }\n  return val;\n}\n\nfloat voronoi(vec2 p) {\n  vec2 n = floor(p);\n  vec2 f = fract(p);\n  float minDist = 1.0;\n  for (int j = -1; j <= 1; j++) {\n    for (int i = -1; i <= 1; i++) {\n      vec2 g = vec2(float(i), float(j));\n      vec2 o = vec2(hash(n + g), hash(n + g + vec2(37.0, 17.0)));\n      vec2 diff = g + o - f;\n      minDist = min(minDist, dot(diff, diff));\n    }\n  }\n  return sqrt(minDist);\n}\n",
+      "exports": [
+        "hash",
+        "noise",
+        "fbm",
+        "voronoi"
+      ]
+    }
+  },
+  "algorithm": "#version 300 es\nprecision highp float;\nuniform vec2 u_resolution;\nuniform float u_time;\nuniform float u_seed;\nuniform float u_branchDensity;\nuniform float u_pulseSpeed;\nuniform float u_glow;\nuniform float u_complexity;\nuniform vec3 u_color1;\nuniform vec3 u_color2;\nuniform vec3 u_color3;\nout vec4 fragColor;\n\nvec2 hash2(vec2 p) {\n  return vec2(hash(p), hash(p + vec2(37.0, 17.0)));\n}\n\nfloat voronoi(vec2 p, out vec2 cellId) {\n  vec2 n = floor(p);\n  vec2 f = fract(p);\n  float minDist = 10.0;\n  float secondDist = 10.0;\n  for (int j = -1; j <= 1; j++) {\n    for (int i = -1; i <= 1; i++) {\n      vec2 g = vec2(float(i), float(j));\n      vec2 o = hash2(n + g + u_seed);\n      vec2 diff = g + o - f;\n      float d = length(diff);\n      if (d < minDist) {\n        secondDist = minDist;\n        minDist = d;\n        cellId = n + g;\n      } else if (d < secondDist) {\n        secondDist = d;\n      }\n    }\n  }\n  return secondDist - minDist;\n}\n\nvoid main() {\n  vec2 uv = gl_FragCoord.xy / u_resolution.xy;\n  vec2 p = uv * u_branchDensity;\n  float t = u_time * u_pulseSpeed * 0.3;\n\n  vec2 cellId;\n  float edge = voronoi(p, cellId);\n\n  float veinWidth = 0.05 * u_complexity;\n  float vein = smoothstep(veinWidth, 0.0, edge);\n\n  float pulse = sin(length(cellId) * 2.0 - t * 5.0) * 0.5 + 0.5;\n  pulse *= vein;\n\n  vec3 color = u_color1;\n  color = mix(color, u_color2, vein * 0.6 * u_glow);\n  color += u_color3 * pulse * 0.4 * u_glow;\n\n  float glow2 = exp(-edge * edge * 20.0) * 0.3 * u_glow;\n  color += u_color2 * glow2;\n\n  fragColor = vec4(color, 1.0);\n}"
 }

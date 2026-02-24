@@ -1,5 +1,5 @@
 {
-  "genart": "1.1",
+  "genart": "1.2",
   "id": "textile",
   "title": "Textile",
   "created": "2026-02-22T00:00:00Z",
@@ -31,8 +31,8 @@
     {
       "key": "weaveVariation",
       "label": "Weave Variation",
-      "min": 0.0,
-      "max": 1.0,
+      "min": 0,
+      "max": 1,
       "step": 0.05,
       "default": 0.4
     },
@@ -46,16 +46,52 @@
     }
   ],
   "colors": [
-    { "key": "bg", "label": "Background", "default": "#1a1612" },
-    { "key": "warp", "label": "Warp", "default": "#c4342d" },
-    { "key": "weft", "label": "Weft", "default": "#e8d5a3" },
-    { "key": "highlight", "label": "Highlight", "default": "#f0e6cc" }
+    {
+      "key": "bg",
+      "label": "Background",
+      "default": "#1a1612"
+    },
+    {
+      "key": "warp",
+      "label": "Warp",
+      "default": "#c4342d"
+    },
+    {
+      "key": "weft",
+      "label": "Weft",
+      "default": "#e8d5a3"
+    },
+    {
+      "key": "highlight",
+      "label": "Highlight",
+      "default": "#f0e6cc"
+    }
   ],
   "state": {
     "seed": 77,
-    "params": { "threadDensity": 30, "patternComplexity": 3, "weaveVariation": 0.4, "threadWidth": 3 },
-    "colorPalette": ["#1a1612", "#c4342d", "#e8d5a3", "#f0e6cc"]
+    "params": {
+      "threadDensity": 30,
+      "patternComplexity": 3,
+      "weaveVariation": 0.4,
+      "threadWidth": 3
+    },
+    "colorPalette": [
+      "#1a1612",
+      "#c4342d",
+      "#e8d5a3",
+      "#f0e6cc"
+    ]
   },
   "snapshots": [],
-  "algorithm": "function sketch(ctx, state) {\n  const W = state.canvas.width;\n  const H = state.canvas.height;\n\n  function mulberry32(a) {\n    return function() {\n      a |= 0; a = a + 0x6D2B79F5 | 0;\n      var t = Math.imul(a ^ a >>> 15, 1 | a);\n      t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t;\n      return ((t ^ t >>> 14) >>> 0) / 4294967296;\n    };\n  }\n\n  function initializeSystem() {\n    const rng = mulberry32(state.seed);\n    const density = state.params.threadDensity;\n    const complexity = state.params.patternComplexity;\n    const variation = state.params.weaveVariation;\n    const tw = state.params.threadWidth;\n    const spacing = W / density;\n\n    ctx.fillStyle = state.colorPalette[0];\n    ctx.fillRect(0, 0, W, H);\n\n    const pattern = [];\n    for (let i = 0; i < complexity; i++) {\n      pattern.push(Math.floor(rng() * 3) + 1);\n    }\n\n    for (let col = 0; col < density; col++) {\n      const x = col * spacing + spacing / 2;\n      const wobble = (rng() - 0.5) * variation * spacing * 0.3;\n      ctx.strokeStyle = state.colorPalette[1];\n      ctx.lineWidth = tw + (rng() - 0.5) * variation * 1.5;\n      ctx.globalAlpha = 0.7 + rng() * 0.3;\n      ctx.beginPath();\n      for (let y = 0; y < H; y += 2) {\n        const dx = Math.sin(y * 0.02 + col) * wobble;\n        if (y === 0) ctx.moveTo(x + dx, y);\n        else ctx.lineTo(x + dx, y);\n      }\n      ctx.stroke();\n    }\n\n    for (let row = 0; row < density; row++) {\n      const y = row * spacing + spacing / 2;\n      const patIdx = pattern[row % pattern.length];\n      ctx.lineWidth = tw + (rng() - 0.5) * variation * 1.5;\n      ctx.globalAlpha = 0.7 + rng() * 0.3;\n\n      for (let col = 0; col < density; col++) {\n        const x = col * spacing + spacing / 2;\n        const over = (Math.floor(col / patIdx) + Math.floor(row / patIdx)) % 2 === 0;\n        ctx.strokeStyle = over ? state.colorPalette[2] : state.colorPalette[3];\n        ctx.beginPath();\n        const wobble = Math.sin(x * 0.015 + row) * variation * spacing * 0.2;\n        ctx.moveTo(x - spacing / 2, y + wobble);\n        ctx.lineTo(x + spacing / 2, y + wobble);\n        ctx.stroke();\n      }\n    }\n\n    ctx.globalAlpha = 0.03;\n    for (let i = 0; i < 2000; i++) {\n      const x = rng() * W;\n      const y = rng() * H;\n      ctx.fillStyle = rng() > 0.5 ? '#ffffff' : '#000000';\n      ctx.fillRect(x, y, 1, 1);\n    }\n    ctx.globalAlpha = 1;\n  }\n\n  initializeSystem();\n  return { initializeSystem };\n}"
+  "components": {
+    "prng": {
+      "version": "1.0.0",
+      "code": "function mulberry32(a) {\n  return function() {\n    a |= 0; a = a + 0x6D2B79F5 | 0;\n    var t = Math.imul(a ^ a >>> 15, 1 | a);\n    t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t;\n    return ((t ^ t >>> 14) >>> 0) / 4294967296;\n  };\n}\n\nfunction sfc32(a, b, c, d) {\n  return function() {\n    a |= 0; b |= 0; c |= 0; d |= 0;\n    var t = (a + b | 0) + d | 0;\n    d = d + 1 | 0; a = b ^ (b >>> 9);\n    b = c + (c << 3) | 0; c = (c << 21 | c >>> 11);\n    c = c + t | 0;\n    return (t >>> 0) / 4294967296;\n  };\n}\n",
+      "exports": [
+        "mulberry32",
+        "sfc32"
+      ]
+    }
+  },
+  "algorithm": "function sketch(ctx, state) {\n  const W = state.canvas.width;\n  const H = state.canvas.height;\n\n  function initializeSystem() {\n    const rng = mulberry32(state.seed);\n    const density = state.params.threadDensity;\n    const complexity = state.params.patternComplexity;\n    const variation = state.params.weaveVariation;\n    const tw = state.params.threadWidth;\n    const spacing = W / density;\n\n    ctx.fillStyle = state.colorPalette[0];\n    ctx.fillRect(0, 0, W, H);\n\n    const pattern = [];\n    for (let i = 0; i < complexity; i++) {\n      pattern.push(Math.floor(rng() * 3) + 1);\n    }\n\n    for (let col = 0; col < density; col++) {\n      const x = col * spacing + spacing / 2;\n      const wobble = (rng() - 0.5) * variation * spacing * 0.3;\n      ctx.strokeStyle = state.colorPalette[1];\n      ctx.lineWidth = tw + (rng() - 0.5) * variation * 1.5;\n      ctx.globalAlpha = 0.7 + rng() * 0.3;\n      ctx.beginPath();\n      for (let y = 0; y < H; y += 2) {\n        const dx = Math.sin(y * 0.02 + col) * wobble;\n        if (y === 0) ctx.moveTo(x + dx, y);\n        else ctx.lineTo(x + dx, y);\n      }\n      ctx.stroke();\n    }\n\n    for (let row = 0; row < density; row++) {\n      const y = row * spacing + spacing / 2;\n      const patIdx = pattern[row % pattern.length];\n      ctx.lineWidth = tw + (rng() - 0.5) * variation * 1.5;\n      ctx.globalAlpha = 0.7 + rng() * 0.3;\n\n      for (let col = 0; col < density; col++) {\n        const x = col * spacing + spacing / 2;\n        const over = (Math.floor(col / patIdx) + Math.floor(row / patIdx)) % 2 === 0;\n        ctx.strokeStyle = over ? state.colorPalette[2] : state.colorPalette[3];\n        ctx.beginPath();\n        const wobble = Math.sin(x * 0.015 + row) * variation * spacing * 0.2;\n        ctx.moveTo(x - spacing / 2, y + wobble);\n        ctx.lineTo(x + spacing / 2, y + wobble);\n        ctx.stroke();\n      }\n    }\n\n    ctx.globalAlpha = 0.03;\n    for (let i = 0; i < 2000; i++) {\n      const x = rng() * W;\n      const y = rng() * H;\n      ctx.fillStyle = rng() > 0.5 ? '#ffffff' : '#000000';\n      ctx.fillRect(x, y, 1, 1);\n    }\n    ctx.globalAlpha = 1;\n  }\n\n  initializeSystem();\n  return { initializeSystem };\n}"
 }

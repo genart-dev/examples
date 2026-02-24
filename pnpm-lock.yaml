@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@genart-dev/format':
-        specifier: ^0.1.0
-        version: 0.1.2
+        specifier: ^0.2.0
+        version: 0.2.0
     devDependencies:
       '@types/node':
         specifier: ^22.0.0
@@ -183,8 +183,8 @@ packages:
     cpu: [x64]
     os: [win32]
 
-  '@genart-dev/format@0.1.2':
-    resolution: {integrity: sha512-Pg1PjJa0vFnaN+QU+uMU/MENgDoZUKsE9sIlEoEQG9CYRIz/adP49nZ5itDCwCcis5N+MKnDhNRWJkmQvrqTKA==}
+  '@genart-dev/format@0.2.0':
+    resolution: {integrity: sha512-zSeFfrJ9t8nZ/093b+0XLb8VElSSW3tx1hQZJSRsRlkupxByCbERde6kMvxH6USBuZ3truEanIIOrWDXB+PnRQ==}
 
   '@jridgewell/gen-mapping@0.3.13':
     resolution: {integrity: sha512-2kkt/7niJ6MgEPxF0bYdQ6etZaA+fQvDcLKckhy1yIQOzaoKjBBjSj63/aLVjYE3qhRt5dvM+uUyfCg6UKCBbA==}
@@ -624,7 +624,7 @@ snapshots:
   '@esbuild/win32-x64@0.27.3':
     optional: true
 
-  '@genart-dev/format@0.1.2': {}
+  '@genart-dev/format@0.2.0': {}
 
   '@jridgewell/gen-mapping@0.3.13':
     dependencies:

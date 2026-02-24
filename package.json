@@ -1,6 +1,6 @@
 {
   "name": "@genart-dev/examples",
-  "version": "0.1.2",
+  "version": "0.2.1",
   "description": "Curated gallery sketches for genart.dev — 14 generative art examples across 5 renderers",
   "type": "module",
   "main": "./dist/index.js",
@@ -50,7 +50,7 @@
     "prepublishOnly": "pnpm build"
   },
   "dependencies": {
-    "@genart-dev/format": "^0.1.0"
+    "@genart-dev/format": "^0.2.0"
   },
   "devDependencies": {
     "@types/node": "^22.0.0",
