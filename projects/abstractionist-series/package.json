@@ -1,0 +1,16 @@
+{
+  "name": "abstractionist-series",
+  "version": "1.0.0",
+  "description": "Experimental multi-layer generative paintings using plugin layer types directly via node-canvas",
+  "private": true,
+  "type": "commonjs",
+  "scripts": {
+    "render": "node render.cjs"
+  },
+  "dependencies": {
+    "@genart-dev/plugin-painting": "*",
+    "@genart-dev/plugin-textures": "*",
+    "@genart-dev/plugin-shapes": "*",
+    "canvas": "^3.1.0"
+  }
+}
