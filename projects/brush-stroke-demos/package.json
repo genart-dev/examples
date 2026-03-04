@@ -1,0 +1,14 @@
+{
+  "name": "brush-stroke-demos",
+  "version": "1.0.0",
+  "description": "Visual demos of the brush stroke system (Phase B4-B6) — 11 presets + custom brushes + field influence",
+  "private": true,
+  "type": "commonjs",
+  "scripts": {
+    "render": "node render.cjs"
+  },
+  "dependencies": {
+    "@genart-dev/plugin-textures": "*",
+    "canvas": "^3.1.0"
+  }
+}
