@@ -9,8 +9,8 @@
   },
   "dependencies": {
     "@genart-dev/plugin-painting": "*",
-    "@genart-dev/plugin-textures": "*",
     "@genart-dev/plugin-shapes": "*",
-    "canvas": "^3.1.0"
+    "@genart-dev/plugin-textures": "*",
+    "canvas": "^3.2.1"
   }
 }
