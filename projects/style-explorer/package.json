@@ -1,0 +1,19 @@
+{
+  "name": "style-explorer",
+  "version": "1.0.0",
+  "description": "Visual showcase of @genart-dev/styles and @genart-dev/plugin-styles — style search, palette extraction, timeline, suggestions, and reference layer rendering",
+  "private": true,
+  "type": "commonjs",
+  "scripts": {
+    "render": "node render.cjs",
+    "render:recipes": "node render-recipes.cjs",
+    "render:all": "node render.cjs && node render-recipes.cjs"
+  },
+  "dependencies": {
+    "@genart-dev/styles": "*",
+    "@genart-dev/plugin-styles": "*",
+    "@genart-dev/plugin-painting": "*",
+    "@genart-dev/plugin-textures": "*",
+    "canvas": "^3.2.1"
+  }
+}
