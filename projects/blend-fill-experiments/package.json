@@ -1,0 +1,16 @@
+{
+  "name": "blend-fill-experiments",
+  "version": "1.0.0",
+  "description": "Experiments with blend (plugin-shapes) and fill (plugin-painting) layer types",
+  "private": true,
+  "type": "commonjs",
+  "scripts": {
+    "render": "node render.cjs"
+  },
+  "dependencies": {
+    "@genart-dev/plugin-painting": "*",
+    "@genart-dev/plugin-shapes": "*",
+    "@genart-dev/plugin-textures": "*",
+    "canvas": "^3.2.1"
+  }
+}
