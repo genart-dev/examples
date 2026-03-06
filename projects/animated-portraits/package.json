@@ -1,0 +1,13 @@
+{
+  "name": "animated-portraits",
+  "version": "1.0.0",
+  "description": "Animated figure compositions using plugin-figure + plugin-animation + plugin-filters — keyframed poses with filter transitions",
+  "private": true,
+  "type": "commonjs",
+  "scripts": {
+    "render": "node render.cjs"
+  },
+  "dependencies": {
+    "canvas": "^3.2.1"
+  }
+}
