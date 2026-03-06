@@ -749,7 +749,10 @@ rendered.forEach((c, i) => {
   const row = Math.floor(i / COLS);
   const gx = PAD + col * (THUMB_W + PAD);
   const gy = PAD + row * (THUMB_H + PAD);
-  gctx.drawImage(c, gx, gy, THUMB_W, THUMB_H);
+  const scale = Math.min(THUMB_W / c.width, THUMB_H / c.height);
+  const dw = Math.round(c.width * scale);
+  const dh = Math.round(c.height * scale);
+  gctx.drawImage(c, gx + (THUMB_W - dw) / 2, gy + (THUMB_H - dh) / 2, dw, dh);
 
   // Thin border
   gctx.strokeStyle = "rgba(255,255,255,0.10)";

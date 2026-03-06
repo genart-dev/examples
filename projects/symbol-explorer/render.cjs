@@ -361,7 +361,10 @@ function renderContactSheet(groupCanvases) {
     ctx.beginPath();
     ctx.roundRect(x, y, THUMB_W, THUMB_H, 6);
     ctx.clip();
-    ctx.drawImage(gc, x, y, THUMB_W, THUMB_H);
+    const fitScale = Math.min(THUMB_W / gc.width, THUMB_H / gc.height);
+    const dw = Math.round(gc.width * fitScale);
+    const dh = Math.round(gc.height * fitScale);
+    ctx.drawImage(gc, x + (THUMB_W - dw) / 2, y + (THUMB_H - dh) / 2, dw, dh);
     ctx.restore();
 
     // Label overlay

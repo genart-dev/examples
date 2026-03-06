@@ -578,7 +578,11 @@ function renderGallery() {
     const x = padding + col * (thumbW + padding);
     const y = padding + row * (thumbH + padding);
 
-    gctx.drawImage(images[i], x, y, thumbW, thumbH);
+    const img = images[i];
+    const scale = Math.min(thumbW / img.width, thumbH / img.height);
+    const dw = Math.round(img.width * scale);
+    const dh = Math.round(img.height * scale);
+    gctx.drawImage(img, x + (thumbW - dw) / 2, y + (thumbH - dh) / 2, dw, dh);
 
     // Label
     gctx.fillStyle = "rgba(255,255,255,0.6)";
