@@ -1,0 +1,13 @@
+{
+  "name": "color-mood-series",
+  "version": "1.0.0",
+  "description": "Mood variations using plugin-color-adjust — HSL shifts, levels, curves applied to a base composition",
+  "private": true,
+  "type": "commonjs",
+  "scripts": {
+    "render": "node render.cjs"
+  },
+  "dependencies": {
+    "canvas": "^3.2.1"
+  }
+}
