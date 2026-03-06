@@ -1,0 +1,13 @@
+{
+  "name": "motion-typography",
+  "version": "1.0.0",
+  "description": "Kinetic type pieces using plugin-typography + plugin-animation — animated text layouts and transitions",
+  "private": true,
+  "type": "commonjs",
+  "scripts": {
+    "render": "node render.cjs"
+  },
+  "dependencies": {
+    "canvas": "^3.2.1"
+  }
+}

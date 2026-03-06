@@ -1,0 +1,13 @@
+{
+  "name": "type-specimens",
+  "version": "1.0.0",
+  "description": "Typography specimen sheets using plugin-typography — font stacks, text layout, kinetic type compositions",
+  "private": true,
+  "type": "commonjs",
+  "scripts": {
+    "render": "node render.cjs"
+  },
+  "dependencies": {
+    "canvas": "^3.2.1"
+  }
+}
