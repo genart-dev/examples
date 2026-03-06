@@ -1,0 +1,13 @@
+{
+  "name": "botanical-illustrations",
+  "version": "1.0.0",
+  "description": "Labeled botanical plates using plugin-shapes + plugin-textures + plugin-construction + plugin-typography",
+  "private": true,
+  "type": "commonjs",
+  "scripts": {
+    "render": "node render.cjs"
+  },
+  "dependencies": {
+    "canvas": "^3.2.1"
+  }
+}
