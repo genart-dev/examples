@@ -1,0 +1,13 @@
+{
+  "name": "composition-explorer",
+  "version": "1.0.0",
+  "description": "Visual explorer of all 10 composition guide types from @genart-dev/plugin-layout-composition",
+  "private": true,
+  "type": "commonjs",
+  "scripts": {
+    "render": "node render.cjs"
+  },
+  "dependencies": {
+    "canvas": "^3.1.0"
+  }
+}
