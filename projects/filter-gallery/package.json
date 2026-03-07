@@ -1,13 +1,9 @@
 {
   "name": "filter-gallery",
   "version": "1.0.0",
-  "description": "Before/after filter chains using plugin-filters — blur, grain, duotone, chromatic aberration, vignette",
+  "description": "Before/after filter chains using plugin-filters — grain, duotone, chromatic aberration, vignette",
   "private": true,
-  "type": "commonjs",
   "scripts": {
-    "render": "node render.cjs"
-  },
-  "dependencies": {
-    "canvas": "^3.2.1"
+    "render": "bash renders/render.sh"
   }
 }

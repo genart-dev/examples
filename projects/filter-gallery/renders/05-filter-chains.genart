@@ -1,0 +1,590 @@
+{
+  "genart": "1.2",
+  "id": "05-filter-chains",
+  "title": "Filter Chains",
+  "created": "2026-03-06T00:00:00Z",
+  "modified": "2026-03-06T00:00:00Z",
+  "renderer": {
+    "type": "canvas2d"
+  },
+  "canvas": {
+    "width": 1264,
+    "height": 698
+  },
+  "parameters": [],
+  "colors": [],
+  "state": {
+    "seed": 1,
+    "params": {},
+    "colorPalette": []
+  },
+  "algorithm": "function sketch(ctx){ctx.fillStyle=\"#1a1a1a\";ctx.fillRect(0,0,1264,698);ctx.fillStyle=\"#e0e0e0\";ctx.font=\"bold 18px sans-serif\";ctx.fillText(\"Filter Chains\",16,30);ctx.strokeStyle=\"#444\";ctx.lineWidth=1;ctx.strokeRect(15,65,402,302);ctx.save();ctx.beginPath();ctx.rect(16,66,400,300);ctx.clip();ctx.translate(16,66);var grad=ctx.createLinearGradient(0,0,400,300);grad.addColorStop(0,\"#1a1a2e\");grad.addColorStop(0.33,\"#16213e\");grad.addColorStop(0.66,\"#0f3460\");grad.addColorStop(1,\"#533483\");ctx.fillStyle=grad;ctx.fillRect(0,0,400,300);var colors=[\"#e94560\",\"#f0a500\",\"#00b4d8\",\"#06d6a0\",\"#e07be0\",\"#ffd166\",\"#118ab2\",\"#ef476f\"];for(var ci=0;ci<colors.length;ci++){var cx=400*(0.1+(ci%4)*0.25);var cy=300*(0.3+Math.floor(ci/4)*0.4);ctx.beginPath();ctx.arc(cx,cy,25+ci*3,0,Math.PI*2);ctx.fillStyle=colors[ci];ctx.fill();}ctx.fillStyle=\"#ffffff\";ctx.fillRect(10,10,40,40);ctx.fillStyle=\"#000000\";ctx.fillRect(60,10,40,40);ctx.strokeStyle=\"#ffffff\";ctx.lineWidth=1;for(var li=0;li<5;li++){ctx.beginPath();ctx.moveTo(400*0.7,300*(0.1+li*0.04));ctx.lineTo(400*0.95,300*(0.1+li*0.04));ctx.stroke();}ctx.restore();ctx.strokeStyle=\"#444\";ctx.lineWidth=1;ctx.strokeRect(431,65,402,302);ctx.save();ctx.beginPath();ctx.rect(432,66,400,300);ctx.clip();ctx.translate(432,66);var grad=ctx.createLinearGradient(0,0,400,300);grad.addColorStop(0,\"#1a1a2e\");grad.addColorStop(0.33,\"#16213e\");grad.addColorStop(0.66,\"#0f3460\");grad.addColorStop(1,\"#533483\");ctx.fillStyle=grad;ctx.fillRect(0,0,400,300);var colors=[\"#e94560\",\"#f0a500\",\"#00b4d8\",\"#06d6a0\",\"#e07be0\",\"#ffd166\",\"#118ab2\",\"#ef476f\"];for(var ci=0;ci<colors.length;ci++){var cx=400*(0.1+(ci%4)*0.25);var cy=300*(0.3+Math.floor(ci/4)*0.4);ctx.beginPath();ctx.arc(cx,cy,25+ci*3,0,Math.PI*2);ctx.fillStyle=colors[ci];ctx.fill();}ctx.fillStyle=\"#ffffff\";ctx.fillRect(10,10,40,40);ctx.fillStyle=\"#000000\";ctx.fillRect(60,10,40,40);ctx.strokeStyle=\"#ffffff\";ctx.lineWidth=1;for(var li=0;li<5;li++){ctx.beginPath();ctx.moveTo(400*0.7,300*(0.1+li*0.04));ctx.lineTo(400*0.95,300*(0.1+li*0.04));ctx.stroke();}ctx.restore();ctx.strokeStyle=\"#444\";ctx.lineWidth=1;ctx.strokeRect(847,65,402,302);ctx.save();ctx.beginPath();ctx.rect(848,66,400,300);ctx.clip();ctx.translate(848,66);var grad=ctx.createLinearGradient(0,0,400,300);grad.addColorStop(0,\"#1a1a2e\");grad.addColorStop(0.33,\"#16213e\");grad.addColorStop(0.66,\"#0f3460\");grad.addColorStop(1,\"#533483\");ctx.fillStyle=grad;ctx.fillRect(0,0,400,300);var colors=[\"#e94560\",\"#f0a500\",\"#00b4d8\",\"#06d6a0\",\"#e07be0\",\"#ffd166\",\"#118ab2\",\"#ef476f\"];for(var ci=0;ci<colors.length;ci++){var cx=400*(0.1+(ci%4)*0.25);var cy=300*(0.3+Math.floor(ci/4)*0.4);ctx.beginPath();ctx.arc(cx,cy,25+ci*3,0,Math.PI*2);ctx.fillStyle=colors[ci];ctx.fill();}ctx.fillStyle=\"#ffffff\";ctx.fillRect(10,10,40,40);ctx.fillStyle=\"#000000\";ctx.fillRect(60,10,40,40);ctx.strokeStyle=\"#ffffff\";ctx.lineWidth=1;for(var li=0;li<5;li++){ctx.beginPath();ctx.moveTo(400*0.7,300*(0.1+li*0.04));ctx.lineTo(400*0.95,300*(0.1+li*0.04));ctx.stroke();}ctx.restore();ctx.strokeStyle=\"#444\";ctx.lineWidth=1;ctx.strokeRect(15,381,402,302);ctx.save();ctx.beginPath();ctx.rect(16,382,400,300);ctx.clip();ctx.translate(16,382);var grad=ctx.createLinearGradient(0,0,400,300);grad.addColorStop(0,\"#1a1a2e\");grad.addColorStop(0.33,\"#16213e\");grad.addColorStop(0.66,\"#0f3460\");grad.addColorStop(1,\"#533483\");ctx.fillStyle=grad;ctx.fillRect(0,0,400,300);var colors=[\"#e94560\",\"#f0a500\",\"#00b4d8\",\"#06d6a0\",\"#e07be0\",\"#ffd166\",\"#118ab2\",\"#ef476f\"];for(var ci=0;ci<colors.length;ci++){var cx=400*(0.1+(ci%4)*0.25);var cy=300*(0.3+Math.floor(ci/4)*0.4);ctx.beginPath();ctx.arc(cx,cy,25+ci*3,0,Math.PI*2);ctx.fillStyle=colors[ci];ctx.fill();}ctx.fillStyle=\"#ffffff\";ctx.fillRect(10,10,40,40);ctx.fillStyle=\"#000000\";ctx.fillRect(60,10,40,40);ctx.strokeStyle=\"#ffffff\";ctx.lineWidth=1;for(var li=0;li<5;li++){ctx.beginPath();ctx.moveTo(400*0.7,300*(0.1+li*0.04));ctx.lineTo(400*0.95,300*(0.1+li*0.04));ctx.stroke();}ctx.restore();ctx.strokeStyle=\"#444\";ctx.lineWidth=1;ctx.strokeRect(431,381,402,302);ctx.save();ctx.beginPath();ctx.rect(432,382,400,300);ctx.clip();ctx.translate(432,382);var grad=ctx.createLinearGradient(0,0,400,300);grad.addColorStop(0,\"#1a1a2e\");grad.addColorStop(0.33,\"#16213e\");grad.addColorStop(0.66,\"#0f3460\");grad.addColorStop(1,\"#533483\");ctx.fillStyle=grad;ctx.fillRect(0,0,400,300);var colors=[\"#e94560\",\"#f0a500\",\"#00b4d8\",\"#06d6a0\",\"#e07be0\",\"#ffd166\",\"#118ab2\",\"#ef476f\"];for(var ci=0;ci<colors.length;ci++){var cx=400*(0.1+(ci%4)*0.25);var cy=300*(0.3+Math.floor(ci/4)*0.4);ctx.beginPath();ctx.arc(cx,cy,25+ci*3,0,Math.PI*2);ctx.fillStyle=colors[ci];ctx.fill();}ctx.fillStyle=\"#ffffff\";ctx.fillRect(10,10,40,40);ctx.fillStyle=\"#000000\";ctx.fillRect(60,10,40,40);ctx.strokeStyle=\"#ffffff\";ctx.lineWidth=1;for(var li=0;li<5;li++){ctx.beginPath();ctx.moveTo(400*0.7,300*(0.1+li*0.04));ctx.lineTo(400*0.95,300*(0.1+li*0.04));ctx.stroke();}ctx.restore();ctx.strokeStyle=\"#444\";ctx.lineWidth=1;ctx.strokeRect(847,381,402,302);ctx.save();ctx.beginPath();ctx.rect(848,382,400,300);ctx.clip();ctx.translate(848,382);var grad=ctx.createLinearGradient(0,0,400,300);grad.addColorStop(0,\"#1a1a2e\");grad.addColorStop(0.33,\"#16213e\");grad.addColorStop(0.66,\"#0f3460\");grad.addColorStop(1,\"#533483\");ctx.fillStyle=grad;ctx.fillRect(0,0,400,300);var colors=[\"#e94560\",\"#f0a500\",\"#00b4d8\",\"#06d6a0\",\"#e07be0\",\"#ffd166\",\"#118ab2\",\"#ef476f\"];for(var ci=0;ci<colors.length;ci++){var cx=400*(0.1+(ci%4)*0.25);var cy=300*(0.3+Math.floor(ci/4)*0.4);ctx.beginPath();ctx.arc(cx,cy,25+ci*3,0,Math.PI*2);ctx.fillStyle=colors[ci];ctx.fill();}ctx.fillStyle=\"#ffffff\";ctx.fillRect(10,10,40,40);ctx.fillStyle=\"#000000\";ctx.fillRect(60,10,40,40);ctx.strokeStyle=\"#ffffff\";ctx.lineWidth=1;for(var li=0;li<5;li++){ctx.beginPath();ctx.moveTo(400*0.7,300*(0.1+li*0.04));ctx.lineTo(400*0.95,300*(0.1+li*0.04));ctx.stroke();}ctx.restore();return{};}",
+  "layers": [
+    {
+      "id": "l1",
+      "type": "typography:text",
+      "name": "Label: Original",
+      "visible": true,
+      "locked": false,
+      "opacity": 1,
+      "blendMode": "normal",
+      "transform": {
+        "x": 16,
+        "y": 368,
+        "width": 400,
+        "height": 14,
+        "rotation": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "anchorX": 0,
+        "anchorY": 0
+      },
+      "properties": {
+        "text": "Original",
+        "fontFamily": "sans-serif",
+        "fontSize": 11,
+        "fontWeight": "400",
+        "fontStyle": "normal",
+        "color": "#aaaaaa",
+        "align": "left",
+        "baseline": "top",
+        "lineHeight": 1.2,
+        "strokeEnabled": false,
+        "strokeColor": "#000000",
+        "strokeWidth": 2,
+        "shadowEnabled": false,
+        "shadowColor": "rgba(0,0,0,0.5)",
+        "shadowBlur": 4,
+        "shadowOffsetX": 2,
+        "shadowOffsetY": 2
+      }
+    },
+    {
+      "id": "l2",
+      "type": "filters:grain",
+      "name": "grain: Grain + Vignette",
+      "visible": true,
+      "locked": false,
+      "opacity": 1,
+      "blendMode": "normal",
+      "transform": {
+        "x": 432,
+        "y": 66,
+        "width": 400,
+        "height": 300,
+        "rotation": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "anchorX": 0,
+        "anchorY": 0
+      },
+      "properties": {
+        "intensity": 0.25,
+        "size": 1,
+        "seed": 7,
+        "monochrome": true
+      }
+    },
+    {
+      "id": "l3",
+      "type": "filters:vignette",
+      "name": "vignette: Grain + Vignette",
+      "visible": true,
+      "locked": false,
+      "opacity": 1,
+      "blendMode": "normal",
+      "transform": {
+        "x": 432,
+        "y": 66,
+        "width": 400,
+        "height": 300,
+        "rotation": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "anchorX": 0,
+        "anchorY": 0
+      },
+      "properties": {
+        "intensity": 0.5,
+        "radius": 0.7,
+        "softness": 0.5,
+        "color": "#000000"
+      }
+    },
+    {
+      "id": "l4",
+      "type": "typography:text",
+      "name": "Label: Grain + Vignette",
+      "visible": true,
+      "locked": false,
+      "opacity": 1,
+      "blendMode": "normal",
+      "transform": {
+        "x": 432,
+        "y": 368,
+        "width": 400,
+        "height": 14,
+        "rotation": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "anchorX": 0,
+        "anchorY": 0
+      },
+      "properties": {
+        "text": "Grain + Vignette",
+        "fontFamily": "sans-serif",
+        "fontSize": 11,
+        "fontWeight": "400",
+        "fontStyle": "normal",
+        "color": "#aaaaaa",
+        "align": "left",
+        "baseline": "top",
+        "lineHeight": 1.2,
+        "strokeEnabled": false,
+        "strokeColor": "#000000",
+        "strokeWidth": 2,
+        "shadowEnabled": false,
+        "shadowColor": "rgba(0,0,0,0.5)",
+        "shadowBlur": 4,
+        "shadowOffsetX": 2,
+        "shadowOffsetY": 2
+      }
+    },
+    {
+      "id": "l5",
+      "type": "filters:duotone",
+      "name": "duotone: Duotone + Chromatic",
+      "visible": true,
+      "locked": false,
+      "opacity": 1,
+      "blendMode": "normal",
+      "transform": {
+        "x": 848,
+        "y": 66,
+        "width": 400,
+        "height": 300,
+        "rotation": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "anchorX": 0,
+        "anchorY": 0
+      },
+      "properties": {
+        "darkColor": "#000033",
+        "lightColor": "#ffcc00",
+        "intensity": 1
+      }
+    },
+    {
+      "id": "l6",
+      "type": "filters:chromatic-aberration",
+      "name": "chromatic-aberration: Duotone + Chromatic",
+      "visible": true,
+      "locked": false,
+      "opacity": 1,
+      "blendMode": "normal",
+      "transform": {
+        "x": 848,
+        "y": 66,
+        "width": 400,
+        "height": 300,
+        "rotation": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "anchorX": 0,
+        "anchorY": 0
+      },
+      "properties": {
+        "offsetX": 5,
+        "offsetY": 0,
+        "intensity": 1
+      }
+    },
+    {
+      "id": "l7",
+      "type": "typography:text",
+      "name": "Label: Duotone + Chromatic",
+      "visible": true,
+      "locked": false,
+      "opacity": 1,
+      "blendMode": "normal",
+      "transform": {
+        "x": 848,
+        "y": 368,
+        "width": 400,
+        "height": 14,
+        "rotation": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "anchorX": 0,
+        "anchorY": 0
+      },
+      "properties": {
+        "text": "Duotone + Chromatic",
+        "fontFamily": "sans-serif",
+        "fontSize": 11,
+        "fontWeight": "400",
+        "fontStyle": "normal",
+        "color": "#aaaaaa",
+        "align": "left",
+        "baseline": "top",
+        "lineHeight": 1.2,
+        "strokeEnabled": false,
+        "strokeColor": "#000000",
+        "strokeWidth": 2,
+        "shadowEnabled": false,
+        "shadowColor": "rgba(0,0,0,0.5)",
+        "shadowBlur": 4,
+        "shadowOffsetX": 2,
+        "shadowOffsetY": 2
+      }
+    },
+    {
+      "id": "l8",
+      "type": "filters:chromatic-aberration",
+      "name": "chromatic-aberration: Chromatic + Grain + Vignette",
+      "visible": true,
+      "locked": false,
+      "opacity": 1,
+      "blendMode": "normal",
+      "transform": {
+        "x": 16,
+        "y": 382,
+        "width": 400,
+        "height": 300,
+        "rotation": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "anchorX": 0,
+        "anchorY": 0
+      },
+      "properties": {
+        "offsetX": 4,
+        "offsetY": 2,
+        "intensity": 1
+      }
+    },
+    {
+      "id": "l9",
+      "type": "filters:grain",
+      "name": "grain: Chromatic + Grain + Vignette",
+      "visible": true,
+      "locked": false,
+      "opacity": 1,
+      "blendMode": "normal",
+      "transform": {
+        "x": 16,
+        "y": 382,
+        "width": 400,
+        "height": 300,
+        "rotation": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "anchorX": 0,
+        "anchorY": 0
+      },
+      "properties": {
+        "intensity": 0.2,
+        "size": 1,
+        "seed": 99,
+        "monochrome": true
+      }
+    },
+    {
+      "id": "l10",
+      "type": "filters:vignette",
+      "name": "vignette: Chromatic + Grain + Vignette",
+      "visible": true,
+      "locked": false,
+      "opacity": 1,
+      "blendMode": "normal",
+      "transform": {
+        "x": 16,
+        "y": 382,
+        "width": 400,
+        "height": 300,
+        "rotation": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "anchorX": 0,
+        "anchorY": 0
+      },
+      "properties": {
+        "intensity": 0.6,
+        "radius": 0.6,
+        "softness": 0.5,
+        "color": "#000000"
+      }
+    },
+    {
+      "id": "l11",
+      "type": "typography:text",
+      "name": "Label: Chromatic + Grain + Vignette",
+      "visible": true,
+      "locked": false,
+      "opacity": 1,
+      "blendMode": "normal",
+      "transform": {
+        "x": 16,
+        "y": 684,
+        "width": 400,
+        "height": 14,
+        "rotation": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "anchorX": 0,
+        "anchorY": 0
+      },
+      "properties": {
+        "text": "Chromatic + Grain + Vignette",
+        "fontFamily": "sans-serif",
+        "fontSize": 11,
+        "fontWeight": "400",
+        "fontStyle": "normal",
+        "color": "#aaaaaa",
+        "align": "left",
+        "baseline": "top",
+        "lineHeight": 1.2,
+        "strokeEnabled": false,
+        "strokeColor": "#000000",
+        "strokeWidth": 2,
+        "shadowEnabled": false,
+        "shadowColor": "rgba(0,0,0,0.5)",
+        "shadowBlur": 4,
+        "shadowOffsetX": 2,
+        "shadowOffsetY": 2
+      }
+    },
+    {
+      "id": "l12",
+      "type": "filters:duotone",
+      "name": "duotone: Duotone (mint) + Vignette",
+      "visible": true,
+      "locked": false,
+      "opacity": 1,
+      "blendMode": "normal",
+      "transform": {
+        "x": 432,
+        "y": 382,
+        "width": 400,
+        "height": 300,
+        "rotation": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "anchorX": 0,
+        "anchorY": 0
+      },
+      "properties": {
+        "darkColor": "#2f4f4f",
+        "lightColor": "#98ff98",
+        "intensity": 1
+      }
+    },
+    {
+      "id": "l13",
+      "type": "filters:vignette",
+      "name": "vignette: Duotone (mint) + Vignette",
+      "visible": true,
+      "locked": false,
+      "opacity": 1,
+      "blendMode": "normal",
+      "transform": {
+        "x": 432,
+        "y": 382,
+        "width": 400,
+        "height": 300,
+        "rotation": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "anchorX": 0,
+        "anchorY": 0
+      },
+      "properties": {
+        "intensity": 0.5,
+        "radius": 0.7,
+        "softness": 0.5,
+        "color": "#102010"
+      }
+    },
+    {
+      "id": "l14",
+      "type": "typography:text",
+      "name": "Label: Duotone (mint) + Vignette",
+      "visible": true,
+      "locked": false,
+      "opacity": 1,
+      "blendMode": "normal",
+      "transform": {
+        "x": 432,
+        "y": 684,
+        "width": 400,
+        "height": 14,
+        "rotation": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "anchorX": 0,
+        "anchorY": 0
+      },
+      "properties": {
+        "text": "Duotone (mint) + Vignette",
+        "fontFamily": "sans-serif",
+        "fontSize": 11,
+        "fontWeight": "400",
+        "fontStyle": "normal",
+        "color": "#aaaaaa",
+        "align": "left",
+        "baseline": "top",
+        "lineHeight": 1.2,
+        "strokeEnabled": false,
+        "strokeColor": "#000000",
+        "strokeWidth": 2,
+        "shadowEnabled": false,
+        "shadowColor": "rgba(0,0,0,0.5)",
+        "shadowBlur": 4,
+        "shadowOffsetX": 2,
+        "shadowOffsetY": 2
+      }
+    },
+    {
+      "id": "l15",
+      "type": "filters:duotone",
+      "name": "duotone: Full Stack",
+      "visible": true,
+      "locked": false,
+      "opacity": 1,
+      "blendMode": "normal",
+      "transform": {
+        "x": 848,
+        "y": 382,
+        "width": 400,
+        "height": 300,
+        "rotation": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "anchorX": 0,
+        "anchorY": 0
+      },
+      "properties": {
+        "darkColor": "#1a0040",
+        "lightColor": "#ffd700",
+        "intensity": 0.7
+      }
+    },
+    {
+      "id": "l16",
+      "type": "filters:chromatic-aberration",
+      "name": "chromatic-aberration: Full Stack",
+      "visible": true,
+      "locked": false,
+      "opacity": 1,
+      "blendMode": "normal",
+      "transform": {
+        "x": 848,
+        "y": 382,
+        "width": 400,
+        "height": 300,
+        "rotation": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "anchorX": 0,
+        "anchorY": 0
+      },
+      "properties": {
+        "offsetX": 3,
+        "offsetY": 1,
+        "intensity": 1
+      }
+    },
+    {
+      "id": "l17",
+      "type": "filters:grain",
+      "name": "grain: Full Stack",
+      "visible": true,
+      "locked": false,
+      "opacity": 1,
+      "blendMode": "normal",
+      "transform": {
+        "x": 848,
+        "y": 382,
+        "width": 400,
+        "height": 300,
+        "rotation": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "anchorX": 0,
+        "anchorY": 0
+      },
+      "properties": {
+        "intensity": 0.15,
+        "size": 1,
+        "seed": 42,
+        "monochrome": false
+      }
+    },
+    {
+      "id": "l18",
+      "type": "filters:vignette",
+      "name": "vignette: Full Stack",
+      "visible": true,
+      "locked": false,
+      "opacity": 1,
+      "blendMode": "normal",
+      "transform": {
+        "x": 848,
+        "y": 382,
+        "width": 400,
+        "height": 300,
+        "rotation": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "anchorX": 0,
+        "anchorY": 0
+      },
+      "properties": {
+        "intensity": 0.5,
+        "radius": 0.6,
+        "softness": 0.5,
+        "color": "#000000"
+      }
+    },
+    {
+      "id": "l19",
+      "type": "typography:text",
+      "name": "Label: Full Stack",
+      "visible": true,
+      "locked": false,
+      "opacity": 1,
+      "blendMode": "normal",
+      "transform": {
+        "x": 848,
+        "y": 684,
+        "width": 400,
+        "height": 14,
+        "rotation": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "anchorX": 0,
+        "anchorY": 0
+      },
+      "properties": {
+        "text": "Full Stack",
+        "fontFamily": "sans-serif",
+        "fontSize": 11,
+        "fontWeight": "400",
+        "fontStyle": "normal",
+        "color": "#aaaaaa",
+        "align": "left",
+        "baseline": "top",
+        "lineHeight": 1.2,
+        "strokeEnabled": false,
+        "strokeColor": "#000000",
+        "strokeWidth": 2,
+        "shadowEnabled": false,
+        "shadowColor": "rgba(0,0,0,0.5)",
+        "shadowBlur": 4,
+        "shadowOffsetX": 2,
+        "shadowOffsetY": 2
+      }
+    }
+  ]
+}

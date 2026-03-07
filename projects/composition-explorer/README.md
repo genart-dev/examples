@@ -2,46 +2,17 @@
 
 Visual explorer of all 10 composition guide types from `@genart-dev/plugin-layout-composition`.
 
-## Usage
-
-```bash
-yarn install
-yarn render
-```
-
-Outputs 5 PNG files to `renders/`.
-
-## Renders
-
-### Classical Painting Composition Systems
-
-A 3x2 grid comparing 6 classical composition systems — golden spiral, golden triangle, harmonic armature, rabatment, dynamic symmetry, and phi grid — each with still-life elements placed at the system's focal points, sized by importance.
-
 ![Classical Systems](renders/classical-systems.png)
 
-### Eye Flow Path Patterns
+## Scenes
 
-All 5 flow path patterns (s-curve, z-pattern, c-curve, circular, diagonal) with numbered waypoint circles showing how the eye traverses each layout.
-
-![Flow Analysis](renders/flow-analysis.png)
-
-### Safe Margin Presets
-
-5 safe margin presets side by side — title-safe (5%), action-safe (3.5%), broadcast (both), print-bleed (1%), and custom (15%) — with shaded margin areas showing the usable region.
-
-![Safe Zones](renders/safe-zones.png)
-
-### Musical Ratio Proportional Systems
-
-The 4 named musical ratios (diatessaron, diapente, diapason, double-diatessaron) with colored bands between division lines visualizing each proportional system.
-
-![Musical Harmony](renders/musical-harmony.png)
-
-### Golden Spiral Orientations
-
-Golden spiral in all 4 orientations with a focal circle placed at each spiral's convergence point.
-
-![Spiral Orientations](renders/spiral-orientations.png)
+| # | Scene | Source | Description |
+|---|-------|--------|-------------|
+| 1 | Classical Systems | [classical-systems.genart](renders/classical-systems.genart) | 6 painting composition systems with still-life elements at focal points |
+| 2 | Flow Analysis | [flow-analysis.genart](renders/flow-analysis.genart) | 5 flow path patterns with numbered waypoints |
+| 3 | Safe Zones | [safe-zones.genart](renders/safe-zones.genart) | 5 safe margin presets with shaded margin areas |
+| 4 | Musical Harmony | [musical-harmony.genart](renders/musical-harmony.genart) | 4 musical ratio systems with colored proportion bands |
+| 5 | Spiral Orientations | [spiral-orientations.genart](renders/spiral-orientations.genart) | Golden spiral in all 4 orientations with focal circles |
 
 ## Guide Types Covered
 
@@ -57,3 +28,15 @@ Golden spiral in all 4 orientations with a focal circle placed at each spiral's 
 | 8 | Safe Margins | safe-zones |
 | 9 | Musical Ratios | musical-harmony |
 | 10 | Diagonal Grid | _(used internally by armature)_ |
+
+## Plugins
+
+- `@genart-dev/plugin-layout-composition` — `guides:golden-spiral`, `guides:golden-triangle`, `guides:armature`, `guides:rabatment`, `guides:dynamic-symmetry`, `guides:phi-grid`, `guides:flow-path`, `guides:safe-margins`, `guides:musical-ratios`
+
+## Usage
+
+```bash
+bash renders/render.sh
+```
+
+Output PNGs go to `renders/`.

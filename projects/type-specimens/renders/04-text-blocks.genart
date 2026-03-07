@@ -1,0 +1,141 @@
+{
+  "genart": "1.2",
+  "id": "04-text-blocks",
+  "title": "Text Blocks",
+  "created": "2026-03-06T00:00:00Z",
+  "modified": "2026-03-06T00:00:00Z",
+  "renderer": {
+    "type": "canvas2d"
+  },
+  "canvas": {
+    "width": 1114,
+    "height": 282
+  },
+  "parameters": [],
+  "colors": [],
+  "state": {
+    "seed": 1,
+    "params": {},
+    "colorPalette": []
+  },
+  "algorithm": "function sketch(ctx){ctx.fillStyle=\"#f5f0e8\";ctx.fillRect(0,0,1114,282);ctx.fillStyle=\"#333\";ctx.font=\"bold 18px sans-serif\";ctx.fillText(\"Text Blocks — Alignment Variations\",16,30);ctx.strokeStyle=\"#ccc\";ctx.lineWidth=1;ctx.strokeRect(15,65,352,202);ctx.fillStyle=\"#faf8f4\";ctx.fillRect(16,66,350,200);ctx.strokeStyle=\"rgba(200,50,50,0.2)\";ctx.lineWidth=1;ctx.beginPath();ctx.moveTo(36,66);ctx.lineTo(36,266);ctx.stroke();ctx.strokeStyle=\"#ccc\";ctx.lineWidth=1;ctx.strokeRect(381,65,352,202);ctx.fillStyle=\"#faf8f4\";ctx.fillRect(382,66,350,200);ctx.strokeStyle=\"rgba(200,50,50,0.2)\";ctx.lineWidth=1;ctx.beginPath();ctx.moveTo(557,66);ctx.lineTo(557,266);ctx.stroke();ctx.strokeStyle=\"#ccc\";ctx.lineWidth=1;ctx.strokeRect(747,65,352,202);ctx.fillStyle=\"#faf8f4\";ctx.fillRect(748,66,350,200);ctx.strokeStyle=\"rgba(200,50,50,0.2)\";ctx.lineWidth=1;ctx.beginPath();ctx.moveTo(1078,66);ctx.lineTo(1078,266);ctx.stroke();return{};}",
+  "layers": [
+    {
+      "id": "l1",
+      "type": "typography:text",
+      "name": "Align: left",
+      "visible": true,
+      "locked": false,
+      "opacity": 1,
+      "blendMode": "normal",
+      "transform": {
+        "x": 36,
+        "y": 86,
+        "width": 310,
+        "height": 160,
+        "rotation": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "anchorX": 0,
+        "anchorY": 0
+      },
+      "properties": {
+        "text": "Typography is the art and technique of arranging type to make written language legible, readable and appealing when displayed.",
+        "fontFamily": "Georgia",
+        "fontSize": 18,
+        "fontWeight": "400",
+        "fontStyle": "normal",
+        "color": "#222",
+        "align": "left",
+        "baseline": "top",
+        "lineHeight": 1.5,
+        "strokeEnabled": false,
+        "strokeColor": "#000000",
+        "strokeWidth": 2,
+        "shadowEnabled": false,
+        "shadowColor": "rgba(0,0,0,0.5)",
+        "shadowBlur": 4,
+        "shadowOffsetX": 2,
+        "shadowOffsetY": 2
+      }
+    },
+    {
+      "id": "l2",
+      "type": "typography:text",
+      "name": "Align: center",
+      "visible": true,
+      "locked": false,
+      "opacity": 1,
+      "blendMode": "normal",
+      "transform": {
+        "x": 402,
+        "y": 86,
+        "width": 310,
+        "height": 160,
+        "rotation": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "anchorX": 0,
+        "anchorY": 0
+      },
+      "properties": {
+        "text": "Typography is the art and technique of arranging type to make written language legible, readable and appealing when displayed.",
+        "fontFamily": "Georgia",
+        "fontSize": 18,
+        "fontWeight": "400",
+        "fontStyle": "normal",
+        "color": "#222",
+        "align": "center",
+        "baseline": "top",
+        "lineHeight": 1.5,
+        "strokeEnabled": false,
+        "strokeColor": "#000000",
+        "strokeWidth": 2,
+        "shadowEnabled": false,
+        "shadowColor": "rgba(0,0,0,0.5)",
+        "shadowBlur": 4,
+        "shadowOffsetX": 2,
+        "shadowOffsetY": 2
+      }
+    },
+    {
+      "id": "l3",
+      "type": "typography:text",
+      "name": "Align: right",
+      "visible": true,
+      "locked": false,
+      "opacity": 1,
+      "blendMode": "normal",
+      "transform": {
+        "x": 768,
+        "y": 86,
+        "width": 310,
+        "height": 160,
+        "rotation": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "anchorX": 0,
+        "anchorY": 0
+      },
+      "properties": {
+        "text": "Typography is the art and technique of arranging type to make written language legible, readable and appealing when displayed.",
+        "fontFamily": "Georgia",
+        "fontSize": 18,
+        "fontWeight": "400",
+        "fontStyle": "normal",
+        "color": "#222",
+        "align": "right",
+        "baseline": "top",
+        "lineHeight": 1.5,
+        "strokeEnabled": false,
+        "strokeColor": "#000000",
+        "strokeWidth": 2,
+        "shadowEnabled": false,
+        "shadowColor": "rgba(0,0,0,0.5)",
+        "shadowBlur": 4,
+        "shadowOffsetX": 2,
+        "shadowOffsetY": 2
+      }
+    }
+  ]
+}
