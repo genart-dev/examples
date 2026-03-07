@@ -1,0 +1,97 @@
+{
+  "genart": "1.2",
+  "id": "03-spine-paths",
+  "title": "Spine Paths",
+  "created": "2026-03-06T00:00:00Z",
+  "modified": "2026-03-06T00:00:00Z",
+  "renderer": {
+    "type": "canvas2d"
+  },
+  "canvas": {
+    "width": 1200,
+    "height": 900
+  },
+  "parameters": [],
+  "colors": [],
+  "state": {
+    "seed": 1,
+    "params": {},
+    "colorPalette": []
+  },
+  "algorithm": "function sketch(ctx){ctx.fillStyle='#f0ebe3';ctx.fillRect(0,0,1200,900);ctx.fillStyle='#444';ctx.font='bold 14px sans-serif';ctx.fillText('Straight Spine \\u2014 star-5 to circle, ease-in-out, scale 0.45 -> 0.15',30,30);ctx.fillText('Curved Spine (arc) \\u2014 hexagon to star-8, linear',30,310);ctx.fillText('S-Curve Spine \\u2014 rect to triangle, ease-in-out',30,590);return{};}",
+  "layers": [
+    {
+      "id": "l1",
+      "type": "textures:paper",
+      "name": "Paper Background",
+      "visible": true,
+      "locked": false,
+      "opacity": 1,
+      "blendMode": "normal",
+      "transform": { "x": 0, "y": 0, "width": 1200, "height": 900, "rotation": 0, "scaleX": 1, "scaleY": 1, "anchorX": 0, "anchorY": 0 },
+      "properties": {
+        "preset": "cold-press",
+        "roughness": -1,
+        "color": "#ece5d8",
+        "seed": 5
+      }
+    },
+    {
+      "id": "l2",
+      "type": "shapes:blend",
+      "name": "Straight Spine",
+      "visible": true,
+      "locked": false,
+      "opacity": 1,
+      "blendMode": "normal",
+      "transform": { "x": 30, "y": 40, "width": 1140, "height": 240, "rotation": 0, "scaleX": 1, "scaleY": 1, "anchorX": 0, "anchorY": 0 },
+      "properties": {
+        "start": "{\"path\":\"star-5\",\"fill\":\"#E63946\",\"stroke\":\"#1D3557\",\"strokeWidth\":2,\"opacity\":1,\"scale\":0.45,\"rotation\":0}",
+        "end": "{\"path\":\"circle\",\"fill\":\"#A8DADC\",\"stroke\":\"#1D3557\",\"strokeWidth\":1,\"opacity\":0.6,\"scale\":0.15,\"rotation\":180}",
+        "mode": "steps",
+        "steps": 14,
+        "easing": "ease-in-out",
+        "showEndpoints": true,
+        "spine": "{\"type\":\"straight\"}"
+      }
+    },
+    {
+      "id": "l3",
+      "type": "shapes:blend",
+      "name": "Curved Spine (Arc)",
+      "visible": true,
+      "locked": false,
+      "opacity": 1,
+      "blendMode": "normal",
+      "transform": { "x": 30, "y": 320, "width": 1140, "height": 240, "rotation": 0, "scaleX": 1, "scaleY": 1, "anchorX": 0, "anchorY": 0 },
+      "properties": {
+        "start": "{\"path\":\"polygon-6\",\"fill\":\"#2A9D8F\",\"stroke\":null,\"strokeWidth\":0,\"opacity\":1,\"scale\":0.55,\"rotation\":0}",
+        "end": "{\"path\":\"star-8\",\"fill\":\"#E76F51\",\"stroke\":null,\"strokeWidth\":0,\"opacity\":1,\"scale\":0.25,\"rotation\":45}",
+        "mode": "steps",
+        "steps": 14,
+        "easing": "linear",
+        "showEndpoints": true,
+        "spine": "{\"type\":\"path\",\"points\":[{\"x\":30,\"y\":440},{\"x\":87,\"y\":426.86},{\"x\":144,\"y\":414.04},{\"x\":201,\"y\":401.86},{\"x\":258,\"y\":390.63},{\"x\":315,\"y\":380.6},{\"x\":372,\"y\":372.04},{\"x\":429,\"y\":365.16},{\"x\":486,\"y\":360.11},{\"x\":543,\"y\":357.03},{\"x\":600,\"y\":356},{\"x\":657,\"y\":357.03},{\"x\":714,\"y\":360.11},{\"x\":771,\"y\":365.16},{\"x\":828,\"y\":372.04},{\"x\":885,\"y\":380.6},{\"x\":942,\"y\":390.63},{\"x\":999,\"y\":401.86},{\"x\":1056,\"y\":414.04},{\"x\":1113,\"y\":426.86},{\"x\":1170,\"y\":440}]}"
+      }
+    },
+    {
+      "id": "l4",
+      "type": "shapes:blend",
+      "name": "S-Curve Spine",
+      "visible": true,
+      "locked": false,
+      "opacity": 1,
+      "blendMode": "normal",
+      "transform": { "x": 30, "y": 600, "width": 1140, "height": 240, "rotation": 0, "scaleX": 1, "scaleY": 1, "anchorX": 0, "anchorY": 0 },
+      "properties": {
+        "start": "{\"path\":\"rect\",\"fill\":\"#264653\",\"stroke\":\"#E9C46A\",\"strokeWidth\":2,\"opacity\":1,\"scale\":0.45,\"rotation\":0}",
+        "end": "{\"path\":\"triangle\",\"fill\":\"#E9C46A\",\"stroke\":\"#264653\",\"strokeWidth\":2,\"opacity\":1,\"scale\":0.3,\"rotation\":120}",
+        "mode": "steps",
+        "steps": 16,
+        "easing": "ease-in-out",
+        "showEndpoints": true,
+        "spine": "{\"type\":\"path\",\"points\":[{\"x\":30,\"y\":720},{\"x\":68,\"y\":734.97},{\"x\":106,\"y\":749.29},{\"x\":144,\"y\":762.32},{\"x\":182,\"y\":773.51},{\"x\":220,\"y\":782.35},{\"x\":258,\"y\":788.48},{\"x\":296,\"y\":791.61},{\"x\":334,\"y\":791.61},{\"x\":372,\"y\":788.48},{\"x\":410,\"y\":782.35},{\"x\":448,\"y\":773.51},{\"x\":486,\"y\":762.32},{\"x\":524,\"y\":749.29},{\"x\":562,\"y\":734.97},{\"x\":600,\"y\":720},{\"x\":638,\"y\":705.03},{\"x\":676,\"y\":690.71},{\"x\":714,\"y\":677.68},{\"x\":752,\"y\":666.49},{\"x\":790,\"y\":657.65},{\"x\":828,\"y\":651.52},{\"x\":866,\"y\":648.39},{\"x\":904,\"y\":648.39},{\"x\":942,\"y\":651.52},{\"x\":980,\"y\":657.65},{\"x\":1018,\"y\":666.49},{\"x\":1056,\"y\":677.68},{\"x\":1094,\"y\":690.71},{\"x\":1132,\"y\":705.03},{\"x\":1170,\"y\":720}]}"
+      }
+    }
+  ]
+}

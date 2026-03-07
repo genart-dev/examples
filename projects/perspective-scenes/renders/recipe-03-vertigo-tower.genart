@@ -1,0 +1,56 @@
+{
+  "genart": "1.2",
+  "id": "recipe-03-vertigo-tower",
+  "title": "Vertigo Tower",
+  "created": "2026-03-06T00:00:00Z",
+  "modified": "2026-03-06T00:00:00Z",
+  "renderer": {
+    "type": "canvas2d"
+  },
+  "canvas": {
+    "width": 800,
+    "height": 800
+  },
+  "parameters": [],
+  "colors": [],
+  "state": {
+    "seed": 1,
+    "params": {},
+    "colorPalette": []
+  },
+  "algorithm": "function sketch(ctx){var W=800,H=800;function mb(s){var t=s|0;return function(){t=(t+0x6d2b79f5)|0;var v=Math.imul(t^(t>>>15),1|t);v=(v+Math.imul(v^(v>>>7),61|v))^v;return((v^(v>>>14))>>>0)/4294967296;};}var r=mb(77);var bg=ctx.createRadialGradient(W/2,0,0,W/2,0,H*1.2);bg.addColorStop(0,'#0A0A2A');bg.addColorStop(0.5,'#151535');bg.addColorStop(1,'#1A1A45');ctx.fillStyle=bg;ctx.fillRect(0,0,W,H);for(var i=0;i<60;i++){var sx=r()*W,sy=r()*H*0.4,sr=0.5+r()*1.5;ctx.fillStyle='rgba(200,200,255,'+(0.2+r()*0.5)+')';ctx.beginPath();ctx.arc(sx,sy,sr,0,Math.PI*2);ctx.fill();}var tvX=W*0.5,tvY=-H*0.6,lvX=-W*0.3,lvY=H*0.85,rvX=W*1.3,rvY=H*0.85;var tbY=H*1.05,tbW=W*0.85,tcX=W*0.5;function li(x1,y1,x2,y2,x3,y3,x4,y4){var d=(x1-x2)*(y3-y4)-(y1-y2)*(x3-x4);if(Math.abs(d)<1e-10)return null;var t=((x1-x3)*(y3-y4)-(y1-y3)*(x3-x4))/d;return{x:x1+t*(x2-x1),y:y1+t*(y2-y1)};}function clip(ax,ay,bx,by){var xmin=0,ymin=0,xmax=W,ymax=H;var dx=bx-ax,dy=by-ay,t0=0,t1=1;var p=[-dx,dx,-dy,dy],q=[ax-xmin,xmax-ax,ay-ymin,ymax-ay];for(var i=0;i<4;i++){if(Math.abs(p[i])<1e-10){if(q[i]<0)return null;continue;}var t=q[i]/p[i];if(p[i]<0){if(t>t0)t0=t;}else{if(t<t1)t1=t;}}if(t0>t1)return null;return[ax+t0*dx,ay+t0*dy,ax+t1*dx,ay+t1*dy];}var faces=[{ibX:tcX-10,obX:tcX-tbW/2,fc:'#1A1A3A',lm:0.85,hvX:lvX,hvY:lvY},{ibX:tcX+10,obX:tcX+tbW/2,fc:'#222250',lm:1,hvX:rvX,hvY:rvY}];for(var fi=0;fi<faces.length;fi++){var f=faces[fi];var il=clip(f.ibX,tbY,tvX,tvY),ol=clip(f.obX,tbY,tvX,tvY);if(!il||!ol)continue;ctx.fillStyle=f.fc;ctx.beginPath();ctx.moveTo(il[0],il[1]);ctx.lineTo(il[2],il[3]);ctx.lineTo(ol[2],ol[3]);ctx.lineTo(ol[0],ol[1]);ctx.closePath();ctx.fill();ctx.strokeStyle='rgba(80,80,140,0.6)';ctx.lineWidth=1.5;ctx.beginPath();ctx.moveTo(il[0],il[1]);ctx.lineTo(il[2],il[3]);ctx.stroke();ctx.beginPath();ctx.moveTo(ol[0],ol[1]);ctx.lineTo(ol[2],ol[3]);ctx.stroke();for(var fl=0;fl<25;fl++){var t0f=(fl+0.15)/25,t1f=(fl+0.85)/25;var ip0x=il[0]+(il[2]-il[0])*t0f,ip0y=il[1]+(il[3]-il[1])*t0f;var ip1x=il[0]+(il[2]-il[0])*t1f,ip1y=il[1]+(il[3]-il[1])*t1f;var o0=li(ip0x,ip0y,f.hvX,f.hvY,ol[0],ol[1],ol[2],ol[3]);var o1=li(ip1x,ip1y,f.hvX,f.hvY,ol[0],ol[1],ol[2],ol[3]);if(!o0)o0={x:(ol[0]+ol[2])/2,y:(ol[1]+ol[3])/2};if(!o1)o1={x:(ol[0]+ol[2])/2,y:(ol[1]+ol[3])/2};ctx.strokeStyle='rgba(60,60,110,0.3)';ctx.lineWidth=0.5;ctx.beginPath();ctx.moveTo(ip0x,ip0y);ctx.lineTo(o0.x,o0.y);ctx.stroke();var fw=Math.abs(o0.x-ip0x),wc=Math.max(1,Math.min(5,Math.floor(fw/20)));for(var w=0;w<wc;w++){var pd=0.15,cw=(1-2*pd)/wc;var u0=pd+w*cw+cw*0.15,u1=pd+w*cw+cw*0.85;var tlx=ip0x+(o0.x-ip0x)*u0,tly=ip0y+(o0.y-ip0y)*u0;var trx=ip0x+(o0.x-ip0x)*u1,try_=ip0y+(o0.y-ip0y)*u1;var blx=ip1x+(o1.x-ip1x)*u0,bly=ip1y+(o1.y-ip1y)*u0;var brx=ip1x+(o1.x-ip1x)*u1,bry=ip1y+(o1.y-ip1y)*u1;var lit=r()>0.4;ctx.fillStyle=lit?(r()>0.5?'#FFB844':'#FFDD66'):'#1A1A35';ctx.globalAlpha=lit?(0.5+r()*0.5)*f.lm:0.5;ctx.beginPath();ctx.moveTo(tlx,tly);ctx.lineTo(trx,try_);ctx.lineTo(brx,bry);ctx.lineTo(blx,bly);ctx.closePath();ctx.fill();}ctx.globalAlpha=1;}}var cl=clip(tcX,tbY,tvX,tvY);if(cl){ctx.strokeStyle='rgba(100,100,180,0.7)';ctx.lineWidth=2;ctx.beginPath();ctx.moveTo(cl[0],cl[1]);ctx.lineTo(cl[2],cl[3]);ctx.stroke();}var vg=ctx.createRadialGradient(W/2,H*0.6,W*0.25,W/2,H*0.6,W*0.7);vg.addColorStop(0,'rgba(0,0,0,0)');vg.addColorStop(1,'rgba(0,0,0,0.55)');ctx.fillStyle=vg;ctx.fillRect(0,0,W,H);return{};}",
+  "layers": [
+    {
+      "id": "l1",
+      "type": "perspective:three-point",
+      "name": "Three-Point Grid",
+      "visible": true,
+      "locked": false,
+      "opacity": 0.15,
+      "blendMode": "screen",
+      "transform": {
+        "x": 0,
+        "y": 0,
+        "width": 800,
+        "height": 800,
+        "rotation": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "anchorX": 0,
+        "anchorY": 0
+      },
+      "properties": {
+        "leftVP": "{\"x\":-0.3,\"y\":0.85}",
+        "rightVP": "{\"x\":1.3,\"y\":0.85}",
+        "thirdVP": "{\"x\":0.5,\"y\":-0.6}",
+        "horizonLineVisible": false,
+        "linesPerVP": 10,
+        "depthEasing": "cubic",
+        "depthStyling": true,
+        "guideColor": "rgba(100,120,255,0.35)",
+        "lineWidth": 0.5,
+        "dashPattern": "3,5"
+      }
+    }
+  ]
+}

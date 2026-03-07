@@ -1,0 +1,109 @@
+{
+  "genart": "1.2",
+  "id": "04-breathing-figure",
+  "title": "Breathing Figure",
+  "created": "2026-03-06T00:00:00Z",
+  "modified": "2026-03-06T00:00:00Z",
+  "renderer": {
+    "type": "canvas2d"
+  },
+  "canvas": {
+    "width": 1732,
+    "height": 230
+  },
+  "parameters": [],
+  "colors": [],
+  "state": {
+    "seed": 1,
+    "params": {},
+    "colorPalette": []
+  },
+  "algorithm": "function sketch(ctx){ctx.fillStyle='#0d0d1a';ctx.fillRect(0,0,1732,230);ctx.fillStyle='#ccc';ctx.font='bold 14px sans-serif';ctx.fillText('Breathing Figure \\u2014 Torso Scale Oscillation',4,18);for(var i=0;i<12;i++){var x=4+i*144,y=30;ctx.save();ctx.fillStyle='#f0ece4';ctx.fillRect(x,y,140,180);ctx.restore();ctx.fillStyle='#666';ctx.font='9px sans-serif';ctx.fillText('f'+i,x+2,y+180+12);}return{};}",
+  "layers": [
+    {
+      "id": "l1",
+      "type": "figure:mannequin",
+      "name": "Mannequin (f3, inhale)",
+      "visible": true,
+      "locked": false,
+      "opacity": 0.9,
+      "blendMode": "normal",
+      "transform": {
+        "x": 436,
+        "y": 30,
+        "width": 140,
+        "height": 180,
+        "rotation": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "anchorX": 0,
+        "anchorY": 0
+      },
+      "properties": {
+        "method": "bean",
+        "showJoints": true,
+        "jointRadius": 4,
+        "showRibcagePelvis": true,
+        "ribcageTilt": 3,
+        "transparency": 0.9,
+        "guideColor": "rgba(40,120,180,0.8)",
+        "lineWidth": 1.5
+      }
+    },
+    {
+      "id": "l2",
+      "type": "figure:mannequin",
+      "name": "Mannequin (f9, exhale)",
+      "visible": true,
+      "locked": false,
+      "opacity": 0.9,
+      "blendMode": "normal",
+      "transform": {
+        "x": 1300,
+        "y": 30,
+        "width": 140,
+        "height": 180,
+        "rotation": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "anchorX": 0,
+        "anchorY": 0
+      },
+      "properties": {
+        "method": "bean",
+        "showJoints": true,
+        "jointRadius": 4,
+        "showRibcagePelvis": true,
+        "ribcageTilt": -3,
+        "transparency": 0.9,
+        "guideColor": "rgba(40,120,180,0.8)",
+        "lineWidth": 1.5
+      }
+    },
+    {
+      "id": "l3",
+      "type": "filters:vignette",
+      "name": "Vignette (f6)",
+      "visible": true,
+      "locked": false,
+      "opacity": 1,
+      "blendMode": "normal",
+      "transform": {
+        "x": 868,
+        "y": 30,
+        "width": 140,
+        "height": 180,
+        "rotation": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "anchorX": 0,
+        "anchorY": 0
+      },
+      "properties": {
+        "intensity": 0.3,
+        "radius": 0.7,
+        "softness": 0.5
+      }
+    }
+  ]
+}

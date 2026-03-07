@@ -1,0 +1,23 @@
+{
+  "genart": "1.2",
+  "id": "abstract-series-gallery",
+  "title": "Abstractionist Series Gallery",
+  "created": "2026-03-06T00:00:00Z",
+  "modified": "2026-03-06T00:00:00Z",
+  "renderer": {
+    "type": "canvas2d"
+  },
+  "canvas": {
+    "width": 1220,
+    "height": 1074
+  },
+  "parameters": [],
+  "colors": [],
+  "state": {
+    "seed": 1,
+    "params": {},
+    "colorPalette": []
+  },
+  "algorithm": "function sketch(ctx){ctx.fillStyle='#1c1a18';ctx.fillRect(0,0,1220,1074);var labels=['I. Primordial Flux','II. Ochre Strata','III. Verdant Turbulence','IV. Midnight Geometry','V. Chromatic Bloom'];var thumbW=380,thumbH=507,pad=20,cols=3;for(var i=0;i<5;i++){var col=i%cols,row=Math.floor(i/cols);var x=pad+col*(thumbW+pad),y=pad+row*(thumbH+pad);ctx.strokeStyle='rgba(255,255,255,0.10)';ctx.lineWidth=1;ctx.strokeRect(x,y,thumbW,thumbH);ctx.fillStyle='rgba(255,255,255,0.45)';ctx.font='italic 14px Georgia, serif';ctx.fillText(labels[i],x+12,y+thumbH-14);}ctx.fillStyle='#2a2622';ctx.fillRect(pad+2*(thumbW+pad),pad+1*(thumbH+pad),thumbW,thumbH);ctx.fillStyle='rgba(255,255,255,0.85)';ctx.font='bold 28px Georgia, serif';ctx.fillText('Abstractionist',pad+2*(thumbW+pad)+40,pad+(thumbH+pad)+thumbH/2-28);ctx.fillText('Series',pad+2*(thumbW+pad)+40,pad+(thumbH+pad)+thumbH/2+8);return{};}",
+  "layers": []
+}

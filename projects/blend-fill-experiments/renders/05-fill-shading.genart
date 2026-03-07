@@ -1,0 +1,96 @@
+{
+  "genart": "1.2",
+  "id": "05-fill-shading",
+  "title": "Fill Shading",
+  "created": "2026-03-06T00:00:00Z",
+  "modified": "2026-03-06T00:00:00Z",
+  "renderer": {
+    "type": "canvas2d"
+  },
+  "canvas": {
+    "width": 1200,
+    "height": 600
+  },
+  "parameters": [],
+  "colors": [],
+  "state": {
+    "seed": 1,
+    "params": {},
+    "colorPalette": []
+  },
+  "algorithm": "function sketch(ctx){ctx.fillStyle='#f5f1e8';ctx.fillRect(0,0,1200,600);var labels=['Uniform','Linear (0deg)','Radial (center)','Noise (scale 60)'];var pad=20,cellW=280;ctx.fillStyle='#333';ctx.font='bold 14px sans-serif';for(var i=0;i<4;i++){var x=pad+i*(cellW+pad);ctx.fillText(labels[i],x,38);ctx.save();ctx.fillStyle='#fff';ctx.fillRect(x,50,cellW,480);ctx.strokeStyle='#ddd';ctx.strokeRect(x,50,cellW,480);ctx.restore();}ctx.fillStyle='rgba(42,26,10,0.4)';ctx.font='italic 16px Georgia, serif';ctx.fillText('Hatch fill with different shading functions',pad,580);return{};}",
+  "layers": [
+    {
+      "id": "l1",
+      "type": "painting:fill",
+      "name": "Uniform Shading",
+      "visible": true,
+      "locked": false,
+      "opacity": 0.9,
+      "blendMode": "normal",
+      "transform": { "x": 20, "y": 50, "width": 280, "height": 480, "rotation": 0, "scaleX": 1, "scaleY": 1, "anchorX": 0, "anchorY": 0 },
+      "properties": {
+        "brushId": "ink-pen", "color": "#2a1a0a", "size": 2.5,
+        "region": "{\"type\":\"bounds\"}",
+        "strategy": "{\"type\":\"hatch\",\"angle\":45,\"spacing\":6}",
+        "shading": "{\"type\":\"uniform\"}",
+        "shadingAffects": "[\"density\"]",
+        "seed": 42, "opacity": 0.9
+      }
+    },
+    {
+      "id": "l2",
+      "type": "painting:fill",
+      "name": "Linear Shading",
+      "visible": true,
+      "locked": false,
+      "opacity": 0.9,
+      "blendMode": "normal",
+      "transform": { "x": 320, "y": 50, "width": 280, "height": 480, "rotation": 0, "scaleX": 1, "scaleY": 1, "anchorX": 0, "anchorY": 0 },
+      "properties": {
+        "brushId": "ink-pen", "color": "#2a1a0a", "size": 2.5,
+        "region": "{\"type\":\"bounds\"}",
+        "strategy": "{\"type\":\"hatch\",\"angle\":45,\"spacing\":6}",
+        "shading": "{\"type\":\"linear\",\"angle\":0,\"range\":[0.1,1.0]}",
+        "shadingAffects": "[\"density\"]",
+        "seed": 42, "opacity": 0.9
+      }
+    },
+    {
+      "id": "l3",
+      "type": "painting:fill",
+      "name": "Radial Shading",
+      "visible": true,
+      "locked": false,
+      "opacity": 0.9,
+      "blendMode": "normal",
+      "transform": { "x": 620, "y": 50, "width": 280, "height": 480, "rotation": 0, "scaleX": 1, "scaleY": 1, "anchorX": 0, "anchorY": 0 },
+      "properties": {
+        "brushId": "ink-pen", "color": "#2a1a0a", "size": 2.5,
+        "region": "{\"type\":\"bounds\"}",
+        "strategy": "{\"type\":\"hatch\",\"angle\":45,\"spacing\":6}",
+        "shading": "{\"type\":\"radial\",\"cx\":0.5,\"cy\":0.5,\"range\":[1.0,0.1]}",
+        "shadingAffects": "[\"density\"]",
+        "seed": 42, "opacity": 0.9
+      }
+    },
+    {
+      "id": "l4",
+      "type": "painting:fill",
+      "name": "Noise Shading",
+      "visible": true,
+      "locked": false,
+      "opacity": 0.9,
+      "blendMode": "normal",
+      "transform": { "x": 920, "y": 50, "width": 280, "height": 480, "rotation": 0, "scaleX": 1, "scaleY": 1, "anchorX": 0, "anchorY": 0 },
+      "properties": {
+        "brushId": "ink-pen", "color": "#2a1a0a", "size": 2.5,
+        "region": "{\"type\":\"bounds\"}",
+        "strategy": "{\"type\":\"hatch\",\"angle\":45,\"spacing\":6}",
+        "shading": "{\"type\":\"noise\",\"seed\":33,\"scale\":60,\"range\":[0.2,1.0]}",
+        "shadingAffects": "[\"density\"]",
+        "seed": 42, "opacity": 0.9
+      }
+    }
+  ]
+}

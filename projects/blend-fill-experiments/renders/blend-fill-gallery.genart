@@ -1,0 +1,23 @@
+{
+  "genart": "1.2",
+  "id": "blend-fill-gallery",
+  "title": "Blend & Fill Experiments Gallery",
+  "created": "2026-03-06T00:00:00Z",
+  "modified": "2026-03-06T00:00:00Z",
+  "renderer": {
+    "type": "canvas2d"
+  },
+  "canvas": {
+    "width": 1264,
+    "height": 684
+  },
+  "parameters": [],
+  "colors": [],
+  "state": {
+    "seed": 1,
+    "params": {},
+    "colorPalette": []
+  },
+  "algorithm": "function sketch(ctx){ctx.fillStyle='#1c1a18';ctx.fillRect(0,0,1264,684);var files=['01-blend-catalog','02-color-gradients','03-spine-paths','04-fill-strategies','05-fill-shading','06-blend-fill-combo'];var thumbW=400,thumbH=300,pad=16,cols=3;for(var i=0;i<6;i++){var col=i%cols,row=Math.floor(i/cols);var x=pad+col*(thumbW+pad),y=pad+row*(thumbH+pad);ctx.strokeStyle='rgba(255,255,255,0.1)';ctx.lineWidth=1;ctx.strokeRect(x,y,thumbW,thumbH);ctx.fillStyle='rgba(255,255,255,0.5)';ctx.font='12px sans-serif';ctx.fillText(files[i],x+4,y+thumbH+14);}ctx.fillStyle='rgba(255,255,255,0.7)';ctx.font='bold 15px sans-serif';ctx.fillText('Blend & Fill Experiments',pad,674);return{};}",
+  "layers": []
+}

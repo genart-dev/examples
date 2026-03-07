@@ -1,0 +1,591 @@
+{
+  "genart": "1.2",
+  "id": "abstract-4-midnight-geometry",
+  "title": "IV. Midnight Geometry",
+  "created": "2026-03-06T00:00:00Z",
+  "modified": "2026-03-06T00:00:00Z",
+  "renderer": {
+    "type": "canvas2d"
+  },
+  "canvas": {
+    "width": 900,
+    "height": 1200
+  },
+  "parameters": [],
+  "colors": [],
+  "state": {
+    "seed": 1,
+    "params": {},
+    "colorPalette": []
+  },
+  "algorithm": "function sketch(ctx){ctx.fillStyle='#f5f1eb';ctx.fillRect(0,0,900,1200);ctx.fillStyle='rgba(14,12,10,0.45)';ctx.font='italic 22px Georgia, serif';ctx.fillText('IV. Midnight Geometry',36,1172);return{};}",
+  "layers": [
+    {
+      "id": "l1",
+      "type": "textures:paper",
+      "name": "Rough Paper",
+      "visible": true,
+      "locked": false,
+      "opacity": 1,
+      "blendMode": "normal",
+      "transform": {
+        "x": 0,
+        "y": 0,
+        "width": 900,
+        "height": 1200,
+        "rotation": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "anchorX": 0,
+        "anchorY": 0
+      },
+      "properties": {
+        "preset": "rough",
+        "roughness": -1,
+        "color": "#f0ead8",
+        "seed": 21
+      }
+    },
+    {
+      "id": "l2",
+      "type": "painting:charcoal",
+      "name": "Charcoal Vortex 1",
+      "visible": true,
+      "locked": false,
+      "opacity": 0.82,
+      "blendMode": "normal",
+      "transform": {
+        "x": 0,
+        "y": 0,
+        "width": 900,
+        "height": 1200,
+        "rotation": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "anchorX": 0,
+        "anchorY": 0
+      },
+      "properties": {
+        "field": "vortex:0.5:0.5:0.42",
+        "fieldCols": 28,
+        "fieldRows": 28,
+        "colors": "[\"#0e0c0a\"]",
+        "density": 0.75,
+        "smear": true,
+        "grain": 0.65,
+        "opacity": 0.82,
+        "seed": 41
+      }
+    },
+    {
+      "id": "l3",
+      "type": "painting:charcoal",
+      "name": "Charcoal Vortex 2",
+      "visible": true,
+      "locked": false,
+      "opacity": 0.55,
+      "blendMode": "normal",
+      "transform": {
+        "x": 0,
+        "y": 0,
+        "width": 900,
+        "height": 1200,
+        "rotation": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "anchorX": 0,
+        "anchorY": 0
+      },
+      "properties": {
+        "field": "vortex:0.32:0.68:0.28",
+        "fieldCols": 22,
+        "fieldRows": 22,
+        "colors": "[\"#2a2624\"]",
+        "density": 0.55,
+        "smear": false,
+        "grain": 0.5,
+        "opacity": 0.55,
+        "seed": 63
+      }
+    },
+    {
+      "id": "l4",
+      "type": "painting:charcoal",
+      "name": "Noise Charcoal",
+      "visible": true,
+      "locked": false,
+      "opacity": 0.4,
+      "blendMode": "normal",
+      "transform": {
+        "x": 0,
+        "y": 0,
+        "width": 900,
+        "height": 1200,
+        "rotation": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "anchorX": 0,
+        "anchorY": 0
+      },
+      "properties": {
+        "field": "noise:99:0.18:3",
+        "fieldCols": 20,
+        "fieldRows": 20,
+        "colors": "[\"#1a1714\"]",
+        "density": 0.35,
+        "smear": false,
+        "grain": 0.7,
+        "opacity": 0.4,
+        "seed": 80
+      }
+    },
+    {
+      "id": "l5",
+      "type": "painting:ink",
+      "name": "Structural Lines",
+      "visible": true,
+      "locked": false,
+      "opacity": 0.28,
+      "blendMode": "normal",
+      "transform": {
+        "x": 0,
+        "y": 0,
+        "width": 900,
+        "height": 1200,
+        "rotation": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "anchorX": 0,
+        "anchorY": 0
+      },
+      "properties": {
+        "field": "linear:90:1.0",
+        "fieldCols": 10,
+        "fieldRows": 40,
+        "colors": "[\"#0a0806\"]",
+        "weight": 0.6,
+        "taper": "none",
+        "style": "fluid",
+        "opacity": 0.28,
+        "seed": 15
+      }
+    },
+    {
+      "id": "l6",
+      "type": "shapes:polygon",
+      "name": "Dark Triangle",
+      "visible": true,
+      "locked": false,
+      "opacity": 0.88,
+      "blendMode": "normal",
+      "transform": {
+        "x": -80,
+        "y": 200,
+        "width": 900,
+        "height": 900,
+        "rotation": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "anchorX": 0,
+        "anchorY": 0
+      },
+      "properties": {
+        "fillColor": "#050403",
+        "fillEnabled": true,
+        "strokeEnabled": false,
+        "sides": 3,
+        "rotation": 8
+      }
+    },
+    {
+      "id": "l7",
+      "type": "shapes:star",
+      "name": "Star 5pt",
+      "visible": true,
+      "locked": false,
+      "opacity": 0.98,
+      "blendMode": "normal",
+      "transform": {
+        "x": 300,
+        "y": 430,
+        "width": 300,
+        "height": 300,
+        "rotation": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "anchorX": 0,
+        "anchorY": 0
+      },
+      "properties": {
+        "fillColor": "#f5f1eb",
+        "fillEnabled": true,
+        "strokeColor": "#0e0c0a",
+        "strokeWidth": 2.5,
+        "strokeEnabled": true,
+        "points": 5,
+        "innerRadius": 0.4,
+        "rotation": 0
+      }
+    },
+    {
+      "id": "l8",
+      "type": "shapes:star",
+      "name": "Star 8pt",
+      "visible": true,
+      "locked": false,
+      "opacity": 0.9,
+      "blendMode": "normal",
+      "transform": {
+        "x": 100,
+        "y": 120,
+        "width": 110,
+        "height": 110,
+        "rotation": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "anchorX": 0,
+        "anchorY": 0
+      },
+      "properties": {
+        "fillColor": "#f5f1eb",
+        "fillEnabled": true,
+        "strokeColor": "#1a1614",
+        "strokeWidth": 1.5,
+        "strokeEnabled": true,
+        "points": 8,
+        "innerRadius": 0.38,
+        "rotation": 22
+      }
+    },
+    {
+      "id": "l9",
+      "type": "shapes:star",
+      "name": "Star 6pt",
+      "visible": true,
+      "locked": false,
+      "opacity": 0.88,
+      "blendMode": "normal",
+      "transform": {
+        "x": 630,
+        "y": 200,
+        "width": 80,
+        "height": 80,
+        "rotation": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "anchorX": 0,
+        "anchorY": 0
+      },
+      "properties": {
+        "fillColor": "#e8e0d0",
+        "fillEnabled": true,
+        "strokeColor": "#0e0c0a",
+        "strokeWidth": 1,
+        "strokeEnabled": true,
+        "points": 6,
+        "innerRadius": 0.45,
+        "rotation": 0
+      }
+    },
+    {
+      "id": "l10",
+      "type": "shapes:star",
+      "name": "Star 7pt",
+      "visible": true,
+      "locked": false,
+      "opacity": 0.82,
+      "blendMode": "normal",
+      "transform": {
+        "x": 710,
+        "y": 720,
+        "width": 95,
+        "height": 95,
+        "rotation": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "anchorX": 0,
+        "anchorY": 0
+      },
+      "properties": {
+        "fillColor": "#ddd5c5",
+        "fillEnabled": true,
+        "strokeColor": "#1a1614",
+        "strokeWidth": 1.5,
+        "strokeEnabled": true,
+        "points": 7,
+        "innerRadius": 0.42,
+        "rotation": 10
+      }
+    },
+    {
+      "id": "l11",
+      "type": "shapes:star",
+      "name": "Star 6pt",
+      "visible": true,
+      "locked": false,
+      "opacity": 0.84,
+      "blendMode": "normal",
+      "transform": {
+        "x": 490,
+        "y": 1040,
+        "width": 90,
+        "height": 90,
+        "rotation": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "anchorX": 0,
+        "anchorY": 0
+      },
+      "properties": {
+        "fillColor": "#e4dccb",
+        "fillEnabled": true,
+        "strokeColor": "#0e0c0a",
+        "strokeWidth": 1.2,
+        "strokeEnabled": true,
+        "points": 6,
+        "innerRadius": 0.48,
+        "rotation": 30
+      }
+    },
+    {
+      "id": "l12",
+      "type": "shapes:star",
+      "name": "Star 4pt",
+      "visible": true,
+      "locked": false,
+      "opacity": 0.88,
+      "blendMode": "normal",
+      "transform": {
+        "x": 155,
+        "y": 880,
+        "width": 55,
+        "height": 55,
+        "rotation": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "anchorX": 0,
+        "anchorY": 0
+      },
+      "properties": {
+        "fillColor": "#f0e8d8",
+        "fillEnabled": true,
+        "strokeColor": "#0e0c0a",
+        "strokeWidth": 1,
+        "strokeEnabled": true,
+        "points": 4,
+        "innerRadius": 0.35,
+        "rotation": 45
+      }
+    },
+    {
+      "id": "l13",
+      "type": "shapes:star",
+      "name": "Star 5pt",
+      "visible": true,
+      "locked": false,
+      "opacity": 0.8,
+      "blendMode": "normal",
+      "transform": {
+        "x": 760,
+        "y": 480,
+        "width": 42,
+        "height": 42,
+        "rotation": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "anchorX": 0,
+        "anchorY": 0
+      },
+      "properties": {
+        "fillColor": "#ede5d4",
+        "fillEnabled": true,
+        "strokeColor": "#1a1614",
+        "strokeWidth": 0.8,
+        "strokeEnabled": true,
+        "points": 5,
+        "innerRadius": 0.42,
+        "rotation": 18
+      }
+    },
+    {
+      "id": "l14",
+      "type": "shapes:star",
+      "name": "Star 6pt",
+      "visible": true,
+      "locked": false,
+      "opacity": 0.75,
+      "blendMode": "normal",
+      "transform": {
+        "x": 50,
+        "y": 620,
+        "width": 34,
+        "height": 34,
+        "rotation": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "anchorX": 0,
+        "anchorY": 0
+      },
+      "properties": {
+        "fillColor": "#f0e8d8",
+        "fillEnabled": true,
+        "strokeColor": "#0e0c0a",
+        "strokeWidth": 0.7,
+        "strokeEnabled": true,
+        "points": 6,
+        "innerRadius": 0.45,
+        "rotation": 60
+      }
+    },
+    {
+      "id": "l15",
+      "type": "shapes:star",
+      "name": "Star 5pt",
+      "visible": true,
+      "locked": false,
+      "opacity": 0.78,
+      "blendMode": "normal",
+      "transform": {
+        "x": 820,
+        "y": 970,
+        "width": 48,
+        "height": 48,
+        "rotation": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "anchorX": 0,
+        "anchorY": 0
+      },
+      "properties": {
+        "fillColor": "#e8e0cf",
+        "fillEnabled": true,
+        "strokeColor": "#1a1614",
+        "strokeWidth": 0.8,
+        "strokeEnabled": true,
+        "points": 5,
+        "innerRadius": 0.4,
+        "rotation": 36
+      }
+    },
+    {
+      "id": "l16",
+      "type": "shapes:star",
+      "name": "Star 4pt",
+      "visible": true,
+      "locked": false,
+      "opacity": 0.72,
+      "blendMode": "normal",
+      "transform": {
+        "x": 280,
+        "y": 1110,
+        "width": 30,
+        "height": 30,
+        "rotation": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "anchorX": 0,
+        "anchorY": 0
+      },
+      "properties": {
+        "fillColor": "#f5f0e5",
+        "fillEnabled": true,
+        "strokeColor": "#0e0c0a",
+        "strokeWidth": 0.6,
+        "strokeEnabled": true,
+        "points": 4,
+        "innerRadius": 0.38,
+        "rotation": 0
+      }
+    },
+    {
+      "id": "l17",
+      "type": "shapes:star",
+      "name": "Star 7pt",
+      "visible": true,
+      "locked": false,
+      "opacity": 0.76,
+      "blendMode": "normal",
+      "transform": {
+        "x": 650,
+        "y": 80,
+        "width": 38,
+        "height": 38,
+        "rotation": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "anchorX": 0,
+        "anchorY": 0
+      },
+      "properties": {
+        "fillColor": "#e0d8c8",
+        "fillEnabled": true,
+        "strokeColor": "#1a1614",
+        "strokeWidth": 0.7,
+        "strokeEnabled": true,
+        "points": 7,
+        "innerRadius": 0.44,
+        "rotation": 25
+      }
+    },
+    {
+      "id": "l18",
+      "type": "shapes:star",
+      "name": "Star 5pt",
+      "visible": true,
+      "locked": false,
+      "opacity": 0.7,
+      "blendMode": "normal",
+      "transform": {
+        "x": 430,
+        "y": 280,
+        "width": 26,
+        "height": 26,
+        "rotation": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "anchorX": 0,
+        "anchorY": 0
+      },
+      "properties": {
+        "fillColor": "#f0e8d8",
+        "fillEnabled": true,
+        "strokeColor": "#0e0c0a",
+        "strokeWidth": 0.5,
+        "strokeEnabled": true,
+        "points": 5,
+        "innerRadius": 0.4,
+        "rotation": 54
+      }
+    },
+    {
+      "id": "l19",
+      "type": "shapes:star",
+      "name": "Star 6pt",
+      "visible": true,
+      "locked": false,
+      "opacity": 0.74,
+      "blendMode": "normal",
+      "transform": {
+        "x": 80,
+        "y": 1080,
+        "width": 44,
+        "height": 44,
+        "rotation": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "anchorX": 0,
+        "anchorY": 0
+      },
+      "properties": {
+        "fillColor": "#ddd5c2",
+        "fillEnabled": true,
+        "strokeColor": "#1a1614",
+        "strokeWidth": 0.8,
+        "strokeEnabled": true,
+        "points": 6,
+        "innerRadius": 0.46,
+        "rotation": 42
+      }
+    }
+  ]
+}

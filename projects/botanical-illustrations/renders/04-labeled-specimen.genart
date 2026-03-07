@@ -1,0 +1,220 @@
+{
+  "genart": "1.2",
+  "id": "04-labeled-specimen",
+  "title": "Labeled Specimen",
+  "created": "2026-03-06T00:00:00Z",
+  "modified": "2026-03-06T00:00:00Z",
+  "renderer": {
+    "type": "canvas2d"
+  },
+  "canvas": {
+    "width": 600,
+    "height": 700
+  },
+  "parameters": [],
+  "colors": [],
+  "state": {
+    "seed": 1,
+    "params": {},
+    "colorPalette": []
+  },
+  "algorithm": "function sketch(ctx){var W=600,H=700;ctx.fillStyle='#faf8f2';ctx.fillRect(0,0,W,H);function drawLeaf(cx,cy,w,h,a,c){ctx.save();ctx.translate(cx,cy);ctx.rotate(a);ctx.fillStyle=c;ctx.beginPath();ctx.moveTo(0,-h/2);ctx.bezierCurveTo(w/2,-h/3,w/2,h/3,0,h/2);ctx.bezierCurveTo(-w/2,h/3,-w/2,-h/3,0,-h/2);ctx.fill();ctx.strokeStyle='rgba(0,80,0,0.4)';ctx.lineWidth=1;ctx.beginPath();ctx.moveTo(0,-h/2);ctx.lineTo(0,h/2);ctx.stroke();ctx.strokeStyle='rgba(0,80,0,0.25)';ctx.lineWidth=0.5;for(var i=-3;i<=3;i++){if(i===0)continue;var yy=i/4*h*0.4;ctx.beginPath();ctx.moveTo(0,yy);ctx.lineTo((i>0?1:-1)*w*0.35,yy+(i>0?1:-1)*h*0.08);ctx.stroke();}ctx.restore();}var pcx=W*0.4,st=120;ctx.strokeStyle='#5a7a3a';ctx.lineWidth=3;ctx.beginPath();ctx.moveTo(pcx,st);ctx.bezierCurveTo(pcx-20,H*0.4,pcx+10,H*0.6,pcx-5,H*0.85);ctx.stroke();drawLeaf(pcx-10,200,40,80,-0.6,'#4a7a3a');drawLeaf(pcx+15,280,35,70,0.5,'#4a7a3a');drawLeaf(pcx-20,370,45,90,-0.4,'#4a7a3a');drawLeaf(pcx+10,450,30,65,0.3,'#4a7a3a');var fx=pcx+10,fy=st+30;for(var i=0;i<5;i++){var a=i/5*Math.PI*2-Math.PI/2;ctx.save();ctx.translate(fx+Math.cos(a)*20,fy+Math.sin(a)*20);ctx.rotate(a+Math.PI/2);ctx.fillStyle='rgba(230,180,190,0.7)';ctx.beginPath();ctx.ellipse(0,0,12,22,0,0,Math.PI*2);ctx.fill();ctx.strokeStyle='rgba(200,100,120,0.5)';ctx.lineWidth=0.5;ctx.stroke();ctx.restore();}ctx.fillStyle='#e8c040';ctx.beginPath();ctx.arc(fx,fy,5,0,Math.PI*2);ctx.fill();var anns=[{fx:fx,fy:fy-25,tx:W*0.72,ty:fy-25},{fx:fx,fy:fy,tx:W*0.72,ty:fy+10},{fx:pcx-10,fy:200,tx:W*0.72,ty:200},{fx:pcx,fy:500,tx:W*0.72,ty:500}];for(var i=0;i<anns.length;i++){var a=anns[i];ctx.strokeStyle='rgba(150,100,100,0.4)';ctx.lineWidth=0.5;ctx.setLineDash([3,3]);ctx.beginPath();ctx.moveTo(a.fx,a.fy);ctx.lineTo(a.tx,a.ty);ctx.stroke();ctx.setLineDash([]);ctx.fillStyle='rgba(200,50,50,0.5)';ctx.beginPath();ctx.arc(a.fx,a.fy,2,0,Math.PI*2);ctx.fill();}return{};}",
+  "layers": [
+    {
+      "id": "l1",
+      "type": "typography:text",
+      "name": "Title",
+      "visible": true,
+      "locked": false,
+      "opacity": 1,
+      "blendMode": "normal",
+      "transform": {
+        "x": 0,
+        "y": 20,
+        "width": 600,
+        "height": 40,
+        "rotation": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "anchorX": 0,
+        "anchorY": 0
+      },
+      "properties": {
+        "text": "Rosa canina",
+        "fontFamily": "Georgia",
+        "fontSize": 28,
+        "fontStyle": "italic",
+        "color": "#333",
+        "align": "center",
+        "baseline": "top"
+      }
+    },
+    {
+      "id": "l2",
+      "type": "typography:text",
+      "name": "Subtitle",
+      "visible": true,
+      "locked": false,
+      "opacity": 1,
+      "blendMode": "normal",
+      "transform": {
+        "x": 0,
+        "y": 55,
+        "width": 600,
+        "height": 25,
+        "rotation": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "anchorX": 0,
+        "anchorY": 0
+      },
+      "properties": {
+        "text": "Dog Rose \\u2014 Rosaceae",
+        "fontFamily": "Georgia",
+        "fontSize": 14,
+        "color": "#888",
+        "align": "center",
+        "baseline": "top"
+      }
+    },
+    {
+      "id": "l3",
+      "type": "typography:text",
+      "name": "Label Petal",
+      "visible": true,
+      "locked": false,
+      "opacity": 1,
+      "blendMode": "normal",
+      "transform": {
+        "x": 437,
+        "y": 119,
+        "width": 200,
+        "height": 20,
+        "rotation": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "anchorX": 0,
+        "anchorY": 0
+      },
+      "properties": {
+        "text": "Petal (5, obovate)",
+        "fontFamily": "Georgia",
+        "fontSize": 11,
+        "color": "#555",
+        "align": "left",
+        "baseline": "top"
+      }
+    },
+    {
+      "id": "l4",
+      "type": "typography:text",
+      "name": "Label Stamens",
+      "visible": true,
+      "locked": false,
+      "opacity": 1,
+      "blendMode": "normal",
+      "transform": {
+        "x": 437,
+        "y": 154,
+        "width": 200,
+        "height": 20,
+        "rotation": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "anchorX": 0,
+        "anchorY": 0
+      },
+      "properties": {
+        "text": "Stamens (numerous)",
+        "fontFamily": "Georgia",
+        "fontSize": 11,
+        "color": "#555",
+        "align": "left",
+        "baseline": "top"
+      }
+    },
+    {
+      "id": "l5",
+      "type": "typography:text",
+      "name": "Label Leaf",
+      "visible": true,
+      "locked": false,
+      "opacity": 1,
+      "blendMode": "normal",
+      "transform": {
+        "x": 437,
+        "y": 194,
+        "width": 200,
+        "height": 20,
+        "rotation": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "anchorX": 0,
+        "anchorY": 0
+      },
+      "properties": {
+        "text": "Compound leaf (5-7 leaflets)",
+        "fontFamily": "Georgia",
+        "fontSize": 11,
+        "color": "#555",
+        "align": "left",
+        "baseline": "top"
+      }
+    },
+    {
+      "id": "l6",
+      "type": "typography:text",
+      "name": "Label Stem",
+      "visible": true,
+      "locked": false,
+      "opacity": 1,
+      "blendMode": "normal",
+      "transform": {
+        "x": 437,
+        "y": 494,
+        "width": 200,
+        "height": 20,
+        "rotation": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "anchorX": 0,
+        "anchorY": 0
+      },
+      "properties": {
+        "text": "Prickly stem (curved thorns)",
+        "fontFamily": "Georgia",
+        "fontSize": 11,
+        "color": "#555",
+        "align": "left",
+        "baseline": "top"
+      }
+    },
+    {
+      "id": "l7",
+      "type": "construction:envelope",
+      "name": "Plant Envelope",
+      "visible": true,
+      "locked": false,
+      "opacity": 1,
+      "blendMode": "normal",
+      "transform": {
+        "x": 0,
+        "y": 0,
+        "width": 600,
+        "height": 700,
+        "rotation": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "anchorX": 0,
+        "anchorY": 0
+      },
+      "properties": {
+        "envelopePath": "[{\"x\":0.25,\"y\":0.12},{\"x\":0.55,\"y\":0.12},{\"x\":0.58,\"y\":0.5},{\"x\":0.52,\"y\":0.88},{\"x\":0.3,\"y\":0.88},{\"x\":0.22,\"y\":0.5}]",
+        "envelopeStyle": "loose",
+        "showAngles": false,
+        "showPlumbLine": true,
+        "showSubdivisions": false
+      }
+    }
+  ]
+}

@@ -1,0 +1,125 @@
+{
+  "genart": "1.2",
+  "id": "04-fill-strategies",
+  "title": "Fill Strategies",
+  "created": "2026-03-06T00:00:00Z",
+  "modified": "2026-03-06T00:00:00Z",
+  "renderer": {
+    "type": "canvas2d"
+  },
+  "canvas": {
+    "width": 1200,
+    "height": 900
+  },
+  "parameters": [],
+  "colors": [],
+  "state": {
+    "seed": 1,
+    "params": {},
+    "colorPalette": []
+  },
+  "algorithm": "function sketch(ctx){ctx.fillStyle='#faf6ee';ctx.fillRect(0,0,1200,900);var labels=['Hatch (45deg, spacing 8)','Crosshatch (45/135, decay 0.7)','Stipple (poisson, density 50)','Scumble (curvature 0.6)','Contour (spacing 10)'];var topCellW=360,botCellW=555,pad=30;ctx.fillStyle='#333';ctx.font='bold 13px sans-serif';for(var i=0;i<3;i++){var x=pad+i*(topCellW+pad);ctx.fillText(labels[i],x,40);ctx.save();ctx.fillStyle='rgba(255,255,255,0.6)';ctx.fillRect(x,50,topCellW,340);ctx.strokeStyle='#ccc';ctx.lineWidth=1;ctx.strokeRect(x,50,topCellW,340);ctx.restore();}for(var i=0;i<2;i++){var x=pad+i*(botCellW+pad);ctx.fillText(labels[3+i],x,460);ctx.save();ctx.fillStyle='rgba(255,255,255,0.6)';ctx.fillRect(x,470,botCellW,340);ctx.strokeStyle='#ccc';ctx.lineWidth=1;ctx.strokeRect(x,470,botCellW,340);ctx.restore();}return{};}",
+  "layers": [
+    {
+      "id": "l1",
+      "type": "textures:paper",
+      "name": "Paper Background",
+      "visible": true,
+      "locked": false,
+      "opacity": 1,
+      "blendMode": "normal",
+      "transform": { "x": 0, "y": 0, "width": 1200, "height": 900, "rotation": 0, "scaleX": 1, "scaleY": 1, "anchorX": 0, "anchorY": 0 },
+      "properties": { "preset": "cold-press", "roughness": -1, "color": "#f5f0e5", "seed": 12 }
+    },
+    {
+      "id": "l2",
+      "type": "painting:fill",
+      "name": "Hatch Fill",
+      "visible": true,
+      "locked": false,
+      "opacity": 0.85,
+      "blendMode": "normal",
+      "transform": { "x": 30, "y": 50, "width": 360, "height": 340, "rotation": 0, "scaleX": 1, "scaleY": 1, "anchorX": 0, "anchorY": 0 },
+      "properties": {
+        "brushId": "ink-pen", "color": "#1a1a1a", "size": 3,
+        "region": "{\"type\":\"bounds\"}",
+        "strategy": "{\"type\":\"hatch\",\"angle\":45,\"spacing\":8}",
+        "shading": "{\"type\":\"uniform\"}",
+        "shadingAffects": "[\"density\"]",
+        "seed": 42, "opacity": 0.85
+      }
+    },
+    {
+      "id": "l3",
+      "type": "painting:fill",
+      "name": "Crosshatch Fill",
+      "visible": true,
+      "locked": false,
+      "opacity": 0.85,
+      "blendMode": "normal",
+      "transform": { "x": 420, "y": 50, "width": 360, "height": 340, "rotation": 0, "scaleX": 1, "scaleY": 1, "anchorX": 0, "anchorY": 0 },
+      "properties": {
+        "brushId": "ink-pen", "color": "#1a1a1a", "size": 2,
+        "region": "{\"type\":\"bounds\"}",
+        "strategy": "{\"type\":\"crosshatch\",\"angles\":[45,135],\"spacing\":8,\"passDecay\":0.7}",
+        "shading": "{\"type\":\"uniform\"}",
+        "shadingAffects": "[\"density\"]",
+        "seed": 119, "opacity": 0.85
+      }
+    },
+    {
+      "id": "l4",
+      "type": "painting:fill",
+      "name": "Stipple Fill",
+      "visible": true,
+      "locked": false,
+      "opacity": 0.85,
+      "blendMode": "normal",
+      "transform": { "x": 810, "y": 50, "width": 360, "height": 340, "rotation": 0, "scaleX": 1, "scaleY": 1, "anchorX": 0, "anchorY": 0 },
+      "properties": {
+        "brushId": "ink-pen", "color": "#1a1a1a", "size": 3,
+        "region": "{\"type\":\"bounds\"}",
+        "strategy": "{\"type\":\"stipple\",\"density\":50,\"distribution\":\"poisson\"}",
+        "shading": "{\"type\":\"uniform\"}",
+        "shadingAffects": "[\"density\"]",
+        "seed": 196, "opacity": 0.85
+      }
+    },
+    {
+      "id": "l5",
+      "type": "painting:fill",
+      "name": "Scumble Fill",
+      "visible": true,
+      "locked": false,
+      "opacity": 0.85,
+      "blendMode": "normal",
+      "transform": { "x": 30, "y": 470, "width": 555, "height": 340, "rotation": 0, "scaleX": 1, "scaleY": 1, "anchorX": 0, "anchorY": 0 },
+      "properties": {
+        "brushId": "round-hard", "color": "#1a1a1a", "size": 2,
+        "region": "{\"type\":\"ellipse\",\"cx\":307,\"cy\":640,\"rx\":257,\"ry\":150}",
+        "strategy": "{\"type\":\"scumble\",\"density\":18,\"strokeLength\":20,\"curvature\":0.6}",
+        "shading": "{\"type\":\"uniform\"}",
+        "shadingAffects": "[\"density\"]",
+        "seed": 273, "opacity": 0.85
+      }
+    },
+    {
+      "id": "l6",
+      "type": "painting:fill",
+      "name": "Contour Fill",
+      "visible": true,
+      "locked": false,
+      "opacity": 0.85,
+      "blendMode": "normal",
+      "transform": { "x": 615, "y": 470, "width": 555, "height": 340, "rotation": 0, "scaleX": 1, "scaleY": 1, "anchorX": 0, "anchorY": 0 },
+      "properties": {
+        "brushId": "ink-pen", "color": "#1a1a1a", "size": 2,
+        "region": "{\"type\":\"ellipse\",\"cx\":892,\"cy\":640,\"rx\":257,\"ry\":150}",
+        "strategy": "{\"type\":\"contour\",\"spacing\":10,\"smoothing\":0.4}",
+        "shading": "{\"type\":\"uniform\"}",
+        "shadingAffects": "[\"density\"]",
+        "seed": 350, "opacity": 0.85
+      }
+    }
+  ]
+}

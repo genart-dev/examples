@@ -1,0 +1,343 @@
+{
+  "genart": "1.2",
+  "id": "05-wave-text",
+  "title": "Wave Text",
+  "created": "2026-03-06T00:00:00Z",
+  "modified": "2026-03-06T00:00:00Z",
+  "renderer": {
+    "type": "canvas2d"
+  },
+  "canvas": {
+    "width": 2436,
+    "height": 200
+  },
+  "parameters": [],
+  "colors": [],
+  "state": {
+    "seed": 1,
+    "params": {},
+    "colorPalette": []
+  },
+  "algorithm": "function sketch(ctx){ctx.fillStyle='#0d0d1a';ctx.fillRect(0,0,2436,200);ctx.fillStyle='#ccc';ctx.font='bold 14px sans-serif';ctx.fillText('Wave Text \\u2014 Per-Character Baseline Ripple',4,18);for(var i=0;i<8;i++){var x=4+i*304;ctx.fillStyle='#16162a';ctx.fillRect(x,30,300,150);ctx.fillStyle='#666';ctx.font='9px sans-serif';ctx.fillText('f'+i,x+2,30+150+12);}return{};}",
+  "layers": [
+    {
+      "id": "l1",
+      "type": "typography:text",
+      "name": "Char \"W\" (f4)",
+      "visible": true,
+      "locked": false,
+      "opacity": 1,
+      "blendMode": "normal",
+      "transform": {
+        "x": 1238,
+        "y": 95,
+        "width": 24,
+        "height": 36,
+        "rotation": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "anchorX": 0,
+        "anchorY": 0
+      },
+      "properties": {
+        "text": "W",
+        "fontFamily": "Helvetica",
+        "fontSize": 28,
+        "fontWeight": "700",
+        "color": "hsl(180, 70%, 70%)",
+        "align": "center",
+        "baseline": "top"
+      }
+    },
+    {
+      "id": "l2",
+      "type": "typography:text",
+      "name": "Char \"A\" (f4)",
+      "visible": true,
+      "locked": false,
+      "opacity": 1,
+      "blendMode": "normal",
+      "transform": {
+        "x": 1262,
+        "y": 85.41148922791594,
+        "width": 24,
+        "height": 36,
+        "rotation": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "anchorX": 0,
+        "anchorY": 0
+      },
+      "properties": {
+        "text": "A",
+        "fontFamily": "Helvetica",
+        "fontSize": 28,
+        "fontWeight": "700",
+        "color": "hsl(210, 70%, 70%)",
+        "align": "center",
+        "baseline": "top"
+      }
+    },
+    {
+      "id": "l3",
+      "type": "typography:text",
+      "name": "Char \"V\" (f4)",
+      "visible": true,
+      "locked": false,
+      "opacity": 1,
+      "blendMode": "normal",
+      "transform": {
+        "x": 1286,
+        "y": 78.17058030384207,
+        "width": 24,
+        "height": 36,
+        "rotation": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "anchorX": 0,
+        "anchorY": 0
+      },
+      "properties": {
+        "text": "V",
+        "fontFamily": "Helvetica",
+        "fontSize": 28,
+        "fontWeight": "700",
+        "color": "hsl(240, 70%, 70%)",
+        "align": "center",
+        "baseline": "top"
+      }
+    },
+    {
+      "id": "l4",
+      "type": "typography:text",
+      "name": "Char \"E\" (f4)",
+      "visible": true,
+      "locked": false,
+      "opacity": 1,
+      "blendMode": "normal",
+      "transform": {
+        "x": 1310,
+        "y": 75.0501002679189,
+        "width": 24,
+        "height": 36,
+        "rotation": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "anchorX": 0,
+        "anchorY": 0
+      },
+      "properties": {
+        "text": "E",
+        "fontFamily": "Helvetica",
+        "fontSize": 28,
+        "fontWeight": "700",
+        "color": "hsl(270, 70%, 70%)",
+        "align": "center",
+        "baseline": "top"
+      }
+    },
+    {
+      "id": "l5",
+      "type": "typography:text",
+      "name": "Char \" \" (f4)",
+      "visible": true,
+      "locked": false,
+      "opacity": 1,
+      "blendMode": "normal",
+      "transform": {
+        "x": 1334,
+        "y": 76.81405146348636,
+        "width": 24,
+        "height": 36,
+        "rotation": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "anchorX": 0,
+        "anchorY": 0
+      },
+      "properties": {
+        "text": " ",
+        "fontFamily": "Helvetica",
+        "fontSize": 28,
+        "fontWeight": "700",
+        "color": "hsl(300, 70%, 70%)",
+        "align": "center",
+        "baseline": "top"
+      }
+    },
+    {
+      "id": "l6",
+      "type": "typography:text",
+      "name": "Char \"M\" (f4)",
+      "visible": true,
+      "locked": false,
+      "opacity": 1,
+      "blendMode": "normal",
+      "transform": {
+        "x": 1358,
+        "y": 83.03055711792086,
+        "width": 24,
+        "height": 36,
+        "rotation": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "anchorX": 0,
+        "anchorY": 0
+      },
+      "properties": {
+        "text": "M",
+        "fontFamily": "Helvetica",
+        "fontSize": 28,
+        "fontWeight": "700",
+        "color": "hsl(330, 70%, 70%)",
+        "align": "center",
+        "baseline": "top"
+      }
+    },
+    {
+      "id": "l7",
+      "type": "typography:text",
+      "name": "Char \"O\" (f4)",
+      "visible": true,
+      "locked": false,
+      "opacity": 1,
+      "blendMode": "normal",
+      "transform": {
+        "x": 1382,
+        "y": 92.17759983880265,
+        "width": 24,
+        "height": 36,
+        "rotation": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "anchorX": 0,
+        "anchorY": 0
+      },
+      "properties": {
+        "text": "O",
+        "fontFamily": "Helvetica",
+        "fontSize": 28,
+        "fontWeight": "700",
+        "color": "hsl(0, 70%, 70%)",
+        "align": "center",
+        "baseline": "top"
+      }
+    },
+    {
+      "id": "l8",
+      "type": "typography:text",
+      "name": "Char \"T\" (f4)",
+      "visible": true,
+      "locked": false,
+      "opacity": 1,
+      "blendMode": "normal",
+      "transform": {
+        "x": 1406,
+        "y": 102.01566455379239,
+        "width": 24,
+        "height": 36,
+        "rotation": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "anchorX": 0,
+        "anchorY": 0
+      },
+      "properties": {
+        "text": "T",
+        "fontFamily": "Helvetica",
+        "fontSize": 28,
+        "fontWeight": "700",
+        "color": "hsl(30, 70%, 70%)",
+        "align": "center",
+        "baseline": "top"
+      }
+    },
+    {
+      "id": "l9",
+      "type": "typography:text",
+      "name": "Char \"I\" (f4)",
+      "visible": true,
+      "locked": false,
+      "opacity": 1,
+      "blendMode": "normal",
+      "transform": {
+        "x": 1430,
+        "y": 110.13604990615856,
+        "width": 24,
+        "height": 36,
+        "rotation": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "anchorX": 0,
+        "anchorY": 0
+      },
+      "properties": {
+        "text": "I",
+        "fontFamily": "Helvetica",
+        "fontSize": 28,
+        "fontWeight": "700",
+        "color": "hsl(60, 70%, 70%)",
+        "align": "center",
+        "baseline": "top"
+      }
+    },
+    {
+      "id": "l10",
+      "type": "typography:text",
+      "name": "Char \"O\" (f4)",
+      "visible": true,
+      "locked": false,
+      "opacity": 1,
+      "blendMode": "normal",
+      "transform": {
+        "x": 1454,
+        "y": 114.55060235330194,
+        "width": 24,
+        "height": 36,
+        "rotation": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "anchorX": 0,
+        "anchorY": 0
+      },
+      "properties": {
+        "text": "O",
+        "fontFamily": "Helvetica",
+        "fontSize": 28,
+        "fontWeight": "700",
+        "color": "hsl(90, 70%, 70%)",
+        "align": "center",
+        "baseline": "top"
+      }
+    },
+    {
+      "id": "l11",
+      "type": "typography:text",
+      "name": "Char \"N\" (f4)",
+      "visible": true,
+      "locked": false,
+      "opacity": 1,
+      "blendMode": "normal",
+      "transform": {
+        "x": 1478,
+        "y": 114.17848549326277,
+        "width": 24,
+        "height": 36,
+        "rotation": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "anchorX": 0,
+        "anchorY": 0
+      },
+      "properties": {
+        "text": "N",
+        "fontFamily": "Helvetica",
+        "fontSize": 28,
+        "fontWeight": "700",
+        "color": "hsl(120, 70%, 70%)",
+        "align": "center",
+        "baseline": "top"
+      }
+    }
+  ]
+}

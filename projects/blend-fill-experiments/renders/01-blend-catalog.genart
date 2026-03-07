@@ -1,0 +1,136 @@
+{
+  "genart": "1.2",
+  "id": "01-blend-catalog",
+  "title": "Blend Catalog",
+  "created": "2026-03-06T00:00:00Z",
+  "modified": "2026-03-06T00:00:00Z",
+  "renderer": {
+    "type": "canvas2d"
+  },
+  "canvas": {
+    "width": 1200,
+    "height": 900
+  },
+  "parameters": [],
+  "colors": [],
+  "state": {
+    "seed": 1,
+    "params": {},
+    "colorPalette": []
+  },
+  "algorithm": "function sketch(ctx){ctx.fillStyle='#faf8f2';ctx.fillRect(0,0,1200,900);var blends=[{label:'circle -> star-5',y:40},{label:'rect -> triangle',y:250},{label:'polygon-6 -> star-8',y:460},{label:'triangle -> circle',y:670}];ctx.fillStyle='#333';ctx.font='bold 14px sans-serif';for(var i=0;i<blends.length;i++){ctx.fillText(blends[i].label,20,blends[i].y+20);}return{};}",
+  "layers": [
+    {
+      "id": "l1",
+      "type": "shapes:blend",
+      "name": "Circle to Star-5",
+      "visible": true,
+      "locked": false,
+      "opacity": 1,
+      "blendMode": "normal",
+      "transform": {
+        "x": 20,
+        "y": 70,
+        "width": 1160,
+        "height": 160,
+        "rotation": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "anchorX": 0,
+        "anchorY": 0
+      },
+      "properties": {
+        "start": "{\"path\":\"circle\",\"fill\":\"#E63946\",\"stroke\":null,\"strokeWidth\":0,\"opacity\":1,\"scale\":1,\"rotation\":0}",
+        "end": "{\"path\":\"star-5\",\"fill\":\"#457B9D\",\"stroke\":null,\"strokeWidth\":0,\"opacity\":1,\"scale\":1,\"rotation\":0}",
+        "mode": "steps",
+        "steps": 8,
+        "easing": "linear",
+        "showEndpoints": true
+      }
+    },
+    {
+      "id": "l2",
+      "type": "shapes:blend",
+      "name": "Rect to Triangle",
+      "visible": true,
+      "locked": false,
+      "opacity": 1,
+      "blendMode": "normal",
+      "transform": {
+        "x": 20,
+        "y": 280,
+        "width": 1160,
+        "height": 160,
+        "rotation": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "anchorX": 0,
+        "anchorY": 0
+      },
+      "properties": {
+        "start": "{\"path\":\"rect\",\"fill\":\"#2A9D8F\",\"stroke\":null,\"strokeWidth\":0,\"opacity\":1,\"scale\":1,\"rotation\":0}",
+        "end": "{\"path\":\"triangle\",\"fill\":\"#E9C46A\",\"stroke\":null,\"strokeWidth\":0,\"opacity\":1,\"scale\":1,\"rotation\":0}",
+        "mode": "steps",
+        "steps": 10,
+        "easing": "linear",
+        "showEndpoints": true
+      }
+    },
+    {
+      "id": "l3",
+      "type": "shapes:blend",
+      "name": "Polygon-6 to Star-8",
+      "visible": true,
+      "locked": false,
+      "opacity": 1,
+      "blendMode": "normal",
+      "transform": {
+        "x": 20,
+        "y": 490,
+        "width": 1160,
+        "height": 160,
+        "rotation": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "anchorX": 0,
+        "anchorY": 0
+      },
+      "properties": {
+        "start": "{\"path\":\"polygon-6\",\"fill\":\"#264653\",\"stroke\":null,\"strokeWidth\":0,\"opacity\":1,\"scale\":1,\"rotation\":0}",
+        "end": "{\"path\":\"star-8\",\"fill\":\"#F4A261\",\"stroke\":null,\"strokeWidth\":0,\"opacity\":1,\"scale\":1,\"rotation\":0}",
+        "mode": "steps",
+        "steps": 12,
+        "easing": "linear",
+        "showEndpoints": true
+      }
+    },
+    {
+      "id": "l4",
+      "type": "shapes:blend",
+      "name": "Triangle to Circle",
+      "visible": true,
+      "locked": false,
+      "opacity": 1,
+      "blendMode": "normal",
+      "transform": {
+        "x": 20,
+        "y": 700,
+        "width": 1160,
+        "height": 160,
+        "rotation": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "anchorX": 0,
+        "anchorY": 0
+      },
+      "properties": {
+        "start": "{\"path\":\"triangle\",\"fill\":\"#6A0572\",\"stroke\":null,\"strokeWidth\":0,\"opacity\":1,\"scale\":1,\"rotation\":0}",
+        "end": "{\"path\":\"circle\",\"fill\":\"#F72585\",\"stroke\":null,\"strokeWidth\":0,\"opacity\":1,\"scale\":1,\"rotation\":0}",
+        "mode": "steps",
+        "steps": 14,
+        "easing": "linear",
+        "showEndpoints": true
+      }
+    }
+  ]
+}

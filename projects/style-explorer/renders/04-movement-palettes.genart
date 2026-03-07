@@ -1,0 +1,23 @@
+{
+  "genart": "1.2",
+  "id": "04-movement-palettes",
+  "title": "Movement Palettes",
+  "created": "2026-03-06T00:00:00Z",
+  "modified": "2026-03-06T00:00:00Z",
+  "renderer": {
+    "type": "canvas2d"
+  },
+  "canvas": {
+    "width": 1200,
+    "height": 1880
+  },
+  "parameters": [],
+  "colors": [],
+  "state": {
+    "seed": 1,
+    "params": {},
+    "colorPalette": []
+  },
+  "algorithm": "function sketch(ctx){var W=1200,H=1880,rH=60;var EC={\"ancient\":\"#8B7355\",\"medieval\":\"#6B4E3D\",\"renaissance\":\"#A0785A\",\"baroque\":\"#7B2D26\",\"neoclassical\":\"#4A6B5C\",\"modern-early\":\"#3A6B9F\",\"modern-mid\":\"#E07B39\",\"modern-late\":\"#C23B22\",\"postmodern\":\"#7B2D8B\",\"contemporary\":\"#2B8B6B\"};ctx.fillStyle='#0A0A0A';ctx.fillRect(0,0,W,H);ctx.fillStyle='#E0E0E0';ctx.font='bold 24px sans-serif';ctx.fillText('Movement Palettes \\u2014 Merged & Sorted by Luminance',20,36);ctx.font='13px sans-serif';ctx.fillStyle='#666';ctx.fillText('getMovementPalettes() + mergedPalette() + sortByLuminance()',20,56);var mp=[[\"Impressionism\",\"modern-early\",2,[\"#8B4513\",\"#4B6A2E\",\"#4169E1\",\"#8B7355\",\"#228B22\",\"#87CEEB\",\"#90EE90\",\"#FFD700\",\"#F5DEB3\",\"#F5F5DC\",\"#FFFACD\"],[\"#5F90A5\",\"#87CEEB\",\"#ABDDF1\"]],[\"Pointillism\",\"modern-early\",1,[],null],[\"Post-Impressionism\",\"modern-early\",2,[],null],[\"Art Nouveau\",\"modern-early\",2,[],null],[\"Expressionism\",\"modern-early\",1,[],null],[\"Fauvism\",\"modern-early\",1,[],null],[\"Cubism\",\"modern-early\",2,[],null],[\"Futurism\",\"modern-early\",1,[],null],[\"Suprematism\",\"modern-early\",1,[],null],[\"Constructivism\",\"modern-early\",1,[],null],[\"De Stijl\",\"modern-early\",1,[],null],[\"Bauhaus\",\"modern-early\",1,[\"#000000\",\"#003366\",\"#CC0000\",\"#888888\",\"#FFCC00\",\"#F5F0E8\",\"#FFFFFF\"],[\"#5F5F5F\",\"#888888\",\"#ACACAC\"]],[\"Abstract Expressionism\",\"modern-mid\",2,[],null],[\"Color Field\",\"modern-mid\",1,[],null],[\"Hard-Edge Painting\",\"modern-mid\",1,[],null],[\"Pop Art\",\"modern-late\",2,[],null],[\"Op Art\",\"modern-late\",2,[],null],[\"Minimalism\",\"modern-late\",1,[],null],[\"Memphis Design\",\"postmodern\",1,[],null],[\"Glitch Art\",\"contemporary\",2,[],null],[\"Generative Art\",\"contemporary\",2,[],null],[\"Ukiyo-e\",\"modern-early\",2,[],null],[\"Sumi-e (Ink Wash)\",\"medieval\",2,[\"#2A2010\",\"#4A3820\",\"#CC2200\",\"#7A6650\",\"#F8F2E4\"],[\"#8F1800\",\"#CC2200\",\"#DB644D\"]],[\"Islamic Geometric Art\",\"medieval\",2,[],null],[\"Baroque\",\"baroque\",1,[],null],[\"Surrealism\",\"modern-early\",1,[],null],[\"Synthwave / Retrowave\",\"contemporary\",1,[\"#0D0026\",\"#3D005A\",\"#FF006E\",\"#FF00CC\",\"#FF9900\",\"#00FFCC\",\"#FFFFFF\"],[\"#B3008F\",\"#FF00CC\",\"#FF4DDB\"]],[\"Vaporwave\",\"contemporary\",1,[\"#B967FF\",\"#FF71CE\",\"#01CDFE\",\"#05FFA1\",\"#FFFB96\",\"#FFFFFF\"],[\"#04B371\",\"#05FFA1\",\"#50FFBD\"]],[\"Wabi-Sabi\",\"contemporary\",1,[],null],[\"Risograph\",\"contemporary\",1,[],null]];for(var i=0;i<mp.length;i++){var m=mp[i],y=80+i*rH;ctx.fillStyle='#999';ctx.font='bold 12px sans-serif';ctx.textAlign='right';ctx.fillText(m[0],200,y+24);ctx.textAlign='left';ctx.fillStyle=EC[m[1]]||'#555';ctx.fillRect(210,y+12,6,16);var cols=m[3];if(cols.length>0){var sW=700,segW=sW/cols.length;for(var c=0;c<cols.length;c++){ctx.fillStyle=cols[c];ctx.fillRect(230+c*segW,y+6,segW,28);}ctx.strokeStyle='rgba(255,255,255,0.08)';ctx.lineWidth=1;ctx.strokeRect(230,y+6,sW,28);}if(m[4]&&m[4].length>=3){var dx=950;ctx.fillStyle=m[4][0];ctx.fillRect(dx,y+8,20,24);ctx.fillStyle=m[4][1];ctx.fillRect(dx+22,y+8,20,24);ctx.fillStyle=m[4][2];ctx.fillRect(dx+44,y+8,20,24);}ctx.fillStyle='#444';ctx.font='10px sans-serif';ctx.fillText(m[2]+' recipe'+(m[2]>1?'s':''),1100,y+24);}return{};}",
+  "layers": []
+}

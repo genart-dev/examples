@@ -1,0 +1,54 @@
+{
+  "genart": "1.2",
+  "id": "02-breathing-text",
+  "title": "Breathing Text",
+  "created": "2026-03-06T00:00:00Z",
+  "modified": "2026-03-06T00:00:00Z",
+  "renderer": {
+    "type": "canvas2d"
+  },
+  "canvas": {
+    "width": 2036,
+    "height": 200
+  },
+  "parameters": [],
+  "colors": [],
+  "state": {
+    "seed": 1,
+    "params": {},
+    "colorPalette": []
+  },
+  "algorithm": "function sketch(ctx){ctx.fillStyle='#0d0d1a';ctx.fillRect(0,0,2036,200);ctx.fillStyle='#ccc';ctx.font='bold 14px sans-serif';ctx.fillText('Breathing Text \\u2014 Sine-Wave Scale Oscillation',4,18);for(var i=0;i<8;i++){var x=4+i*254;ctx.fillStyle='#16162a';ctx.fillRect(x,30,250,150);ctx.fillStyle='#666';ctx.font='9px sans-serif';ctx.fillText('f'+i,x+2,30+150+12);}return{};}",
+  "layers": [
+    {
+      "id": "l1",
+      "type": "typography:text",
+      "name": "Breathe (f2, peak)",
+      "visible": true,
+      "locked": false,
+      "opacity": 1,
+      "blendMode": "normal",
+      "transform": {
+        "x": 512,
+        "y": 75,
+        "width": 250,
+        "height": 60,
+        "rotation": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "anchorX": 0,
+        "anchorY": 0
+      },
+      "properties": {
+        "text": "Breathe",
+        "fontFamily": "Georgia",
+        "fontSize": 48,
+        "fontWeight": "400",
+        "fontStyle": "italic",
+        "color": "rgba(200,220,255,1)",
+        "align": "center",
+        "baseline": "top"
+      }
+    }
+  ]
+}

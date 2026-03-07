@@ -1,0 +1,104 @@
+{
+  "genart": "1.2",
+  "id": "03-filter-sweep",
+  "title": "Filter Sweep",
+  "created": "2026-03-06T00:00:00Z",
+  "modified": "2026-03-06T00:00:00Z",
+  "renderer": {
+    "type": "canvas2d"
+  },
+  "canvas": {
+    "width": 1732,
+    "height": 230
+  },
+  "parameters": [],
+  "colors": [],
+  "state": {
+    "seed": 1,
+    "params": {},
+    "colorPalette": []
+  },
+  "algorithm": "function sketch(ctx){ctx.fillStyle='#0d0d1a';ctx.fillRect(0,0,1732,230);ctx.fillStyle='#ccc';ctx.font='bold 14px sans-serif';ctx.fillText('Filter Sweep \\u2014 Duotone + Grain on Static Figure',4,18);for(var i=0;i<12;i++){var x=4+i*144,y=30;ctx.save();ctx.fillStyle='#f0ece4';ctx.fillRect(x,y,140,180);ctx.restore();ctx.fillStyle='#666';ctx.font='9px sans-serif';ctx.fillText('f'+i,x+2,y+180+12);}return{};}",
+  "layers": [
+    {
+      "id": "l1",
+      "type": "figure:mannequin",
+      "name": "Static Figure (f0)",
+      "visible": true,
+      "locked": false,
+      "opacity": 1,
+      "blendMode": "normal",
+      "transform": {
+        "x": 4,
+        "y": 30,
+        "width": 140,
+        "height": 180,
+        "rotation": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "anchorX": 0,
+        "anchorY": 0
+      },
+      "properties": {
+        "method": "bean",
+        "showJoints": true,
+        "jointRadius": 5,
+        "showRibcagePelvis": true,
+        "transparency": 1,
+        "guideColor": "rgba(30,30,50,0.9)",
+        "lineWidth": 2
+      }
+    },
+    {
+      "id": "l2",
+      "type": "filters:duotone",
+      "name": "Duotone (f6, mid sweep)",
+      "visible": true,
+      "locked": false,
+      "opacity": 1,
+      "blendMode": "normal",
+      "transform": {
+        "x": 868,
+        "y": 30,
+        "width": 140,
+        "height": 180,
+        "rotation": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "anchorX": 0,
+        "anchorY": 0
+      },
+      "properties": {
+        "darkColor": "#1D1440",
+        "lightColor": "#D8B5A8",
+        "intensity": 0.7
+      }
+    },
+    {
+      "id": "l3",
+      "type": "filters:grain",
+      "name": "Grain (f11, max)",
+      "visible": true,
+      "locked": false,
+      "opacity": 1,
+      "blendMode": "normal",
+      "transform": {
+        "x": 1588,
+        "y": 30,
+        "width": 140,
+        "height": 180,
+        "rotation": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "anchorX": 0,
+        "anchorY": 0
+      },
+      "properties": {
+        "intensity": 0.08,
+        "size": 1,
+        "seed": 100,
+        "monochrome": true
+      }
+    }
+  ]
+}

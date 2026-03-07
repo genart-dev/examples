@@ -1,0 +1,123 @@
+{
+  "genart": "1.2",
+  "id": "02-gesture-fade",
+  "title": "Gesture Fade",
+  "created": "2026-03-06T00:00:00Z",
+  "modified": "2026-03-06T00:00:00Z",
+  "renderer": {
+    "type": "canvas2d"
+  },
+  "canvas": {
+    "width": 1732,
+    "height": 230
+  },
+  "parameters": [],
+  "colors": [],
+  "state": {
+    "seed": 1,
+    "params": {},
+    "colorPalette": []
+  },
+  "algorithm": "function sketch(ctx){ctx.fillStyle='#0d0d1a';ctx.fillRect(0,0,1732,230);ctx.fillStyle='#ccc';ctx.font='bold 14px sans-serif';ctx.fillText('Gesture Fade \\u2014 Opacity Keyframes In/Out',4,18);for(var i=0;i<12;i++){var x=4+i*144,y=30;ctx.save();ctx.fillStyle='#f0ece4';ctx.fillRect(x,y,140,180);ctx.restore();ctx.fillStyle='#666';ctx.font='9px sans-serif';ctx.fillText('f'+i,x+2,y+180+12);}return{};}",
+  "layers": [
+    {
+      "id": "l1",
+      "type": "figure:gesture",
+      "name": "Gesture (f6, full)",
+      "visible": true,
+      "locked": false,
+      "opacity": 1,
+      "blendMode": "normal",
+      "transform": {
+        "x": 868,
+        "y": 30,
+        "width": 140,
+        "height": 180,
+        "rotation": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "anchorX": 0,
+        "anchorY": 0
+      },
+      "properties": {
+        "lineOfAction": "[{\"x\":0.5,\"y\":0.05},{\"x\":0.48,\"y\":0.25},{\"x\":0.5,\"y\":0.5},{\"x\":0.48,\"y\":0.75},{\"x\":0.5,\"y\":0.95}]",
+        "rhythmCurves": "[{\"points\":[{\"x\":0.4,\"y\":0.15},{\"x\":0.45,\"y\":0.3},{\"x\":0.55,\"y\":0.4}],\"label\":\"shoulder\"},{\"points\":[{\"x\":0.6,\"y\":0.15},{\"x\":0.55,\"y\":0.3},{\"x\":0.45,\"y\":0.4}],\"label\":\"hip\"}]",
+        "showLineOfAction": true,
+        "showRhythmCurves": true,
+        "curveStyle": "smooth",
+        "taper": true,
+        "taperAmount": 0.7,
+        "lineOfActionColor": "rgba(255,50,50,0.6)",
+        "rhythmColor": "rgba(50,150,255,0.5)",
+        "guideColor": "rgba(0,200,255,0.5)",
+        "lineWidth": 2
+      }
+    },
+    {
+      "id": "l2",
+      "type": "figure:gesture",
+      "name": "Gesture (f2, fading in)",
+      "visible": true,
+      "locked": false,
+      "opacity": 0.5,
+      "blendMode": "normal",
+      "transform": {
+        "x": 292,
+        "y": 30,
+        "width": 140,
+        "height": 180,
+        "rotation": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "anchorX": 0,
+        "anchorY": 0
+      },
+      "properties": {
+        "lineOfAction": "[{\"x\":0.5,\"y\":0.05},{\"x\":0.48,\"y\":0.25},{\"x\":0.5,\"y\":0.5},{\"x\":0.48,\"y\":0.75},{\"x\":0.5,\"y\":0.95}]",
+        "rhythmCurves": "[{\"points\":[{\"x\":0.4,\"y\":0.15},{\"x\":0.45,\"y\":0.3},{\"x\":0.55,\"y\":0.4}],\"label\":\"shoulder\"},{\"points\":[{\"x\":0.6,\"y\":0.15},{\"x\":0.55,\"y\":0.3},{\"x\":0.45,\"y\":0.4}],\"label\":\"hip\"}]",
+        "showLineOfAction": true,
+        "showRhythmCurves": true,
+        "curveStyle": "smooth",
+        "taper": true,
+        "taperAmount": 0.7,
+        "lineOfActionColor": "rgba(255,50,50,0.3)",
+        "rhythmColor": "rgba(50,150,255,0.25)",
+        "guideColor": "rgba(0,200,255,0.25)",
+        "lineWidth": 2
+      }
+    },
+    {
+      "id": "l3",
+      "type": "figure:gesture",
+      "name": "Gesture (f10, fading out)",
+      "visible": true,
+      "locked": false,
+      "opacity": 0.33,
+      "blendMode": "normal",
+      "transform": {
+        "x": 1444,
+        "y": 30,
+        "width": 140,
+        "height": 180,
+        "rotation": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "anchorX": 0,
+        "anchorY": 0
+      },
+      "properties": {
+        "lineOfAction": "[{\"x\":0.5,\"y\":0.05},{\"x\":0.48,\"y\":0.25},{\"x\":0.5,\"y\":0.5},{\"x\":0.48,\"y\":0.75},{\"x\":0.5,\"y\":0.95}]",
+        "rhythmCurves": "[{\"points\":[{\"x\":0.4,\"y\":0.15},{\"x\":0.45,\"y\":0.3},{\"x\":0.55,\"y\":0.4}],\"label\":\"shoulder\"},{\"points\":[{\"x\":0.6,\"y\":0.15},{\"x\":0.55,\"y\":0.3},{\"x\":0.45,\"y\":0.4}],\"label\":\"hip\"}]",
+        "showLineOfAction": true,
+        "showRhythmCurves": true,
+        "curveStyle": "smooth",
+        "taper": true,
+        "taperAmount": 0.7,
+        "lineOfActionColor": "rgba(255,50,50,0.2)",
+        "rhythmColor": "rgba(50,150,255,0.15)",
+        "guideColor": "rgba(0,200,255,0.15)",
+        "lineWidth": 2
+      }
+    }
+  ]
+}

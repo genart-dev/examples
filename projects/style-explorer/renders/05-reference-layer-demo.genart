@@ -1,0 +1,213 @@
+{
+  "genart": "1.2",
+  "id": "05-reference-layer-demo",
+  "title": "Reference Layer Demo",
+  "created": "2026-03-06T00:00:00Z",
+  "modified": "2026-03-06T00:00:00Z",
+  "renderer": {
+    "type": "canvas2d"
+  },
+  "canvas": {
+    "width": 1312,
+    "height": 502
+  },
+  "parameters": [],
+  "colors": [],
+  "state": {
+    "seed": 1,
+    "params": {},
+    "colorPalette": []
+  },
+  "algorithm": "function sketch(ctx){var W=1312,H=502;ctx.fillStyle='#0A0A0A';ctx.fillRect(0,0,W,H);ctx.fillStyle='#E0E0E0';ctx.font='bold 24px sans-serif';ctx.fillText('Reference Layer \\u2014 styles:reference (plugin-styles)',16,36);ctx.font='13px sans-serif';ctx.fillStyle='#666';ctx.fillText('referenceLayerType displays palette swatches + style metadata as a guide layer',16,56);for(var i=0;i<7;i++){var col=i%4,row=Math.floor(i/4);var x=16+col*320,y=70+16+row*200;ctx.fillStyle='#F5F0E8';ctx.fillRect(x+4,y+4,312,192);}return{};}",
+  "layers": [
+    {
+      "id": "l1",
+      "type": "styles:reference",
+      "name": "Impressionist Landscape",
+      "visible": true,
+      "locked": false,
+      "opacity": 1,
+      "blendMode": "normal",
+      "transform": {
+        "x": 20,
+        "y": 90,
+        "width": 312,
+        "height": 192,
+        "rotation": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "anchorX": 0,
+        "anchorY": 0
+      },
+      "properties": {
+        "styleId": "impressionism",
+        "styleKind": "movement",
+        "recipeId": "impressionism-landscape",
+        "_name": "Impressionist Landscape",
+        "_palette": "[\"#87CEEB\",\"#228B22\",\"#FFD700\",\"#8B4513\",\"#F5F5DC\",\"#4169E1\",\"#90EE90\"]"
+      }
+    },
+    {
+      "id": "l2",
+      "type": "styles:reference",
+      "name": "Sumi-e — Bamboo",
+      "visible": true,
+      "locked": false,
+      "opacity": 1,
+      "blendMode": "normal",
+      "transform": {
+        "x": 340,
+        "y": 90,
+        "width": 312,
+        "height": 192,
+        "rotation": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "anchorX": 0,
+        "anchorY": 0
+      },
+      "properties": {
+        "styleId": "sumi-e",
+        "styleKind": "movement",
+        "recipeId": "sumi-e-bamboo",
+        "_name": "Sumi-e — Bamboo",
+        "_palette": "[\"#F8F2E4\",\"#2A2010\",\"#4A3820\",\"#7A6650\",\"#CC2200\"]"
+      }
+    },
+    {
+      "id": "l3",
+      "type": "styles:reference",
+      "name": "Van Gogh — Starry Night",
+      "visible": true,
+      "locked": false,
+      "opacity": 1,
+      "blendMode": "normal",
+      "transform": {
+        "x": 660,
+        "y": 90,
+        "width": 312,
+        "height": 192,
+        "rotation": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "anchorX": 0,
+        "anchorY": 0
+      },
+      "properties": {
+        "styleId": "van-gogh",
+        "styleKind": "artist",
+        "recipeId": "van-gogh-starry-night",
+        "_name": "Van Gogh — Starry Night",
+        "_palette": "[\"#1C2B6A\",\"#4169E1\",\"#FFD700\",\"#0D1B2A\",\"#87CEEB\",\"#F0E68C\",\"#2F4F4F\"]"
+      }
+    },
+    {
+      "id": "l4",
+      "type": "styles:reference",
+      "name": "Bauhaus Geometric Composition",
+      "visible": true,
+      "locked": false,
+      "opacity": 1,
+      "blendMode": "normal",
+      "transform": {
+        "x": 980,
+        "y": 90,
+        "width": 312,
+        "height": 192,
+        "rotation": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "anchorX": 0,
+        "anchorY": 0
+      },
+      "properties": {
+        "styleId": "bauhaus",
+        "styleKind": "movement",
+        "recipeId": "bauhaus-composition",
+        "_name": "Bauhaus Geometric Composition",
+        "_palette": "[\"#CC0000\",\"#003366\",\"#FFCC00\",\"#000000\",\"#F5F0E8\",\"#FFFFFF\",\"#888888\"]"
+      }
+    },
+    {
+      "id": "l5",
+      "type": "styles:reference",
+      "name": "Synthwave — Retrowave Grid",
+      "visible": true,
+      "locked": false,
+      "opacity": 1,
+      "blendMode": "normal",
+      "transform": {
+        "x": 20,
+        "y": 290,
+        "width": 312,
+        "height": 192,
+        "rotation": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "anchorX": 0,
+        "anchorY": 0
+      },
+      "properties": {
+        "styleId": "synthwave",
+        "styleKind": "movement",
+        "recipeId": "synthwave-grid",
+        "_name": "Synthwave — Retrowave Grid",
+        "_palette": "[\"#0D0026\",\"#3D005A\",\"#FF006E\",\"#FF9900\",\"#FF00CC\",\"#00FFCC\",\"#FFFFFF\"]"
+      }
+    },
+    {
+      "id": "l6",
+      "type": "styles:reference",
+      "name": "Minimalist Composition",
+      "visible": true,
+      "locked": false,
+      "opacity": 1,
+      "blendMode": "normal",
+      "transform": {
+        "x": 340,
+        "y": 290,
+        "width": 312,
+        "height": 192,
+        "rotation": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "anchorX": 0,
+        "anchorY": 0
+      },
+      "properties": {
+        "styleId": "minimalism",
+        "styleKind": "movement",
+        "recipeId": "minimalism-composition",
+        "_name": "Minimalist Composition",
+        "_palette": "[\"#F8F8F5\",\"#2A2A2A\",\"#7A7A7A\",\"#C8B89A\",\"#4A7AB5\"]"
+      }
+    },
+    {
+      "id": "l7",
+      "type": "styles:reference",
+      "name": "Generative — Flow Field",
+      "visible": true,
+      "locked": false,
+      "opacity": 1,
+      "blendMode": "normal",
+      "transform": {
+        "x": 660,
+        "y": 290,
+        "width": 312,
+        "height": 192,
+        "rotation": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "anchorX": 0,
+        "anchorY": 0
+      },
+      "properties": {
+        "styleId": "generative-art",
+        "styleKind": "movement",
+        "recipeId": "generative-flow-field",
+        "_name": "Generative — Flow Field",
+        "_palette": "[\"#0D0D0D\",\"#E8D4A8\",\"#7EB8D4\",\"#D4987E\",\"#A8C4A8\",\"#C4A8C4\"]"
+      }
+    }
+  ]
+}

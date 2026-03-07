@@ -1,0 +1,23 @@
+{
+  "genart": "1.2",
+  "id": "group-08-food-drink",
+  "title": "Symbols: Food & Drink",
+  "created": "2026-03-06T00:00:00Z",
+  "modified": "2026-03-06T00:00:00Z",
+  "renderer": {
+    "type": "canvas2d"
+  },
+  "canvas": {
+    "width": 998,
+    "height": 406
+  },
+  "parameters": [],
+  "colors": [],
+  "state": {
+    "seed": 1,
+    "params": {},
+    "colorPalette": []
+  },
+  "algorithm": "function sketch(ctx){var W=998,H=406,COLS=6,cW=150,cH=130,lH=28,pad=14,hH=48;ctx.fillStyle='#f7f7ef';ctx.fillRect(0,0,W,H);ctx.fillStyle='#222';ctx.font='bold 18px sans-serif';ctx.fillText('@genart-dev/symbols \\u2014 Food & Drink',pad,pad+22);ctx.strokeStyle='#ccc';ctx.lineWidth=1;ctx.beginPath();ctx.moveTo(pad,hH-8);ctx.lineTo(W-pad,hH-8);ctx.stroke();var icons=[\"coffee\",\"beer\",\"wine\",\"martini\",\"cake\",\"cookie\",\"bowl\",\"fork-knife\",\"pizza\",\"hamburger\",\"ice-cream\",\"carrot\"];for(var i=0;i<icons.length;i++){var col=i%COLS,row=Math.floor(i/COLS);var x=pad+col*(cW+pad),y=hH+row*(cH+lH+pad);ctx.fillStyle='#ffffff';ctx.strokeStyle='#e0e0d8';ctx.lineWidth=1;ctx.beginPath();ctx.roundRect(x,y,cW,cH,8);ctx.fill();ctx.stroke();ctx.fillStyle='#bbb';ctx.font='32px sans-serif';ctx.textAlign='center';ctx.fillText('\\u25CB',x+cW/2,y+cH/2+12);ctx.fillStyle='#333';ctx.font='13px sans-serif';ctx.fillText(icons[i].replace(/-/g,' '),x+cW/2,y+cH+13);ctx.fillStyle='#999';ctx.font='10px sans-serif';ctx.fillText('ph:'+icons[i],x+cW/2,y+cH+25);ctx.textAlign='left';}return{};}",
+  "layers": []
+}

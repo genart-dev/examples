@@ -1,0 +1,574 @@
+{
+  "genart": "1.2",
+  "id": "abstract-1-primordial-flux",
+  "title": "I. Primordial Flux",
+  "created": "2026-03-06T00:00:00Z",
+  "modified": "2026-03-06T00:00:00Z",
+  "renderer": {
+    "type": "canvas2d"
+  },
+  "canvas": {
+    "width": 900,
+    "height": 1200
+  },
+  "parameters": [],
+  "colors": [],
+  "state": {
+    "seed": 1,
+    "params": {},
+    "colorPalette": []
+  },
+  "algorithm": "function sketch(ctx){ctx.fillStyle='#0d0a1a';ctx.fillRect(0,0,900,1200);ctx.fillStyle='rgba(200,160,255,0.55)';ctx.font='italic 22px Georgia, serif';ctx.fillText('I. Primordial Flux',36,1172);return{};}",
+  "layers": [
+    {
+      "id": "l1",
+      "type": "textures:washi",
+      "name": "Washi Background",
+      "visible": true,
+      "locked": false,
+      "opacity": 1,
+      "blendMode": "normal",
+      "transform": {
+        "x": 0,
+        "y": 0,
+        "width": 900,
+        "height": 1200,
+        "rotation": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "anchorX": 0,
+        "anchorY": 0
+      },
+      "properties": {
+        "fiberDensity": 0.35,
+        "fiberLength": 120,
+        "color": "#1a1230",
+        "seed": 7
+      }
+    },
+    {
+      "id": "l2",
+      "type": "painting:watercolor",
+      "name": "Vortex Violet",
+      "visible": true,
+      "locked": false,
+      "opacity": 0.92,
+      "blendMode": "normal",
+      "transform": {
+        "x": 0,
+        "y": 0,
+        "width": 900,
+        "height": 1200,
+        "rotation": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "anchorX": 0,
+        "anchorY": 0
+      },
+      "properties": {
+        "field": "vortex:0.5:0.45:0.38",
+        "fieldCols": 24,
+        "fieldRows": 24,
+        "colors": "[\"#2a1060\",\"#5a2d9e\",\"#8a4fcc\",\"#c482f4\"]",
+        "dilution": 0.28,
+        "granulation": 0.55,
+        "edgeStyle": "lost",
+        "opacity": 0.92,
+        "seed": 11
+      }
+    },
+    {
+      "id": "l3",
+      "type": "painting:watercolor",
+      "name": "Blue-Violet Bloom",
+      "visible": true,
+      "locked": false,
+      "opacity": 0.6,
+      "blendMode": "normal",
+      "transform": {
+        "x": 0,
+        "y": 0,
+        "width": 900,
+        "height": 1200,
+        "rotation": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "anchorX": 0,
+        "anchorY": 0
+      },
+      "properties": {
+        "field": "vortex:0.38:0.62:0.22",
+        "fieldCols": 18,
+        "fieldRows": 18,
+        "colors": "[\"#1a2880\",\"#3d5fd4\",\"#90b0ff\"]",
+        "dilution": 0.45,
+        "granulation": 0.3,
+        "edgeStyle": "diffuse",
+        "opacity": 0.6,
+        "seed": 77
+      }
+    },
+    {
+      "id": "l4",
+      "type": "painting:watercolor",
+      "name": "Radial Magenta",
+      "visible": true,
+      "locked": false,
+      "opacity": 0.38,
+      "blendMode": "normal",
+      "transform": {
+        "x": 0,
+        "y": 0,
+        "width": 900,
+        "height": 1200,
+        "rotation": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "anchorX": 0,
+        "anchorY": 0
+      },
+      "properties": {
+        "field": "radial:0.12:0.15:diverge",
+        "fieldCols": 16,
+        "fieldRows": 16,
+        "colors": "[\"#e040c8\",\"#f090e8\"]",
+        "dilution": 0.6,
+        "granulation": 0.2,
+        "edgeStyle": "diffuse",
+        "opacity": 0.38,
+        "seed": 31,
+        "maskCenterY": 0.18,
+        "maskSpread": 0.15
+      }
+    },
+    {
+      "id": "l5",
+      "type": "painting:ink",
+      "name": "Vortex Ink Lines",
+      "visible": true,
+      "locked": false,
+      "opacity": 0.45,
+      "blendMode": "normal",
+      "transform": {
+        "x": 0,
+        "y": 0,
+        "width": 900,
+        "height": 1200,
+        "rotation": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "anchorX": 0,
+        "anchorY": 0
+      },
+      "properties": {
+        "field": "vortex:0.5:0.45:0.38",
+        "fieldCols": 28,
+        "fieldRows": 28,
+        "colors": "[\"#c0a0ff\"]",
+        "weight": 0.8,
+        "taper": "both",
+        "style": "fluid",
+        "opacity": 0.45,
+        "seed": 55
+      }
+    },
+    {
+      "id": "l6",
+      "type": "shapes:ellipse",
+      "name": "Bokeh #c482f4",
+      "visible": true,
+      "locked": false,
+      "opacity": 0.22,
+      "blendMode": "screen",
+      "transform": {
+        "x": 220,
+        "y": 260,
+        "width": 420,
+        "height": 300,
+        "rotation": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "anchorX": 0,
+        "anchorY": 0
+      },
+      "properties": {
+        "fillColor": "#c482f4",
+        "fillEnabled": true,
+        "strokeEnabled": false
+      }
+    },
+    {
+      "id": "l7",
+      "type": "shapes:ellipse",
+      "name": "Bokeh #3d5fd4",
+      "visible": true,
+      "locked": false,
+      "opacity": 0.2,
+      "blendMode": "screen",
+      "transform": {
+        "x": 380,
+        "y": 580,
+        "width": 340,
+        "height": 340,
+        "rotation": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "anchorX": 0,
+        "anchorY": 0
+      },
+      "properties": {
+        "fillColor": "#3d5fd4",
+        "fillEnabled": true,
+        "strokeEnabled": false
+      }
+    },
+    {
+      "id": "l8",
+      "type": "shapes:ellipse",
+      "name": "Bokeh #8a4fcc",
+      "visible": true,
+      "locked": false,
+      "opacity": 0.16,
+      "blendMode": "screen",
+      "transform": {
+        "x": 60,
+        "y": 620,
+        "width": 240,
+        "height": 380,
+        "rotation": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "anchorX": 0,
+        "anchorY": 0
+      },
+      "properties": {
+        "fillColor": "#8a4fcc",
+        "fillEnabled": true,
+        "strokeEnabled": false
+      }
+    },
+    {
+      "id": "l9",
+      "type": "shapes:ellipse",
+      "name": "Bokeh #e040c8",
+      "visible": true,
+      "locked": false,
+      "opacity": 0.24,
+      "blendMode": "screen",
+      "transform": {
+        "x": 540,
+        "y": 100,
+        "width": 300,
+        "height": 200,
+        "rotation": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "anchorX": 0,
+        "anchorY": 0
+      },
+      "properties": {
+        "fillColor": "#e040c8",
+        "fillEnabled": true,
+        "strokeEnabled": false
+      }
+    },
+    {
+      "id": "l10",
+      "type": "shapes:ellipse",
+      "name": "Bokeh #5a2d9e",
+      "visible": true,
+      "locked": false,
+      "opacity": 0.22,
+      "blendMode": "screen",
+      "transform": {
+        "x": 100,
+        "y": 920,
+        "width": 500,
+        "height": 180,
+        "rotation": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "anchorX": 0,
+        "anchorY": 0
+      },
+      "properties": {
+        "fillColor": "#5a2d9e",
+        "fillEnabled": true,
+        "strokeEnabled": false
+      }
+    },
+    {
+      "id": "l11",
+      "type": "shapes:ellipse",
+      "name": "Bokeh #a060f8",
+      "visible": true,
+      "locked": false,
+      "opacity": 0.28,
+      "blendMode": "screen",
+      "transform": {
+        "x": 650,
+        "y": 450,
+        "width": 180,
+        "height": 140,
+        "rotation": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "anchorX": 0,
+        "anchorY": 0
+      },
+      "properties": {
+        "fillColor": "#a060f8",
+        "fillEnabled": true,
+        "strokeEnabled": false
+      }
+    },
+    {
+      "id": "l12",
+      "type": "shapes:ellipse",
+      "name": "Bokeh #6040e0",
+      "visible": true,
+      "locked": false,
+      "opacity": 0.24,
+      "blendMode": "screen",
+      "transform": {
+        "x": 280,
+        "y": 800,
+        "width": 150,
+        "height": 150,
+        "rotation": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "anchorX": 0,
+        "anchorY": 0
+      },
+      "properties": {
+        "fillColor": "#6040e0",
+        "fillEnabled": true,
+        "strokeEnabled": false
+      }
+    },
+    {
+      "id": "l13",
+      "type": "shapes:ellipse",
+      "name": "Bokeh #d080ff",
+      "visible": true,
+      "locked": false,
+      "opacity": 0.3,
+      "blendMode": "screen",
+      "transform": {
+        "x": 500,
+        "y": 300,
+        "width": 130,
+        "height": 100,
+        "rotation": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "anchorX": 0,
+        "anchorY": 0
+      },
+      "properties": {
+        "fillColor": "#d080ff",
+        "fillEnabled": true,
+        "strokeEnabled": false
+      }
+    },
+    {
+      "id": "l14",
+      "type": "shapes:ellipse",
+      "name": "Bokeh #f0c0ff",
+      "visible": true,
+      "locked": false,
+      "opacity": 0.5,
+      "blendMode": "screen",
+      "transform": {
+        "x": 760,
+        "y": 650,
+        "width": 60,
+        "height": 60,
+        "rotation": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "anchorX": 0,
+        "anchorY": 0
+      },
+      "properties": {
+        "fillColor": "#f0c0ff",
+        "fillEnabled": true,
+        "strokeEnabled": false
+      }
+    },
+    {
+      "id": "l15",
+      "type": "shapes:ellipse",
+      "name": "Bokeh #80a8ff",
+      "visible": true,
+      "locked": false,
+      "opacity": 0.55,
+      "blendMode": "screen",
+      "transform": {
+        "x": 90,
+        "y": 380,
+        "width": 45,
+        "height": 45,
+        "rotation": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "anchorX": 0,
+        "anchorY": 0
+      },
+      "properties": {
+        "fillColor": "#80a8ff",
+        "fillEnabled": true,
+        "strokeEnabled": false
+      }
+    },
+    {
+      "id": "l16",
+      "type": "shapes:ellipse",
+      "name": "Bokeh #e060d8",
+      "visible": true,
+      "locked": false,
+      "opacity": 0.45,
+      "blendMode": "screen",
+      "transform": {
+        "x": 400,
+        "y": 80,
+        "width": 80,
+        "height": 55,
+        "rotation": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "anchorX": 0,
+        "anchorY": 0
+      },
+      "properties": {
+        "fillColor": "#e060d8",
+        "fillEnabled": true,
+        "strokeEnabled": false
+      }
+    },
+    {
+      "id": "l17",
+      "type": "shapes:ellipse",
+      "name": "Bokeh #c0a0ff",
+      "visible": true,
+      "locked": false,
+      "opacity": 0.5,
+      "blendMode": "screen",
+      "transform": {
+        "x": 680,
+        "y": 980,
+        "width": 50,
+        "height": 50,
+        "rotation": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "anchorX": 0,
+        "anchorY": 0
+      },
+      "properties": {
+        "fillColor": "#c0a0ff",
+        "fillEnabled": true,
+        "strokeEnabled": false
+      }
+    },
+    {
+      "id": "l18",
+      "type": "shapes:ellipse",
+      "name": "Bokeh #9070e8",
+      "visible": true,
+      "locked": false,
+      "opacity": 0.6,
+      "blendMode": "screen",
+      "transform": {
+        "x": 200,
+        "y": 1100,
+        "width": 35,
+        "height": 35,
+        "rotation": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "anchorX": 0,
+        "anchorY": 0
+      },
+      "properties": {
+        "fillColor": "#9070e8",
+        "fillEnabled": true,
+        "strokeEnabled": false
+      }
+    },
+    {
+      "id": "l19",
+      "type": "shapes:ellipse",
+      "name": "Bokeh #f080e0",
+      "visible": true,
+      "locked": false,
+      "opacity": 0.55,
+      "blendMode": "screen",
+      "transform": {
+        "x": 820,
+        "y": 320,
+        "width": 30,
+        "height": 30,
+        "rotation": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "anchorX": 0,
+        "anchorY": 0
+      },
+      "properties": {
+        "fillColor": "#f080e0",
+        "fillEnabled": true,
+        "strokeEnabled": false
+      }
+    },
+    {
+      "id": "l20",
+      "type": "shapes:line",
+      "name": "Structural Line 1",
+      "visible": true,
+      "locked": false,
+      "opacity": 0.35,
+      "blendMode": "normal",
+      "transform": {
+        "x": 0,
+        "y": 396,
+        "width": 900,
+        "height": 60,
+        "rotation": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "anchorX": 0,
+        "anchorY": 0
+      },
+      "properties": {
+        "strokeColor": "#9060d0",
+        "strokeWidth": 1.2
+      }
+    },
+    {
+      "id": "l21",
+      "type": "shapes:line",
+      "name": "Structural Line 2",
+      "visible": true,
+      "locked": false,
+      "opacity": 0.35,
+      "blendMode": "normal",
+      "transform": {
+        "x": 0,
+        "y": 804,
+        "width": 900,
+        "height": 36,
+        "rotation": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "anchorX": 0,
+        "anchorY": 0
+      },
+      "properties": {
+        "strokeColor": "#6040a0",
+        "strokeWidth": 0.7
+      }
+    }
+  ]
+}

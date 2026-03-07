@@ -1,0 +1,135 @@
+{
+  "genart": "1.2",
+  "id": "05-portrait-sequence",
+  "title": "Portrait Sequence",
+  "created": "2026-03-06T00:00:00Z",
+  "modified": "2026-03-06T00:00:00Z",
+  "renderer": {
+    "type": "canvas2d"
+  },
+  "canvas": {
+    "width": 1852,
+    "height": 210
+  },
+  "parameters": [],
+  "colors": [],
+  "state": {
+    "seed": 1,
+    "params": {},
+    "colorPalette": []
+  },
+  "algorithm": "function sketch(ctx){ctx.fillStyle='#0d0d1a';ctx.fillRect(0,0,1852,210);ctx.fillStyle='#ccc';ctx.font='bold 14px sans-serif';ctx.fillText('Portrait Sequence \\u2014 Head Rotation Front \\u2192 3/4 \\u2192 Profile',4,18);for(var i=0;i<12;i++){var x=4+i*154,y=30;ctx.save();ctx.fillStyle='#f0ece4';ctx.fillRect(x,y,150,160);ctx.restore();ctx.fillStyle='#666';ctx.font='9px sans-serif';ctx.fillText('f'+i,x+2,y+160+12);}return{};}",
+  "layers": [
+    {
+      "id": "l1",
+      "type": "figure:head",
+      "name": "Front (f0)",
+      "visible": true,
+      "locked": false,
+      "opacity": 1,
+      "blendMode": "normal",
+      "transform": {
+        "x": 4,
+        "y": 30,
+        "width": 150,
+        "height": 160,
+        "rotation": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "anchorX": 0,
+        "anchorY": 0
+      },
+      "properties": {
+        "position": "{\"x\":0.5,\"y\":0.45}",
+        "headSize": 0.55,
+        "tiltX": 0,
+        "tiltY": 0,
+        "tiltZ": 0,
+        "method": "loomis",
+        "showCrossLines": true,
+        "showJawPlane": true,
+        "showEyeLine": true,
+        "showNoseLine": true,
+        "showChinLine": true,
+        "showEarLine": true,
+        "showBrowLine": true,
+        "guideColor": "rgba(40,120,180,0.8)",
+        "lineWidth": 1.5
+      }
+    },
+    {
+      "id": "l2",
+      "type": "figure:head",
+      "name": "3/4 View (f6)",
+      "visible": true,
+      "locked": false,
+      "opacity": 1,
+      "blendMode": "normal",
+      "transform": {
+        "x": 928,
+        "y": 30,
+        "width": 150,
+        "height": 160,
+        "rotation": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "anchorX": 0,
+        "anchorY": 0
+      },
+      "properties": {
+        "position": "{\"x\":0.5,\"y\":0.45}",
+        "headSize": 0.55,
+        "tiltX": 5,
+        "tiltY": 30,
+        "tiltZ": 0,
+        "method": "loomis",
+        "showCrossLines": true,
+        "showJawPlane": true,
+        "showEyeLine": true,
+        "showNoseLine": true,
+        "showChinLine": true,
+        "showEarLine": true,
+        "showBrowLine": true,
+        "guideColor": "rgba(40,120,180,0.8)",
+        "lineWidth": 1.5
+      }
+    },
+    {
+      "id": "l3",
+      "type": "figure:head",
+      "name": "Near Profile (f11)",
+      "visible": true,
+      "locked": false,
+      "opacity": 1,
+      "blendMode": "normal",
+      "transform": {
+        "x": 1698,
+        "y": 30,
+        "width": 150,
+        "height": 160,
+        "rotation": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "anchorX": 0,
+        "anchorY": 0
+      },
+      "properties": {
+        "position": "{\"x\":0.5,\"y\":0.45}",
+        "headSize": 0.55,
+        "tiltX": 0,
+        "tiltY": 75,
+        "tiltZ": 0,
+        "method": "loomis",
+        "showCrossLines": true,
+        "showJawPlane": true,
+        "showEyeLine": true,
+        "showNoseLine": true,
+        "showChinLine": true,
+        "showEarLine": true,
+        "showBrowLine": true,
+        "guideColor": "rgba(40,120,180,0.8)",
+        "lineWidth": 1.5
+      }
+    }
+  ]
+}

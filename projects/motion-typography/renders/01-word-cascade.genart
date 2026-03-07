@@ -1,0 +1,169 @@
+{
+  "genart": "1.2",
+  "id": "01-word-cascade",
+  "title": "Word Cascade",
+  "created": "2026-03-06T00:00:00Z",
+  "modified": "2026-03-06T00:00:00Z",
+  "renderer": {
+    "type": "canvas2d"
+  },
+  "canvas": {
+    "width": 1636,
+    "height": 300
+  },
+  "parameters": [],
+  "colors": [],
+  "state": {
+    "seed": 1,
+    "params": {},
+    "colorPalette": []
+  },
+  "algorithm": "function sketch(ctx){ctx.fillStyle='#0d0d1a';ctx.fillRect(0,0,1636,300);ctx.fillStyle='#ccc';ctx.font='bold 14px sans-serif';ctx.fillText('Word Cascade \\u2014 Staggered Drop-In',4,18);for(var i=0;i<8;i++){var x=4+i*204;ctx.fillStyle='#16162a';ctx.fillRect(x,30,200,250);ctx.fillStyle='#666';ctx.font='9px sans-serif';ctx.fillText('f'+i,x+2,30+250+12);}return{};}",
+  "layers": [
+    {
+      "id": "l1",
+      "type": "typography:text",
+      "name": "Word \"Motion\" (f7)",
+      "visible": true,
+      "locked": false,
+      "opacity": 1,
+      "blendMode": "normal",
+      "transform": {
+        "x": 1432,
+        "y": 60,
+        "width": 200,
+        "height": 40,
+        "rotation": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "anchorX": 0,
+        "anchorY": 0
+      },
+      "properties": {
+        "text": "Motion",
+        "fontFamily": "Helvetica",
+        "fontSize": 32,
+        "fontWeight": "700",
+        "color": "rgba(255,255,255,1)",
+        "align": "center",
+        "baseline": "top"
+      }
+    },
+    {
+      "id": "l2",
+      "type": "typography:text",
+      "name": "Word \"Design\" (f7)",
+      "visible": true,
+      "locked": false,
+      "opacity": 1,
+      "blendMode": "normal",
+      "transform": {
+        "x": 1432,
+        "y": 102,
+        "width": 200,
+        "height": 40,
+        "rotation": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "anchorX": 0,
+        "anchorY": 0
+      },
+      "properties": {
+        "text": "Design",
+        "fontFamily": "Helvetica",
+        "fontSize": 32,
+        "fontWeight": "700",
+        "color": "rgba(255,255,255,1)",
+        "align": "center",
+        "baseline": "top"
+      }
+    },
+    {
+      "id": "l3",
+      "type": "typography:text",
+      "name": "Word \"Creates\" (f7)",
+      "visible": true,
+      "locked": false,
+      "opacity": 1,
+      "blendMode": "normal",
+      "transform": {
+        "x": 1432,
+        "y": 144,
+        "width": 200,
+        "height": 40,
+        "rotation": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "anchorX": 0,
+        "anchorY": 0
+      },
+      "properties": {
+        "text": "Creates",
+        "fontFamily": "Helvetica",
+        "fontSize": 32,
+        "fontWeight": "700",
+        "color": "rgba(255,255,255,1)",
+        "align": "center",
+        "baseline": "top"
+      }
+    },
+    {
+      "id": "l4",
+      "type": "typography:text",
+      "name": "Word \"Visual\" (f7)",
+      "visible": true,
+      "locked": false,
+      "opacity": 1,
+      "blendMode": "normal",
+      "transform": {
+        "x": 1432,
+        "y": 186,
+        "width": 200,
+        "height": 40,
+        "rotation": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "anchorX": 0,
+        "anchorY": 0
+      },
+      "properties": {
+        "text": "Visual",
+        "fontFamily": "Helvetica",
+        "fontSize": 32,
+        "fontWeight": "700",
+        "color": "rgba(255,255,255,1)",
+        "align": "center",
+        "baseline": "top"
+      }
+    },
+    {
+      "id": "l5",
+      "type": "typography:text",
+      "name": "Word \"Poetry\" (f7)",
+      "visible": true,
+      "locked": false,
+      "opacity": 1,
+      "blendMode": "normal",
+      "transform": {
+        "x": 1432,
+        "y": 228,
+        "width": 200,
+        "height": 40,
+        "rotation": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "anchorX": 0,
+        "anchorY": 0
+      },
+      "properties": {
+        "text": "Poetry",
+        "fontFamily": "Helvetica",
+        "fontSize": 32,
+        "fontWeight": "700",
+        "color": "rgba(255,255,255,1)",
+        "align": "center",
+        "baseline": "top"
+      }
+    }
+  ]
+}

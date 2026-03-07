@@ -1,0 +1,424 @@
+{
+  "genart": "1.2",
+  "id": "abstract-2-ochre-strata",
+  "title": "II. Ochre Strata",
+  "created": "2026-03-06T00:00:00Z",
+  "modified": "2026-03-06T00:00:00Z",
+  "renderer": {
+    "type": "canvas2d"
+  },
+  "canvas": {
+    "width": 900,
+    "height": 1200
+  },
+  "parameters": [],
+  "colors": [],
+  "state": {
+    "seed": 1,
+    "params": {},
+    "colorPalette": []
+  },
+  "algorithm": "function sketch(ctx){ctx.fillStyle='#f2e8d5';ctx.fillRect(0,0,900,1200);ctx.fillStyle='rgba(90,48,16,0.50)';ctx.font='italic 22px Georgia, serif';ctx.fillText('II. Ochre Strata',36,1172);return{};}",
+  "layers": [
+    {
+      "id": "l1",
+      "type": "textures:canvas",
+      "name": "Canvas Texture",
+      "visible": true,
+      "locked": false,
+      "opacity": 1,
+      "blendMode": "normal",
+      "transform": {
+        "x": 0,
+        "y": 0,
+        "width": 900,
+        "height": 1200,
+        "rotation": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "anchorX": 0,
+        "anchorY": 0
+      },
+      "properties": {
+        "weaveScale": 8,
+        "density": 0.5,
+        "roughness": 0.5,
+        "color": "#e8dcc8",
+        "seed": 3
+      }
+    },
+    {
+      "id": "l2",
+      "type": "painting:oil",
+      "name": "Sky Ochre",
+      "visible": true,
+      "locked": false,
+      "opacity": 0.95,
+      "blendMode": "normal",
+      "transform": {
+        "x": 0,
+        "y": 0,
+        "width": 900,
+        "height": 1200,
+        "rotation": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "anchorX": 0,
+        "anchorY": 0
+      },
+      "properties": {
+        "field": "linear:5:0.6",
+        "fieldCols": 22,
+        "fieldRows": 12,
+        "colors": "[\"#e8b830\",\"#f5d040\",\"#fdeea0\"]",
+        "impasto": true,
+        "scumble": false,
+        "blendRadius": 14,
+        "opacity": 0.95,
+        "seed": 10,
+        "maskCenterY": 0.18,
+        "maskSpread": 0.16
+      }
+    },
+    {
+      "id": "l3",
+      "type": "painting:oil",
+      "name": "Sienna Midband",
+      "visible": true,
+      "locked": false,
+      "opacity": 0.96,
+      "blendMode": "normal",
+      "transform": {
+        "x": 0,
+        "y": 0,
+        "width": 900,
+        "height": 1200,
+        "rotation": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "anchorX": 0,
+        "anchorY": 0
+      },
+      "properties": {
+        "field": "noise:3:0.12:2",
+        "fieldCols": 22,
+        "fieldRows": 14,
+        "colors": "[\"#d4600a\",\"#e8842a\",\"#f5a060\"]",
+        "impasto": true,
+        "scumble": true,
+        "blendRadius": 10,
+        "opacity": 0.96,
+        "seed": 20,
+        "maskCenterY": 0.44,
+        "maskSpread": 0.1
+      }
+    },
+    {
+      "id": "l4",
+      "type": "painting:oil",
+      "name": "Raw Umber",
+      "visible": true,
+      "locked": false,
+      "opacity": 0.97,
+      "blendMode": "normal",
+      "transform": {
+        "x": 0,
+        "y": 0,
+        "width": 900,
+        "height": 1200,
+        "rotation": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "anchorX": 0,
+        "anchorY": 0
+      },
+      "properties": {
+        "field": "noise:88:0.08:3",
+        "fieldCols": 22,
+        "fieldRows": 14,
+        "colors": "[\"#6e3610\",\"#906030\",\"#b08050\"]",
+        "impasto": false,
+        "scumble": true,
+        "blendRadius": 8,
+        "opacity": 0.97,
+        "seed": 30,
+        "maskCenterY": 0.64,
+        "maskSpread": 0.09
+      }
+    },
+    {
+      "id": "l5",
+      "type": "painting:oil",
+      "name": "Dark Earth",
+      "visible": true,
+      "locked": false,
+      "opacity": 0.95,
+      "blendMode": "normal",
+      "transform": {
+        "x": 0,
+        "y": 0,
+        "width": 900,
+        "height": 1200,
+        "rotation": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "anchorX": 0,
+        "anchorY": 0
+      },
+      "properties": {
+        "field": "linear:175:0.5",
+        "fieldCols": 22,
+        "fieldRows": 10,
+        "colors": "[\"#3a2008\",\"#542e10\"]",
+        "impasto": false,
+        "scumble": false,
+        "blendRadius": 6,
+        "opacity": 0.95,
+        "seed": 40,
+        "maskCenterY": 0.86,
+        "maskSpread": 0.12
+      }
+    },
+    {
+      "id": "l6",
+      "type": "shapes:rectangle",
+      "name": "Block #8a4a18",
+      "visible": true,
+      "locked": false,
+      "opacity": 0.55,
+      "blendMode": "normal",
+      "transform": {
+        "x": 0,
+        "y": 360,
+        "width": 540,
+        "height": 6,
+        "rotation": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "anchorX": 0,
+        "anchorY": 0
+      },
+      "properties": {
+        "fillColor": "#8a4a18",
+        "fillEnabled": true,
+        "strokeEnabled": false,
+        "cornerRadius": 0
+      }
+    },
+    {
+      "id": "l7",
+      "type": "shapes:rectangle",
+      "name": "Block #c08040",
+      "visible": true,
+      "locked": false,
+      "opacity": 0.4,
+      "blendMode": "normal",
+      "transform": {
+        "x": 540,
+        "y": 360,
+        "width": 360,
+        "height": 6,
+        "rotation": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "anchorX": 0,
+        "anchorY": 0
+      },
+      "properties": {
+        "fillColor": "#c08040",
+        "fillEnabled": true,
+        "strokeEnabled": false,
+        "cornerRadius": 0
+      }
+    },
+    {
+      "id": "l8",
+      "type": "shapes:rectangle",
+      "name": "Block #3a1a08",
+      "visible": true,
+      "locked": false,
+      "opacity": 0.65,
+      "blendMode": "normal",
+      "transform": {
+        "x": 0,
+        "y": 648,
+        "width": 900,
+        "height": 4,
+        "rotation": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "anchorX": 0,
+        "anchorY": 0
+      },
+      "properties": {
+        "fillColor": "#3a1a08",
+        "fillEnabled": true,
+        "strokeEnabled": false,
+        "cornerRadius": 0
+      }
+    },
+    {
+      "id": "l9",
+      "type": "shapes:rectangle",
+      "name": "Block #1e0e04",
+      "visible": true,
+      "locked": false,
+      "opacity": 0.55,
+      "blendMode": "normal",
+      "transform": {
+        "x": 0,
+        "y": 888,
+        "width": 900,
+        "height": 3,
+        "rotation": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "anchorX": 0,
+        "anchorY": 0
+      },
+      "properties": {
+        "fillColor": "#1e0e04",
+        "fillEnabled": true,
+        "strokeEnabled": false,
+        "cornerRadius": 0
+      }
+    },
+    {
+      "id": "l10",
+      "type": "shapes:rectangle",
+      "name": "Block #f5c830",
+      "visible": true,
+      "locked": false,
+      "opacity": 0.34,
+      "blendMode": "normal",
+      "transform": {
+        "x": 80,
+        "y": 96,
+        "width": 740,
+        "height": 216,
+        "rotation": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "anchorX": 0,
+        "anchorY": 0
+      },
+      "properties": {
+        "fillColor": "#f5c830",
+        "fillEnabled": true,
+        "strokeEnabled": false,
+        "cornerRadius": 0
+      }
+    },
+    {
+      "id": "l11",
+      "type": "shapes:rectangle",
+      "name": "Block #e06820",
+      "visible": true,
+      "locked": false,
+      "opacity": 0.28,
+      "blendMode": "normal",
+      "transform": {
+        "x": 120,
+        "y": 420,
+        "width": 660,
+        "height": 204,
+        "rotation": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "anchorX": 0,
+        "anchorY": 0
+      },
+      "properties": {
+        "fillColor": "#e06820",
+        "fillEnabled": true,
+        "strokeEnabled": false,
+        "cornerRadius": 0
+      }
+    },
+    {
+      "id": "l12",
+      "type": "shapes:rectangle",
+      "name": "Block #8c4010",
+      "visible": true,
+      "locked": false,
+      "opacity": 0.34,
+      "blendMode": "normal",
+      "transform": {
+        "x": 60,
+        "y": 696,
+        "width": 780,
+        "height": 168,
+        "rotation": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "anchorX": 0,
+        "anchorY": 0
+      },
+      "properties": {
+        "fillColor": "#8c4010",
+        "fillEnabled": true,
+        "strokeEnabled": false,
+        "cornerRadius": 0
+      }
+    },
+    {
+      "id": "l13",
+      "type": "shapes:rectangle",
+      "name": "Block #2a1006",
+      "visible": true,
+      "locked": false,
+      "opacity": 0.32,
+      "blendMode": "normal",
+      "transform": {
+        "x": 100,
+        "y": 936,
+        "width": 700,
+        "height": 192,
+        "rotation": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "anchorX": 0,
+        "anchorY": 0
+      },
+      "properties": {
+        "fillColor": "#2a1006",
+        "fillEnabled": true,
+        "strokeEnabled": false,
+        "cornerRadius": 0
+      }
+    },
+    {
+      "id": "l14",
+      "type": "painting:oil",
+      "name": "Impasto Highlights",
+      "visible": true,
+      "locked": false,
+      "opacity": 0.25,
+      "blendMode": "normal",
+      "transform": {
+        "x": 0,
+        "y": 0,
+        "width": 900,
+        "height": 1200,
+        "rotation": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "anchorX": 0,
+        "anchorY": 0
+      },
+      "properties": {
+        "field": "radial:0.5:0.0:diverge",
+        "fieldCols": 14,
+        "fieldRows": 10,
+        "colors": "[\"#fff5cc\",\"#fce8a0\"]",
+        "impasto": true,
+        "scumble": true,
+        "blendRadius": 20,
+        "opacity": 0.25,
+        "seed": 99,
+        "maskCenterY": 0.08,
+        "maskSpread": 0.07
+      }
+    }
+  ]
+}

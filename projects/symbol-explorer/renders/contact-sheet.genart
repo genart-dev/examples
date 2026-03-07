@@ -1,0 +1,23 @@
+{
+  "genart": "1.2",
+  "id": "contact-sheet",
+  "title": "Symbol Explorer Contact Sheet",
+  "created": "2026-03-06T00:00:00Z",
+  "modified": "2026-03-06T00:00:00Z",
+  "renderer": {
+    "type": "canvas2d"
+  },
+  "canvas": {
+    "width": 1008,
+    "height": 818
+  },
+  "parameters": [],
+  "colors": [],
+  "state": {
+    "seed": 1,
+    "params": {},
+    "colorPalette": []
+  },
+  "algorithm": "function sketch(ctx){var W=1008,H=818,tW=320,tH=240,tP=12,tC=3;ctx.fillStyle='#2a2a2a';ctx.fillRect(0,0,W,H);ctx.fillStyle='#eee';ctx.font='bold 17px sans-serif';ctx.fillText('@genart-dev/symbols \\u2014 Iconify Explorer (108 icons)',tP,32);var names=[\"Nature\",\"Animals\",\"Celestial & Weather\",\"People & Body\",\"Objects & Tools\",\"Architecture & Places\",\"Vehicles & Transport\",\"Food & Drink\",\"Abstract & Geometric\"];for(var i=0;i<names.length;i++){var col=i%tC,row=Math.floor(i/tC);var x=tP+col*(tW+tP),y=50+row*(tH+tP);ctx.fillStyle='#f7f7ef';ctx.beginPath();ctx.roundRect(x,y,tW,tH,6);ctx.fill();ctx.fillStyle='rgba(0,0,0,0.55)';ctx.fillRect(x,y+tH-24,tW,24);ctx.fillStyle='#fff';ctx.font='bold 11px sans-serif';ctx.textAlign='center';ctx.fillText(names[i],x+tW/2,y+tH-8);ctx.textAlign='left';}return{};}",
+  "layers": []
+}

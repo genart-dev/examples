@@ -1,0 +1,23 @@
+{
+  "genart": "1.2",
+  "id": "01-leaf-forms",
+  "title": "Leaf Forms",
+  "created": "2026-03-06T00:00:00Z",
+  "modified": "2026-03-06T00:00:00Z",
+  "renderer": {
+    "type": "canvas2d"
+  },
+  "canvas": {
+    "width": 964,
+    "height": 798
+  },
+  "parameters": [],
+  "colors": [],
+  "state": {
+    "seed": 1,
+    "params": {},
+    "colorPalette": []
+  },
+  "algorithm": "function sketch(ctx){var pad=16,cW=300,cH=350,W=964,H=798;ctx.fillStyle='#f5f0e8';ctx.fillRect(0,0,W,H);ctx.fillStyle='#333';ctx.font='bold 18px sans-serif';ctx.fillText('Leaf Forms \\u2014 Silhouettes with Construction Ellipses',pad,30);var leaves=[{l:'Ovate',w:80,h:160,c:'#4a7a3a'},{l:'Lanceolate',w:45,h:200,c:'#3a6a2a'},{l:'Cordate',w:100,h:140,c:'#5a8a4a'},{l:'Elliptic',w:70,h:150,c:'#3a7a4a'},{l:'Oblong',w:60,h:180,c:'#4a6a3a'},{l:'Deltoid',w:90,h:120,c:'#5a7a3a'}];for(var i=0;i<6;i++){var col=i%3,row=Math.floor(i/3);var x=pad+col*(cW+pad),y=50+pad+row*(cH+pad);ctx.save();ctx.fillStyle='#faf8f2';ctx.fillRect(x,y,cW,cH);ctx.strokeStyle='#ccc';ctx.lineWidth=1;ctx.strokeRect(x-1,y-1,cW+2,cH+2);var lf=leaves[i],cx=x+cW/2,cy=y+cH/2-20;ctx.translate(cx,cy);ctx.fillStyle=lf.c;ctx.beginPath();ctx.moveTo(0,-lf.h/2);ctx.bezierCurveTo(lf.w/2,-lf.h/3,lf.w/2,lf.h/3,0,lf.h/2);ctx.bezierCurveTo(-lf.w/2,lf.h/3,-lf.w/2,-lf.h/3,0,-lf.h/2);ctx.fill();ctx.strokeStyle='rgba(0,80,0,0.4)';ctx.lineWidth=1;ctx.beginPath();ctx.moveTo(0,-lf.h/2);ctx.lineTo(0,lf.h/2);ctx.stroke();ctx.strokeStyle='rgba(0,80,0,0.25)';ctx.lineWidth=0.5;for(var j=-3;j<=3;j++){if(j===0)continue;var yy=j/4*lf.h*0.4;ctx.beginPath();ctx.moveTo(0,yy);ctx.lineTo((j>0?1:-1)*lf.w*0.35,yy+(j>0?1:-1)*lf.h*0.08);ctx.stroke();}ctx.setTransform(1,0,0,1,0,0);ctx.strokeStyle='rgba(200,50,50,0.4)';ctx.lineWidth=1;ctx.beginPath();ctx.ellipse(cx,cy,lf.w/2,lf.h/2,0,0,Math.PI*2);ctx.stroke();ctx.strokeStyle='#5a3a1a';ctx.lineWidth=2;ctx.lineCap='round';ctx.beginPath();ctx.moveTo(cx,cy+lf.h/2);ctx.lineTo(cx,cy+lf.h/2+60);ctx.stroke();ctx.restore();ctx.fillStyle='#555';ctx.font='12px sans-serif';ctx.fillText(lf.l,x+4,y+cH+14);}return{};}",
+  "layers": []
+}

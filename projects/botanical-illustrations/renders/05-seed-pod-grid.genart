@@ -1,0 +1,222 @@
+{
+  "genart": "1.2",
+  "id": "05-seed-pod-grid",
+  "title": "Seed Pod Grid",
+  "created": "2026-03-06T00:00:00Z",
+  "modified": "2026-03-06T00:00:00Z",
+  "renderer": {
+    "type": "canvas2d"
+  },
+  "canvas": {
+    "width": 814,
+    "height": 598
+  },
+  "parameters": [],
+  "colors": [],
+  "state": {
+    "seed": 1,
+    "params": {},
+    "colorPalette": []
+  },
+  "algorithm": "function sketch(ctx){var pad=16,cW=250,cH=250,W=814,H=598;ctx.fillStyle='#f5f0e8';ctx.fillRect(0,0,W,H);ctx.fillStyle='#333';ctx.font='bold 18px sans-serif';ctx.fillText('Seed Pod Grid \\u2014 Geometric Forms with Cross-Contours',pad,30);var labels=['Sphere pod','Egg pod','Cone pod','Cylinder pod','Wedge seed','Box capsule'];for(var i=0;i<6;i++){var col=i%3,row=Math.floor(i/3);var x=pad+col*(cW+pad),y=50+pad+row*(cH+pad);ctx.save();ctx.fillStyle='#faf8f2';ctx.fillRect(x,y,cW,cH);ctx.strokeStyle='#ccc';ctx.lineWidth=1;ctx.strokeRect(x-1,y-1,cW+2,cH+2);ctx.restore();ctx.fillStyle='#555';ctx.font='12px sans-serif';ctx.fillText(labels[i],x+4,y+cH+14);}return{};}",
+  "layers": [
+    {
+      "id": "l1",
+      "type": "construction:form",
+      "name": "Sphere pod",
+      "visible": true,
+      "locked": false,
+      "opacity": 1,
+      "blendMode": "normal",
+      "transform": {
+        "x": 16,
+        "y": 66,
+        "width": 250,
+        "height": 250,
+        "rotation": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "anchorX": 0,
+        "anchorY": 0
+      },
+      "properties": {
+        "formType": "sphere",
+        "position": "{\"x\":0.5,\"y\":0.5}",
+        "formSize": 0.3,
+        "rotationX": 15,
+        "rotationY": 25,
+        "rotationZ": 0,
+        "showCrossContours": true,
+        "crossContourCount": 4,
+        "showAxes": false,
+        "showHiddenEdges": true,
+        "hiddenEdgeStyle": "dashed"
+      }
+    },
+    {
+      "id": "l2",
+      "type": "construction:form",
+      "name": "Egg pod",
+      "visible": true,
+      "locked": false,
+      "opacity": 1,
+      "blendMode": "normal",
+      "transform": {
+        "x": 282,
+        "y": 66,
+        "width": 250,
+        "height": 250,
+        "rotation": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "anchorX": 0,
+        "anchorY": 0
+      },
+      "properties": {
+        "formType": "egg",
+        "position": "{\"x\":0.5,\"y\":0.5}",
+        "formSize": 0.28,
+        "rotationX": 15,
+        "rotationY": 25,
+        "rotationZ": 0,
+        "showCrossContours": true,
+        "crossContourCount": 4,
+        "showAxes": false,
+        "showHiddenEdges": true,
+        "hiddenEdgeStyle": "dashed"
+      }
+    },
+    {
+      "id": "l3",
+      "type": "construction:form",
+      "name": "Cone pod",
+      "visible": true,
+      "locked": false,
+      "opacity": 1,
+      "blendMode": "normal",
+      "transform": {
+        "x": 548,
+        "y": 66,
+        "width": 250,
+        "height": 250,
+        "rotation": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "anchorX": 0,
+        "anchorY": 0
+      },
+      "properties": {
+        "formType": "cone",
+        "position": "{\"x\":0.5,\"y\":0.5}",
+        "formSize": 0.3,
+        "rotationX": 15,
+        "rotationY": 25,
+        "rotationZ": 0,
+        "showCrossContours": true,
+        "crossContourCount": 4,
+        "showAxes": false,
+        "showHiddenEdges": true,
+        "hiddenEdgeStyle": "dashed"
+      }
+    },
+    {
+      "id": "l4",
+      "type": "construction:form",
+      "name": "Cylinder pod",
+      "visible": true,
+      "locked": false,
+      "opacity": 1,
+      "blendMode": "normal",
+      "transform": {
+        "x": 16,
+        "y": 332,
+        "width": 250,
+        "height": 250,
+        "rotation": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "anchorX": 0,
+        "anchorY": 0
+      },
+      "properties": {
+        "formType": "cylinder",
+        "position": "{\"x\":0.5,\"y\":0.5}",
+        "formSize": 0.25,
+        "rotationX": 15,
+        "rotationY": 25,
+        "rotationZ": 0,
+        "showCrossContours": true,
+        "crossContourCount": 4,
+        "showAxes": false,
+        "showHiddenEdges": true,
+        "hiddenEdgeStyle": "dashed"
+      }
+    },
+    {
+      "id": "l5",
+      "type": "construction:form",
+      "name": "Wedge seed",
+      "visible": true,
+      "locked": false,
+      "opacity": 1,
+      "blendMode": "normal",
+      "transform": {
+        "x": 282,
+        "y": 332,
+        "width": 250,
+        "height": 250,
+        "rotation": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "anchorX": 0,
+        "anchorY": 0
+      },
+      "properties": {
+        "formType": "wedge",
+        "position": "{\"x\":0.5,\"y\":0.5}",
+        "formSize": 0.28,
+        "rotationX": 15,
+        "rotationY": 25,
+        "rotationZ": 0,
+        "showCrossContours": true,
+        "crossContourCount": 4,
+        "showAxes": false,
+        "showHiddenEdges": true,
+        "hiddenEdgeStyle": "dashed"
+      }
+    },
+    {
+      "id": "l6",
+      "type": "construction:form",
+      "name": "Box capsule",
+      "visible": true,
+      "locked": false,
+      "opacity": 1,
+      "blendMode": "normal",
+      "transform": {
+        "x": 548,
+        "y": 332,
+        "width": 250,
+        "height": 250,
+        "rotation": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "anchorX": 0,
+        "anchorY": 0
+      },
+      "properties": {
+        "formType": "box",
+        "position": "{\"x\":0.5,\"y\":0.5}",
+        "formSize": 0.22,
+        "rotationX": 15,
+        "rotationY": 25,
+        "rotationZ": 0,
+        "showCrossContours": true,
+        "crossContourCount": 4,
+        "showAxes": false,
+        "showHiddenEdges": true,
+        "hiddenEdgeStyle": "dashed"
+      }
+    }
+  ]
+}

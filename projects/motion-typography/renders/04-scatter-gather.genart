@@ -1,0 +1,198 @@
+{
+  "genart": "1.2",
+  "id": "04-scatter-gather",
+  "title": "Scatter & Gather",
+  "created": "2026-03-06T00:00:00Z",
+  "modified": "2026-03-06T00:00:00Z",
+  "renderer": {
+    "type": "canvas2d"
+  },
+  "canvas": {
+    "width": 2036,
+    "height": 250
+  },
+  "parameters": [],
+  "colors": [],
+  "state": {
+    "seed": 1,
+    "params": {},
+    "colorPalette": []
+  },
+  "algorithm": "function sketch(ctx){ctx.fillStyle='#0d0d1a';ctx.fillRect(0,0,2036,250);ctx.fillStyle='#ccc';ctx.font='bold 14px sans-serif';ctx.fillText('Scatter & Gather \\u2014 Letters Reassemble',4,18);for(var i=0;i<8;i++){var x=4+i*254;ctx.fillStyle='#16162a';ctx.fillRect(x,30,250,200);ctx.fillStyle='#666';ctx.font='9px sans-serif';ctx.fillText('f'+i,x+2,30+200+12);}return{};}",
+  "layers": [
+    {
+      "id": "l1",
+      "type": "typography:text",
+      "name": "Letter \"G\" (f7)",
+      "visible": true,
+      "locked": false,
+      "opacity": 1,
+      "blendMode": "normal",
+      "transform": {
+        "x": 1817,
+        "y": 110,
+        "width": 30,
+        "height": 44,
+        "rotation": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "anchorX": 0,
+        "anchorY": 0
+      },
+      "properties": {
+        "text": "G",
+        "fontFamily": "Helvetica",
+        "fontSize": 36,
+        "fontWeight": "700",
+        "color": "rgba(255,200,100,1)",
+        "align": "center",
+        "baseline": "top"
+      }
+    },
+    {
+      "id": "l2",
+      "type": "typography:text",
+      "name": "Letter \"A\" (f7)",
+      "visible": true,
+      "locked": false,
+      "opacity": 1,
+      "blendMode": "normal",
+      "transform": {
+        "x": 1847,
+        "y": 110,
+        "width": 30,
+        "height": 44,
+        "rotation": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "anchorX": 0,
+        "anchorY": 0
+      },
+      "properties": {
+        "text": "A",
+        "fontFamily": "Helvetica",
+        "fontSize": 36,
+        "fontWeight": "700",
+        "color": "rgba(255,200,100,1)",
+        "align": "center",
+        "baseline": "top"
+      }
+    },
+    {
+      "id": "l3",
+      "type": "typography:text",
+      "name": "Letter \"T\" (f7)",
+      "visible": true,
+      "locked": false,
+      "opacity": 1,
+      "blendMode": "normal",
+      "transform": {
+        "x": 1877,
+        "y": 110,
+        "width": 30,
+        "height": 44,
+        "rotation": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "anchorX": 0,
+        "anchorY": 0
+      },
+      "properties": {
+        "text": "T",
+        "fontFamily": "Helvetica",
+        "fontSize": 36,
+        "fontWeight": "700",
+        "color": "rgba(255,200,100,1)",
+        "align": "center",
+        "baseline": "top"
+      }
+    },
+    {
+      "id": "l4",
+      "type": "typography:text",
+      "name": "Letter \"H\" (f7)",
+      "visible": true,
+      "locked": false,
+      "opacity": 1,
+      "blendMode": "normal",
+      "transform": {
+        "x": 1907,
+        "y": 110,
+        "width": 30,
+        "height": 44,
+        "rotation": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "anchorX": 0,
+        "anchorY": 0
+      },
+      "properties": {
+        "text": "H",
+        "fontFamily": "Helvetica",
+        "fontSize": 36,
+        "fontWeight": "700",
+        "color": "rgba(255,200,100,1)",
+        "align": "center",
+        "baseline": "top"
+      }
+    },
+    {
+      "id": "l5",
+      "type": "typography:text",
+      "name": "Letter \"E\" (f7)",
+      "visible": true,
+      "locked": false,
+      "opacity": 1,
+      "blendMode": "normal",
+      "transform": {
+        "x": 1937,
+        "y": 110,
+        "width": 30,
+        "height": 44,
+        "rotation": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "anchorX": 0,
+        "anchorY": 0
+      },
+      "properties": {
+        "text": "E",
+        "fontFamily": "Helvetica",
+        "fontSize": 36,
+        "fontWeight": "700",
+        "color": "rgba(255,200,100,1)",
+        "align": "center",
+        "baseline": "top"
+      }
+    },
+    {
+      "id": "l6",
+      "type": "typography:text",
+      "name": "Letter \"R\" (f7)",
+      "visible": true,
+      "locked": false,
+      "opacity": 1,
+      "blendMode": "normal",
+      "transform": {
+        "x": 1967,
+        "y": 110,
+        "width": 30,
+        "height": 44,
+        "rotation": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "anchorX": 0,
+        "anchorY": 0
+      },
+      "properties": {
+        "text": "R",
+        "fontFamily": "Helvetica",
+        "fontSize": 36,
+        "fontWeight": "700",
+        "color": "rgba(255,200,100,1)",
+        "align": "center",
+        "baseline": "top"
+      }
+    }
+  ]
+}

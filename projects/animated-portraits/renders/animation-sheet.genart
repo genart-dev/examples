@@ -1,0 +1,23 @@
+{
+  "genart": "1.2",
+  "id": "animation-sheet",
+  "title": "Animated Portraits Sheet",
+  "created": "2026-03-06T00:00:00Z",
+  "modified": "2026-03-06T00:00:00Z",
+  "renderer": {
+    "type": "canvas2d"
+  },
+  "canvas": {
+    "width": 1764,
+    "height": 1286
+  },
+  "parameters": [],
+  "colors": [],
+  "state": {
+    "seed": 1,
+    "params": {},
+    "colorPalette": []
+  },
+  "algorithm": "function sketch(ctx){var W=1764,H=1286,pad=16;ctx.fillStyle='#0d0d1a';ctx.fillRect(0,0,W,H);var files=['01-pose-transition','02-gesture-fade','03-filter-sweep','04-breathing-figure','05-portrait-sequence'];var sH=230;for(var i=0;i<5;i++){var y=pad+i*(sH+pad);ctx.strokeStyle='rgba(255,255,255,0.1)';ctx.lineWidth=1;ctx.strokeRect(pad,y,1732,sH);ctx.fillStyle='rgba(255,255,255,0.5)';ctx.font='12px sans-serif';ctx.fillText(files[i],pad+4,y+sH+14);}ctx.fillStyle='rgba(255,255,255,0.8)';ctx.font='bold 16px sans-serif';ctx.fillText('Animated Portraits \\u2014 Poses, Gestures, Filters, Breathing & Head Rotation',pad,H-12);return{};}",
+  "layers": []
+}

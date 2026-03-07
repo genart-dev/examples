@@ -1,0 +1,23 @@
+{
+  "genart": "1.2",
+  "id": "02-flower-construction",
+  "title": "Flower Construction",
+  "created": "2026-03-06T00:00:00Z",
+  "modified": "2026-03-06T00:00:00Z",
+  "renderer": {
+    "type": "canvas2d"
+  },
+  "canvas": {
+    "width": 748,
+    "height": 798
+  },
+  "parameters": [],
+  "colors": [],
+  "state": {
+    "seed": 1,
+    "params": {},
+    "colorPalette": []
+  },
+  "algorithm": "function sketch(ctx){var pad=16,cW=350,cH=350,W=748,H=798;ctx.fillStyle='#f5f0e8';ctx.fillRect(0,0,W,H);ctx.fillStyle='#333';ctx.font='bold 18px sans-serif';ctx.fillText('Flower Construction \\u2014 Petal Geometry & Radial Guides',pad,30);var flowers=[{l:'5-Petal Rose',p:5,c:'#d44060'},{l:'6-Petal Lily',p:6,c:'#e8a040'},{l:'8-Petal Dahlia',p:8,c:'#a040c0'},{l:'3-Petal Iris',p:3,c:'#4060d0'}];for(var i=0;i<4;i++){var col=i%2,row=Math.floor(i/2);var x=pad+col*(cW+pad),y=50+pad+row*(cH+pad);ctx.save();ctx.fillStyle='#faf8f2';ctx.fillRect(x,y,cW,cH);ctx.strokeStyle='#ccc';ctx.lineWidth=1;ctx.strokeRect(x-1,y-1,cW+2,cH+2);var f=flowers[i],cx=x+cW/2,cy=y+cH/2,oR=100,iR=30;ctx.strokeStyle='rgba(200,50,50,0.3)';ctx.lineWidth=1;ctx.setLineDash([6,4]);ctx.beginPath();ctx.arc(cx,cy,oR,0,Math.PI*2);ctx.stroke();ctx.beginPath();ctx.arc(cx,cy,iR,0,Math.PI*2);ctx.stroke();ctx.setLineDash([]);for(var j=0;j<f.p;j++){var a=j/f.p*Math.PI*2-Math.PI/2;var px=cx+Math.cos(a)*oR*0.55,py=cy+Math.sin(a)*oR*0.55;ctx.save();ctx.translate(px,py);ctx.rotate(a+Math.PI/2);ctx.fillStyle=f.c+'80';ctx.beginPath();ctx.ellipse(0,0,22,oR*0.45,0,0,Math.PI*2);ctx.fill();ctx.strokeStyle=f.c;ctx.lineWidth=1;ctx.stroke();ctx.restore();ctx.strokeStyle='rgba(100,100,100,0.2)';ctx.lineWidth=0.5;ctx.beginPath();ctx.moveTo(cx,cy);ctx.lineTo(cx+Math.cos(a)*oR,cy+Math.sin(a)*oR);ctx.stroke();}ctx.fillStyle='#e8c040';ctx.beginPath();ctx.arc(cx,cy,8,0,Math.PI*2);ctx.fill();ctx.restore();ctx.fillStyle='#555';ctx.font='12px sans-serif';ctx.fillText(f.l,x+4,y+cH+14);}return{};}",
+  "layers": []
+}

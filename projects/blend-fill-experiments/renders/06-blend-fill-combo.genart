@@ -1,0 +1,143 @@
+{
+  "genart": "1.2",
+  "id": "06-blend-fill-combo",
+  "title": "Blend + Fill Combo",
+  "created": "2026-03-06T00:00:00Z",
+  "modified": "2026-03-06T00:00:00Z",
+  "renderer": {
+    "type": "canvas2d"
+  },
+  "canvas": {
+    "width": 900,
+    "height": 1200
+  },
+  "parameters": [],
+  "colors": [],
+  "state": {
+    "seed": 1,
+    "params": {},
+    "colorPalette": []
+  },
+  "algorithm": "function sketch(ctx){ctx.fillStyle='#0e0c14';ctx.fillRect(0,0,900,1200);ctx.fillStyle='rgba(200,160,255,0.5)';ctx.font='italic 20px Georgia, serif';ctx.fillText('Blend + Fill Composition',50,1170);return{};}",
+  "layers": [
+    {
+      "id": "l1",
+      "type": "painting:watercolor",
+      "name": "Background Wash",
+      "visible": true,
+      "locked": false,
+      "opacity": 0.6,
+      "blendMode": "normal",
+      "transform": { "x": 0, "y": 0, "width": 900, "height": 1200, "rotation": 0, "scaleX": 1, "scaleY": 1, "anchorX": 0, "anchorY": 0 },
+      "properties": {
+        "field": "radial:0.5:0.4:diverge",
+        "fieldCols": 20, "fieldRows": 20,
+        "colors": "[\"#1a0a2e\",\"#2a1848\"]",
+        "dilution": 0.3, "granulation": 0.4, "edgeStyle": "diffuse",
+        "opacity": 0.6, "seed": 5
+      }
+    },
+    {
+      "id": "l2",
+      "type": "shapes:blend",
+      "name": "Diagonal Sweep Top",
+      "visible": true,
+      "locked": false,
+      "opacity": 0.85,
+      "blendMode": "normal",
+      "transform": { "x": -40, "y": 30, "width": 630, "height": 300, "rotation": 0, "scaleX": 1, "scaleY": 1, "anchorX": 0, "anchorY": 0 },
+      "properties": {
+        "start": "{\"path\":\"circle\",\"fill\":\"#E63946\",\"stroke\":null,\"strokeWidth\":0,\"opacity\":0.9,\"scale\":0.6,\"rotation\":0}",
+        "end": "{\"path\":\"star-5\",\"fill\":\"#457B9D\",\"stroke\":null,\"strokeWidth\":0,\"opacity\":0.4,\"scale\":0.15,\"rotation\":72}",
+        "mode": "steps", "steps": 18, "easing": "ease-in-out", "showEndpoints": true
+      }
+    },
+    {
+      "id": "l3",
+      "type": "painting:fill",
+      "name": "Crosshatch Ellipse",
+      "visible": true,
+      "locked": false,
+      "opacity": 0.75,
+      "blendMode": "normal",
+      "transform": { "x": 60, "y": 300, "width": 440, "height": 640, "rotation": 0, "scaleX": 1, "scaleY": 1, "anchorX": 0, "anchorY": 0 },
+      "properties": {
+        "brushId": "ink-pen", "color": "#c0a0ff", "size": 2,
+        "region": "{\"type\":\"ellipse\",\"cx\":280,\"cy\":620,\"rx\":220,\"ry\":320}",
+        "strategy": "{\"type\":\"crosshatch\",\"angles\":[30,120],\"spacing\":7,\"passDecay\":0.65}",
+        "shading": "{\"type\":\"radial\",\"cx\":0.5,\"cy\":0.5,\"range\":[1,0.2]}",
+        "shadingAffects": "[\"density\",\"opacity\"]",
+        "seed": 100, "opacity": 0.75
+      }
+    },
+    {
+      "id": "l4",
+      "type": "painting:fill",
+      "name": "Stipple Cluster",
+      "visible": true,
+      "locked": false,
+      "opacity": 0.85,
+      "blendMode": "normal",
+      "transform": { "x": 540, "y": 100, "width": 320, "height": 440, "rotation": 0, "scaleX": 1, "scaleY": 1, "anchorX": 0, "anchorY": 0 },
+      "properties": {
+        "brushId": "ink-pen", "color": "#ffb088", "size": 3,
+        "region": "{\"type\":\"ellipse\",\"cx\":700,\"cy\":320,\"rx\":160,\"ry\":220}",
+        "strategy": "{\"type\":\"stipple\",\"density\":60,\"distribution\":\"poisson\"}",
+        "shading": "{\"type\":\"noise\",\"seed\":55,\"scale\":40,\"range\":[0.3,1.0]}",
+        "shadingAffects": "[\"density\"]",
+        "seed": 200, "opacity": 0.85
+      }
+    },
+    {
+      "id": "l5",
+      "type": "shapes:blend",
+      "name": "Diagonal Arc Blend",
+      "visible": true,
+      "locked": false,
+      "opacity": 1,
+      "blendMode": "normal",
+      "transform": { "x": 80, "y": 600, "width": 740, "height": 400, "rotation": 0, "scaleX": 1, "scaleY": 1, "anchorX": 0, "anchorY": 0 },
+      "properties": {
+        "start": "{\"path\":\"polygon-8\",\"fill\":\"#2A9D8F\",\"stroke\":\"#F4A261\",\"strokeWidth\":2,\"opacity\":0.9,\"scale\":0.55,\"rotation\":0}",
+        "end": "{\"path\":\"star-6\",\"fill\":\"#F4A261\",\"stroke\":\"#2A9D8F\",\"strokeWidth\":2,\"opacity\":0.7,\"scale\":0.2,\"rotation\":60}",
+        "mode": "steps", "steps": 16, "easing": "ease-out", "showEndpoints": true,
+        "spine": "{\"type\":\"path\",\"points\":[{\"x\":820,\"y\":640},{\"x\":783,\"y\":656},{\"x\":746,\"y\":672},{\"x\":709,\"y\":688},{\"x\":672,\"y\":704},{\"x\":635,\"y\":720},{\"x\":598,\"y\":736},{\"x\":561,\"y\":752},{\"x\":524,\"y\":768},{\"x\":487,\"y\":784},{\"x\":450,\"y\":800},{\"x\":413,\"y\":816},{\"x\":376,\"y\":832},{\"x\":339,\"y\":848},{\"x\":302,\"y\":864},{\"x\":265,\"y\":880},{\"x\":228,\"y\":896},{\"x\":191,\"y\":912},{\"x\":154,\"y\":928},{\"x\":117,\"y\":944},{\"x\":80,\"y\":960}]}"
+      }
+    },
+    {
+      "id": "l6",
+      "type": "painting:fill",
+      "name": "Scumble Lower Right",
+      "visible": true,
+      "locked": false,
+      "opacity": 0.6,
+      "blendMode": "normal",
+      "transform": { "x": 540, "y": 820, "width": 320, "height": 340, "rotation": 0, "scaleX": 1, "scaleY": 1, "anchorX": 0, "anchorY": 0 },
+      "properties": {
+        "brushId": "round-hard", "color": "#e0d0c0", "size": 2,
+        "region": "{\"type\":\"rect\",\"x\":540,\"y\":820,\"width\":320,\"height\":340}",
+        "strategy": "{\"type\":\"scumble\",\"density\":20,\"strokeLength\":18,\"curvature\":0.7}",
+        "shading": "{\"type\":\"linear\",\"angle\":135,\"range\":[0.3,1.0]}",
+        "shadingAffects": "[\"density\",\"weight\"]",
+        "seed": 300, "opacity": 0.6
+      }
+    },
+    {
+      "id": "l7",
+      "type": "painting:ink",
+      "name": "Ink Accent Lines",
+      "visible": true,
+      "locked": false,
+      "opacity": 0.2,
+      "blendMode": "normal",
+      "transform": { "x": 0, "y": 0, "width": 900, "height": 1200, "rotation": 0, "scaleX": 1, "scaleY": 1, "anchorX": 0, "anchorY": 0 },
+      "properties": {
+        "field": "vortex:0.5:0.5:0.2",
+        "fieldCols": 16, "fieldRows": 16,
+        "colors": "[\"#f0c0e0\"]",
+        "weight": 0.5, "taper": "both", "style": "brush",
+        "opacity": 0.2, "seed": 88
+      }
+    }
+  ]
+}

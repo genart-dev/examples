@@ -1,0 +1,23 @@
+{
+  "genart": "1.2",
+  "id": "01-movement-timeline",
+  "title": "Movement Timeline",
+  "created": "2026-03-06T00:00:00Z",
+  "modified": "2026-03-06T00:00:00Z",
+  "renderer": {
+    "type": "canvas2d"
+  },
+  "canvas": {
+    "width": 1600,
+    "height": 1000
+  },
+  "parameters": [],
+  "colors": [],
+  "state": {
+    "seed": 1,
+    "params": {},
+    "colorPalette": []
+  },
+  "algorithm": "function sketch(ctx){var W=1600,H=1000;ctx.fillStyle='#0A0A0A';ctx.fillRect(0,0,W,H);var EC={\"ancient\":\"#8B7355\",\"medieval\":\"#6B4E3D\",\"renaissance\":\"#A0785A\",\"baroque\":\"#7B2D26\",\"neoclassical\":\"#4A6B5C\",\"modern-early\":\"#3A6B9F\",\"modern-mid\":\"#E07B39\",\"modern-late\":\"#C23B22\",\"postmodern\":\"#7B2D8B\",\"contemporary\":\"#2B8B6B\"};var tl=[[\"Sumi-e (Ink Wash)\",700,0,\"medieval\"],[\"Islamic Geometric Art\",700,0,\"medieval\"],[\"Wabi-Sabi\",1200,0,\"contemporary\"],[\"Ukiyo-e\",1600,1900,\"modern-early\"],[\"Baroque\",1600,1750,\"baroque\"],[\"Impressionism\",1860,1890,\"modern-early\"],[\"Pointillism\",1886,1910,\"modern-early\"],[\"Post-Impressionism\",1886,1910,\"modern-early\"],[\"Art Nouveau\",1890,1910,\"modern-early\"],[\"Expressionism\",1905,1930,\"modern-early\"],[\"Fauvism\",1905,1910,\"modern-early\"],[\"Cubism\",1907,1930,\"modern-early\"],[\"Futurism\",1909,1944,\"modern-early\"],[\"Suprematism\",1913,1930,\"modern-early\"],[\"Constructivism\",1915,1940,\"modern-early\"],[\"De Stijl\",1917,1931,\"modern-early\"],[\"Bauhaus\",1919,1933,\"modern-early\"],[\"Surrealism\",1924,1950,\"modern-early\"],[\"Abstract Expressionism\",1943,1965,\"modern-mid\"],[\"Color Field\",1950,1970,\"modern-mid\"],[\"Pop Art\",1955,1970,\"modern-late\"],[\"Hard-Edge Painting\",1959,1970,\"modern-mid\"],[\"Op Art\",1960,1975,\"modern-late\"],[\"Minimalism\",1960,1980,\"modern-late\"],[\"Generative Art\",1960,0,\"contemporary\"],[\"Risograph\",1980,0,\"contemporary\"],[\"Memphis Design\",1981,1988,\"postmodern\"],[\"Glitch Art\",2000,0,\"contemporary\"],[\"Synthwave / Retrowave\",2000,0,\"contemporary\"],[\"Vaporwave\",2011,0,\"contemporary\"]];var minY=Math.min.apply(null,tl.map(function(e){return e[1];}));var maxY=2026;var m={t:80,r:40,b:60,l:200};var pW=W-m.l-m.r,pH=H-m.t-m.b;var bH=Math.min(24,pH/tl.length-2);ctx.fillStyle='#E0E0E0';ctx.font='bold 28px sans-serif';ctx.fillText('Art Movement Timeline',m.l,44);ctx.font='14px sans-serif';ctx.fillStyle='#666';ctx.fillText(tl.length+' movements from '+minY+' to present',m.l,66);ctx.strokeStyle='#333';ctx.lineWidth=1;for(var yr=Math.ceil(minY/20)*20;yr<=maxY;yr+=20){var x=m.l+((yr-minY)/(maxY-minY))*pW;ctx.beginPath();ctx.moveTo(x,m.t);ctx.lineTo(x,H-m.b);ctx.stroke();ctx.fillStyle='#555';ctx.font='11px sans-serif';ctx.textAlign='center';ctx.fillText(String(yr),x,H-m.b+18);}ctx.textAlign='left';for(var i=0;i<tl.length;i++){var e=tl[i],y=m.t+i*(pH/tl.length);var end=e[2]||maxY;var x1=m.l+((e[1]-minY)/(maxY-minY))*pW;var x2=m.l+((end-minY)/(maxY-minY))*pW;ctx.fillStyle='#999';ctx.font='11px sans-serif';ctx.textAlign='right';ctx.fillText(e[0],m.l-10,y+bH/2+4);ctx.textAlign='left';var c=EC[e[3]]||'#555';ctx.fillStyle=c;ctx.globalAlpha=0.8;ctx.fillRect(x1,y,Math.max(x2-x1,2),bH);ctx.globalAlpha=1;if(!e[2]){ctx.fillStyle=c;ctx.beginPath();ctx.moveTo(x2,y);ctx.lineTo(x2+8,y+bH/2);ctx.lineTo(x2,y+bH);ctx.fill();}}return{};}",
+  "layers": []
+}
