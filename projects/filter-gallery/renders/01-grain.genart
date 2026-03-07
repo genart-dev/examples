@@ -61,7 +61,7 @@
     },
     {
       "id": "l2",
-      "type": "filters:grain",
+      "type": "filter:grain",
       "name": "Grain: Subtle (0.1)",
       "visible": true,
       "locked": false,
@@ -126,7 +126,7 @@
     },
     {
       "id": "l4",
-      "type": "filters:grain",
+      "type": "filter:grain",
       "name": "Grain: Medium (0.3)",
       "visible": true,
       "locked": false,
@@ -191,7 +191,7 @@
     },
     {
       "id": "l6",
-      "type": "filters:grain",
+      "type": "filter:grain",
       "name": "Grain: Heavy (0.6)",
       "visible": true,
       "locked": false,
@@ -256,7 +256,7 @@
     },
     {
       "id": "l8",
-      "type": "filters:grain",
+      "type": "filter:grain",
       "name": "Grain: Size 1",
       "visible": true,
       "locked": false,
@@ -321,7 +321,7 @@
     },
     {
       "id": "l10",
-      "type": "filters:grain",
+      "type": "filter:grain",
       "name": "Grain: Size 2",
       "visible": true,
       "locked": false,
@@ -386,7 +386,7 @@
     },
     {
       "id": "l12",
-      "type": "filters:grain",
+      "type": "filter:grain",
       "name": "Grain: Size 4",
       "visible": true,
       "locked": false,
@@ -451,7 +451,7 @@
     },
     {
       "id": "l14",
-      "type": "filters:grain",
+      "type": "filter:grain",
       "name": "Grain: Color Grain",
       "visible": true,
       "locked": false,

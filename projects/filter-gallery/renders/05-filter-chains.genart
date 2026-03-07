@@ -61,7 +61,7 @@
     },
     {
       "id": "l2",
-      "type": "filters:grain",
+      "type": "filter:grain",
       "name": "grain: Grain + Vignette",
       "visible": true,
       "locked": false,
@@ -87,7 +87,7 @@
     },
     {
       "id": "l3",
-      "type": "filters:vignette",
+      "type": "filter:vignette",
       "name": "vignette: Grain + Vignette",
       "visible": true,
       "locked": false,
@@ -152,7 +152,7 @@
     },
     {
       "id": "l5",
-      "type": "filters:duotone",
+      "type": "filter:duotone",
       "name": "duotone: Duotone + Chromatic",
       "visible": true,
       "locked": false,
@@ -177,7 +177,7 @@
     },
     {
       "id": "l6",
-      "type": "filters:chromatic-aberration",
+      "type": "filter:chromatic-aberration",
       "name": "chromatic-aberration: Duotone + Chromatic",
       "visible": true,
       "locked": false,
@@ -241,7 +241,7 @@
     },
     {
       "id": "l8",
-      "type": "filters:chromatic-aberration",
+      "type": "filter:chromatic-aberration",
       "name": "chromatic-aberration: Chromatic + Grain + Vignette",
       "visible": true,
       "locked": false,
@@ -266,7 +266,7 @@
     },
     {
       "id": "l9",
-      "type": "filters:grain",
+      "type": "filter:grain",
       "name": "grain: Chromatic + Grain + Vignette",
       "visible": true,
       "locked": false,
@@ -292,7 +292,7 @@
     },
     {
       "id": "l10",
-      "type": "filters:vignette",
+      "type": "filter:vignette",
       "name": "vignette: Chromatic + Grain + Vignette",
       "visible": true,
       "locked": false,
@@ -357,7 +357,7 @@
     },
     {
       "id": "l12",
-      "type": "filters:duotone",
+      "type": "filter:duotone",
       "name": "duotone: Duotone (mint) + Vignette",
       "visible": true,
       "locked": false,
@@ -382,7 +382,7 @@
     },
     {
       "id": "l13",
-      "type": "filters:vignette",
+      "type": "filter:vignette",
       "name": "vignette: Duotone (mint) + Vignette",
       "visible": true,
       "locked": false,
@@ -447,7 +447,7 @@
     },
     {
       "id": "l15",
-      "type": "filters:duotone",
+      "type": "filter:duotone",
       "name": "duotone: Full Stack",
       "visible": true,
       "locked": false,
@@ -472,7 +472,7 @@
     },
     {
       "id": "l16",
-      "type": "filters:chromatic-aberration",
+      "type": "filter:chromatic-aberration",
       "name": "chromatic-aberration: Full Stack",
       "visible": true,
       "locked": false,
@@ -497,7 +497,7 @@
     },
     {
       "id": "l17",
-      "type": "filters:grain",
+      "type": "filter:grain",
       "name": "grain: Full Stack",
       "visible": true,
       "locked": false,
@@ -523,7 +523,7 @@
     },
     {
       "id": "l18",
-      "type": "filters:vignette",
+      "type": "filter:vignette",
       "name": "vignette: Full Stack",
       "visible": true,
       "locked": false,
