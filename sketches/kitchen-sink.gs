@@ -26,9 +26,9 @@ fn makeGrid cols rows:
     gy = floor(i / cols) * (h / rows)
     dot gx gy fill:$accent.20
 
-// let bindings
-let margin = 40
-let grid = 8
+// variable bindings
+margin = 40
+grid = 8
 
 // named seed
 seed "stars" 42
