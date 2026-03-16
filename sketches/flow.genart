@@ -1,0 +1,62 @@
+{
+  "genart": "1.2",
+  "id": "flow",
+  "title": "Flow Field",
+  "created": "2026-03-15T00:00:00Z",
+  "modified": "2026-03-15T00:00:00Z",
+  "renderer": {
+    "type": "genart"
+  },
+  "canvas": {
+    "width": 600,
+    "height": 600
+  },
+  "parameters": [
+    {
+      "key": "density",
+      "label": "Grid Density",
+      "min": 10,
+      "max": 60,
+      "step": 2,
+      "default": 30
+    },
+    {
+      "key": "scale",
+      "label": "Noise Scale",
+      "min": 0.002,
+      "max": 0.02,
+      "step": 0.001,
+      "default": 0.008
+    },
+    {
+      "key": "length",
+      "label": "Stroke Length",
+      "min": 5,
+      "max": 30,
+      "step": 1,
+      "default": 15
+    }
+  ],
+  "colors": [
+    {
+      "key": "bg",
+      "label": "Background",
+      "default": "#0d1117"
+    },
+    {
+      "key": "stroke1",
+      "label": "Stroke Color",
+      "default": "#58a6ff"
+    }
+  ],
+  "state": {
+    "seed": 123,
+    "params": {
+      "density": 30,
+      "scale": 0.008,
+      "length": 15
+    },
+    "colorPalette": ["#0d1117", "#58a6ff"]
+  },
+  "algorithm": "param density 30 range:10..60 step:2\nparam scale 0.008 range:0.002..0.02 step:0.001\nparam length 15 range:5..30\ncolor bg #0d1117\ncolor stroke1 #58a6ff\n\nframe:\n  bg $bg\n  step = w / density\n\n  loop density:\n    row = i\n    loop density:\n      col = i\n      x = col * step + step / 2\n      y = row * step + step / 2\n      angle = noise(x * scale, y * scale, t * 0.3) * PI * 4\n      x2 = x + cos(angle) * length\n      y2 = y + sin(angle) * length\n      line x y x2 y2 stroke:$stroke1.50 1\n\npost:\n  bloom(0.15)\n  vignette(0.3)"
+}

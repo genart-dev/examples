@@ -1,0 +1,62 @@
+{
+  "genart": "1.2",
+  "id": "ripple",
+  "title": "Ripple",
+  "created": "2026-03-15T00:00:00Z",
+  "modified": "2026-03-15T00:00:00Z",
+  "renderer": {
+    "type": "genart"
+  },
+  "canvas": {
+    "width": 600,
+    "height": 600
+  },
+  "parameters": [
+    {
+      "key": "rings",
+      "label": "Ring Count",
+      "min": 5,
+      "max": 40,
+      "step": 1,
+      "default": 20
+    },
+    {
+      "key": "speed",
+      "label": "Speed",
+      "min": 0.5,
+      "max": 5,
+      "step": 0.1,
+      "default": 2
+    },
+    {
+      "key": "amplitude",
+      "label": "Amplitude",
+      "min": 5,
+      "max": 50,
+      "step": 1,
+      "default": 20
+    }
+  ],
+  "colors": [
+    {
+      "key": "bg",
+      "label": "Background",
+      "default": "#1a1a2e"
+    },
+    {
+      "key": "ring",
+      "label": "Ring Color",
+      "default": "#e94560"
+    }
+  ],
+  "state": {
+    "seed": 77,
+    "params": {
+      "rings": 20,
+      "speed": 2,
+      "amplitude": 20
+    },
+    "colorPalette": ["#1a1a2e", "#e94560"]
+  },
+  "algorithm": "param rings 20 range:5..40\nparam speed 2 range:0.5..5 step:0.1\nparam amplitude 20 range:5..50\ncolor bg #1a1a2e\ncolor ring #e94560\n\nframe:\n  bg $bg\n  cx = w / 2\n  cy = h / 2\n\n  loop rings:\n    baseR = (i + 1) * (w * 0.4 / rings)\n    offset = sin(t * speed - i * 0.3) * amplitude\n    r = baseR + offset\n    circle cx cy r stroke:$ring strokeWidth:1.5\n\n  // center dot\n  pulse = 3 + sin(t * speed * 2) * 2\n  circle cx cy pulse fill:$ring\n\npost:\n  bloom(0.15)\n  vignette(0.3)"
+}

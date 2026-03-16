@@ -1,0 +1,53 @@
+{
+  "genart": "1.2",
+  "id": "starfield",
+  "title": "Starfield",
+  "created": "2026-03-15T00:00:00Z",
+  "modified": "2026-03-15T00:00:00Z",
+  "renderer": {
+    "type": "genart"
+  },
+  "canvas": {
+    "width": 600,
+    "height": 600
+  },
+  "parameters": [
+    {
+      "key": "count",
+      "label": "Star Count",
+      "min": 50,
+      "max": 1000,
+      "step": 10,
+      "default": 300
+    },
+    {
+      "key": "depth",
+      "label": "Depth Variation",
+      "min": 0.1,
+      "max": 1,
+      "step": 0.05,
+      "default": 0.5
+    }
+  ],
+  "colors": [
+    {
+      "key": "bg",
+      "label": "Background",
+      "default": "#0a0a1a"
+    },
+    {
+      "key": "star",
+      "label": "Star Color",
+      "default": "#ffffff"
+    }
+  ],
+  "state": {
+    "seed": 42,
+    "params": {
+      "count": 300,
+      "depth": 0.5
+    },
+    "colorPalette": ["#0a0a1a", "#ffffff"]
+  },
+  "algorithm": "param count 300 range:50..1000 step:10\nparam depth 0.5 range:0.1..1 step:0.05\ncolor bg #0a0a1a\ncolor star #ffffff\n\nbg $bg\n\nloop count:\n  x = rnd(w)\n  y = rnd(h)\n  size = 0.5 + rnd(1) * 3 * depth\n  brightness = 0.3 + rnd(1) * 0.7\n  n = noise(x * 0.005, y * 0.005)\n  size = size * (0.5 + n)\n  circle x y r:size fill:$star\n\n// nebula glow clusters\nloop 5:\n  cx = rnd(w)\n  cy = rnd(h)\n  loop 40:\n    ox = cx + (rnd(1) - 0.5) * 120\n    oy = cy + (rnd(1) - 0.5) * 120\n    r = 1 + rnd(1) * 2\n    circle ox oy r:r fill:$star.08\n\npost:\n  bloom(0.2)\n  vignette(0.5)\n  grain(0.03)"
+}
