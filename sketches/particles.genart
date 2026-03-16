@@ -1,0 +1,71 @@
+{
+  "genart": "1.0",
+  "id": "particles",
+  "title": "Particles",
+  "created": "2026-03-15T00:00:00Z",
+  "modified": "2026-03-15T00:00:00Z",
+  "renderer": {
+    "type": "genart"
+  },
+  "canvas": {
+    "width": 600,
+    "height": 600
+  },
+  "parameters": [
+    {
+      "key": "count",
+      "label": "count",
+      "min": 50,
+      "max": 500,
+      "step": 25,
+      "default": 200
+    },
+    {
+      "key": "gravity",
+      "label": "gravity",
+      "min": 0,
+      "max": 0.5,
+      "step": 0.01,
+      "default": 0.1
+    },
+    {
+      "key": "wind",
+      "label": "wind",
+      "min": -1,
+      "max": 1,
+      "step": 0.1,
+      "default": 0
+    }
+  ],
+  "colors": [
+    {
+      "key": "bg",
+      "label": "bg",
+      "default": "#000000"
+    },
+    {
+      "key": "hot",
+      "label": "hot",
+      "default": "#ff6b35"
+    },
+    {
+      "key": "cool",
+      "label": "cool",
+      "default": "#004e89"
+    }
+  ],
+  "state": {
+    "seed": 42,
+    "params": {
+      "count": 200,
+      "gravity": 0.1,
+      "wind": 0
+    },
+    "colorPalette": [
+      "#000000",
+      "#ff6b35",
+      "#004e89"
+    ]
+  },
+  "algorithm": "// Particle system — animated with prev (feedback), touch input\n// Tests: prev, touchX/Y, touches array, for-in, collect loop, vectors\n\nparam count 200 range:50..500 step:25\nparam gravity 0.1 range:0..0.5 step:0.01\nparam wind 0 range:-1..1 step:0.1\ncolor bg #000000\ncolor hot #ff6b35\ncolor cool #004e89\n\n// particle state as arrays\nonce:\n  bg $bg\n\nframe:\n  // fade using prev frame\n  rect 0 0 w:w h:h fill:$bg.05\n\n  loop count:\n    // unique per-particle seed\n    seed \"p\" i\n    age = (t * 2 + i * 0.1) % 3\n    life = age / 3\n\n    // spawn from bottom center or touch point\n    spawnX = touchX > 0 ? touchX : w / 2 + rnd(-50, 50)\n    spawnY = touchY > 0 ? touchY : h\n\n    // physics\n    x = spawnX + sin(i * 0.5 + t) * 30 * life + wind * age * 20\n    y = spawnY - age * 150 + gravity * age * age * 100\n    vel = 1 - life\n\n    // color interpolation by life\n    s = 3 * vel + 1\n    if life < 0.5:\n      circle x y r:s fill:$hot\n    else:\n      circle x y r:s * 0.7 fill:$cool\n\n  // touch indicators\n  for touch in touches:\n    circle touch.x touch.y r:5 fill:white.50\n\npost:\n  bloom(0.4)\n  chromatic_aberration(1)\n"
+}

@@ -1,0 +1,77 @@
+{
+  "genart": "1.0",
+  "id": "generative-landscape",
+  "title": "Generative Landscape",
+  "created": "2026-03-15T00:00:00Z",
+  "modified": "2026-03-15T00:00:00Z",
+  "renderer": {
+    "type": "genart"
+  },
+  "canvas": {
+    "width": 600,
+    "height": 600
+  },
+  "parameters": [
+    {
+      "key": "layers",
+      "label": "layers",
+      "min": 2,
+      "max": 10,
+      "step": 1,
+      "default": 5
+    },
+    {
+      "key": "roughness",
+      "label": "roughness",
+      "min": 0.05,
+      "max": 0.8,
+      "step": 0.05,
+      "default": 0.3
+    },
+    {
+      "key": "horizon",
+      "label": "horizon",
+      "min": 0.2,
+      "max": 0.6,
+      "step": 0.05,
+      "default": 0.35
+    }
+  ],
+  "colors": [
+    {
+      "key": "sky",
+      "label": "sky",
+      "default": "#2d1b69"
+    },
+    {
+      "key": "ground",
+      "label": "ground",
+      "default": "#1a472a"
+    },
+    {
+      "key": "sun",
+      "label": "sun",
+      "default": "#ffd700"
+    },
+    {
+      "key": "mist",
+      "label": "mist",
+      "default": "#e8e0d0"
+    }
+  ],
+  "state": {
+    "seed": 42,
+    "params": {
+      "layers": 5,
+      "roughness": 0.3,
+      "horizon": 0.35
+    },
+    "colorPalette": [
+      "#2d1b69",
+      "#1a472a",
+      "#ffd700",
+      "#e8e0d0"
+    ]
+  },
+  "algorithm": "// Generative landscape — layered terrain with atmosphere\n// Tests: multiple loops, noise layering, gradients, color mixing, named args\n\nparam layers 5 range:2..10 step:1\nparam roughness 0.3 range:0.05..0.8 step:0.05\nparam horizon 0.35 range:0.2..0.6 step:0.05\ncolor sky #2d1b69\ncolor ground #1a472a\ncolor sun #ffd700\ncolor mist #e8e0d0\n\n// sky gradient\nrect 0 0 w:w h:h fill:linear($sky, #0a0a1a)\n\n// sun glow\ncircle w * 0.7 h * horizon r:60 fill:$sun.40\nbloom(0.8)\n\n// terrain layers — back to front\nfor layer in 0..layers:\n  depth = layer / layers\n  baseY = h * horizon + depth * h * (1 - horizon)\n  amplitude = 80 * (1 - depth * 0.3)\n  freq = 0.003 + depth * 0.002\n\n  // terrain profile\n  for x in 0..w:\n    n = noise(x * freq + layer * 100, depth * 10) * amplitude\n    n = n + noise(x * freq * 3, layer * 50) * amplitude * roughness * 0.3\n    y = baseY - n\n\n    // vertical fill from terrain line to bottom\n    terrainH = h - y\n    darkness = 0.3 + depth * 0.5\n    rect x y w:1 h:terrainH fill:$ground\n\n  // mist between layers\n  if layer > 0:\n    mistAlpha = (1 - depth) * 0.08\n    rect 0 baseY - 40 w:w h:80 fill:$mist\n\npost:\n  vignette(0.6)\n  grain(0.04)\n  grade(1.1, 0.9, 1.0, -5)\n"
+}
