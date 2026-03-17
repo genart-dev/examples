@@ -157,4 +157,44 @@ export const EXAMPLES: ExampleEntry[] = [
       "Grid cells filled with geometric primitives by seeded RNG. Systematic composition where constraint breeds creativity.",
     sketchFile: "letterpress.genart",
   },
+  {
+    id: "watercolor-landscape",
+    title: "Watercolor Landscape",
+    prompt:
+      "Create a watercolor landscape using p5.brush — layered hill washes with bleed, soft clouds, and charcoal foreground texture. Atmospheric depth from back to front.",
+    promptType: "create",
+    annotation:
+      "p5.brush watercolor washes create layered hills with natural bleed. Charcoal foreground strokes and soft cloud forms add atmospheric depth.",
+    sketchFile: "watercolor-landscape.genart",
+  },
+  {
+    id: "ink-botanicals",
+    title: "Ink Botanicals",
+    prompt:
+      "Draw botanical specimens in pen and watercolor — branching stems with leaves and flowers, using p5.brush pen strokes for outlines and watercolor fills for washes.",
+    promptType: "create",
+    annotation:
+      "Recursive botanical forms drawn with p5.brush pen strokes and watercolor leaf washes. Each seed grows a unique specimen arrangement.",
+    sketchFile: "ink-botanicals.genart",
+  },
+  {
+    id: "hatched-still-life",
+    title: "Hatched Still Life",
+    prompt:
+      "Render a still life of vases, bottles, and bowls using cross-hatching — p5.brush HB pencil hatching at varying angles and densities to create form and shadow.",
+    promptType: "create",
+    annotation:
+      "Cross-hatched still life using p5.brush HB pencil. Varying hatch angle and density build volume and cast shadow on each object.",
+    sketchFile: "hatched-still-life.genart",
+  },
+  {
+    id: "brush-catalog",
+    title: "Brush Catalog",
+    prompt:
+      "Create a comprehensive catalog of p5.brush capabilities — all 7 stroke brushes at 3 weights, watercolor fills at varying bleed, and hatching patterns at different spacings and angles.",
+    promptType: "explore",
+    annotation:
+      "A systematic catalog of p5.brush: 7 stroke brushes, watercolor fills with bleed control, and hatching at varying density and angle.",
+    sketchFile: "brush-catalog.genart",
+  },
 ];

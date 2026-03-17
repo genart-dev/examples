@@ -1,0 +1,90 @@
+{
+  "genart": "1.1",
+  "id": "watercolor-landscape",
+  "title": "Watercolor Landscape",
+  "created": "2026-03-17T00:00:00Z",
+  "modified": "2026-03-17T00:00:00Z",
+  "renderer": {
+    "type": "p5",
+    "version": "2.x"
+  },
+  "canvas": {
+    "width": 800,
+    "height": 600
+  },
+  "libraries": [
+    {
+      "name": "p5.brush",
+      "version": "2.0.3-beta",
+      "cdnUrl": "https://cdn.jsdelivr.net/npm/p5.brush@2.0.3-beta/dist/p5.brush.js",
+      "globalName": "brush",
+      "renderers": ["p5"],
+      "license": "MIT",
+      "copyright": "Copyright (c) 2024 Alejandro Campos Uribe",
+      "url": "https://github.com/acamposuribe/p5.brush",
+      "rendererVersionRequirement": "2.x"
+    }
+  ],
+  "parameters": [
+    {
+      "key": "horizonHeight",
+      "label": "Horizon Height",
+      "min": 0.25,
+      "max": 0.65,
+      "step": 0.01,
+      "default": 0.4
+    },
+    {
+      "key": "hillLayers",
+      "label": "Hill Layers",
+      "min": 3,
+      "max": 7,
+      "step": 1,
+      "default": 5
+    },
+    {
+      "key": "bleedIntensity",
+      "label": "Bleed Intensity",
+      "min": 0.1,
+      "max": 0.7,
+      "step": 0.05,
+      "default": 0.35
+    },
+    {
+      "key": "cloudCount",
+      "label": "Clouds",
+      "min": 0,
+      "max": 8,
+      "step": 1,
+      "default": 4
+    },
+    {
+      "key": "treeCount",
+      "label": "Trees",
+      "min": 0,
+      "max": 20,
+      "step": 1,
+      "default": 8
+    }
+  ],
+  "colors": [
+    { "key": "sky", "label": "Sky", "default": "#a8c8e8" },
+    { "key": "horizon", "label": "Horizon Glow", "default": "#f0e0c8" },
+    { "key": "hills", "label": "Hills", "default": "#4a7a5a" },
+    { "key": "foreground", "label": "Foreground", "default": "#2d5a3a" },
+    { "key": "trunk", "label": "Tree Trunks", "default": "#4a3a2a" }
+  ],
+  "state": {
+    "seed": 42,
+    "params": {
+      "horizonHeight": 0.4,
+      "hillLayers": 5,
+      "bleedIntensity": 0.35,
+      "cloudCount": 4,
+      "treeCount": 8
+    },
+    "colorPalette": ["#a8c8e8", "#f0e0c8", "#4a7a5a", "#2d5a3a", "#4a3a2a"]
+  },
+  "snapshots": [],
+  "algorithm": "function sketch(p, state) {\n  var W = state.canvas.width, H = state.canvas.height;\n  var SEED = state.seed;\n  var PARAMS = state.params;\n  var C = state.colorPalette;\n\n  function initializeSystem() {}\n\n  p.setup = function() {\n    p.createCanvas(W, H, p.WEBGL);\n    p.randomSeed(SEED);\n    p.noiseSeed(SEED);\n  };\n\n  p.draw = function() {\n    var ox = -W / 2, oy = -H / 2;\n    var horizonY = H * PARAMS.horizonHeight;\n    var bleed = PARAMS.bleedIntensity;\n\n    // Sky wash — gradient from sky color to horizon glow\n    p.background(255);\n    brush.noStroke();\n    for (var sy = 0; sy < horizonY; sy += 30) {\n      var t = sy / horizonY;\n      var skyC = p.lerpColor(p.color(C[0]), p.color(C[1]), t * t);\n      brush.fill(skyC, 0.5);\n      brush.fillBleed(bleed * 0.6);\n      brush.rect(ox - 20, oy + sy - 10, W + 40, 50);\n    }\n\n    // Clouds — soft white-ish washes\n    for (var ci = 0; ci < PARAMS.cloudCount; ci++) {\n      var cx = p.random(W * 0.1, W * 0.9);\n      var cy = p.random(horizonY * 0.1, horizonY * 0.6);\n      var cw = p.random(80, 180);\n      var ch = p.random(25, 50);\n      brush.fill(p.color(255, 255, 255), 0.25);\n      brush.fillBleed(bleed * 0.8);\n      brush.noStroke();\n      brush.beginShape();\n      for (var a = 0; a < p.TWO_PI; a += 0.3) {\n        var rx = cw / 2 + p.random(-10, 10);\n        var ry = ch / 2 + p.random(-5, 5);\n        brush.vertex(ox + cx + Math.cos(a) * rx, oy + cy + Math.sin(a) * ry);\n      }\n      brush.endShape(p.CLOSE);\n    }\n\n    // Hill layers — back to front with increasing saturation\n    var layers = PARAMS.hillLayers;\n    for (var li = 0; li < layers; li++) {\n      var layerT = li / (layers - 1);\n      var baseY = horizonY + layerT * (H - horizonY) * 0.7;\n      var hillColor = p.lerpColor(p.color(C[2]), p.color(C[3]), layerT);\n      var alpha = 0.4 + layerT * 0.2;\n      brush.fill(hillColor, alpha);\n      brush.fillBleed(bleed * (0.4 + layerT * 0.3));\n      brush.noStroke();\n\n      brush.beginShape();\n      brush.vertex(ox - 20, oy + H + 20);\n      for (var hx = -20; hx <= W + 20; hx += 15) {\n        var noiseVal = p.noise(hx * 0.003 + li * 10, li * 5 + SEED * 0.01);\n        var hillH = 40 + noiseVal * 80 * (1 - layerT * 0.3);\n        brush.vertex(ox + hx, oy + baseY - hillH);\n      }\n      brush.vertex(ox + W + 20, oy + H + 20);\n      brush.endShape(p.CLOSE);\n    }\n\n    // Trees — simple trunks + foliage blobs on foreground hills\n    brush.noFill();\n    for (var ti = 0; ti < PARAMS.treeCount; ti++) {\n      var tx = p.random(W * 0.05, W * 0.95);\n      var groundNoise = p.noise(tx * 0.003 + (layers - 1) * 10, (layers - 1) * 5 + SEED * 0.01);\n      var groundY = horizonY + 0.7 * (H - horizonY) * ((layers - 1) / (layers - 1)) - (40 + groundNoise * 80 * 0.7 * 0.3);\n      var treeH = p.random(30, 60);\n\n      // Trunk\n      brush.set('2B', C[4], p.random(0.8, 1.5));\n      brush.line(ox + tx, oy + groundY, ox + tx + p.random(-5, 5), oy + groundY - treeH);\n\n      // Foliage — watercolor blob\n      brush.noStroke();\n      var foliageC = p.lerpColor(p.color(C[2]), p.color(C[3]), p.random(0.3, 0.8));\n      brush.fill(foliageC, 0.5);\n      brush.fillBleed(bleed * 0.7);\n      var fw = p.random(20, 40);\n      brush.circle(ox + tx, oy + groundY - treeH - fw * 0.3, fw);\n      brush.noFill();\n    }\n\n    // Foreground texture — horizontal charcoal strokes\n    brush.field('hand');\n    brush.set('charcoal', C[3], 0.4);\n    for (var fi = 0; fi < 12; fi++) {\n      var fy = H * 0.85 + p.random(H * 0.12);\n      var fx1 = p.random(-20, W * 0.3);\n      var fx2 = fx1 + p.random(60, 200);\n      brush.line(ox + fx1, oy + fy, ox + fx2, oy + fy + p.random(-3, 3));\n    }\n    brush.noField();\n    brush.noStroke();\n\n    p.noLoop();\n  };\n\n  return { initializeSystem: initializeSystem };\n}"
+}

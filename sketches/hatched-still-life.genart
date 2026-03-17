@@ -1,0 +1,89 @@
+{
+  "genart": "1.1",
+  "id": "hatched-still-life",
+  "title": "Hatched Still Life",
+  "created": "2026-03-17T00:00:00Z",
+  "modified": "2026-03-17T00:00:00Z",
+  "renderer": {
+    "type": "p5",
+    "version": "2.x"
+  },
+  "canvas": {
+    "width": 700,
+    "height": 700
+  },
+  "libraries": [
+    {
+      "name": "p5.brush",
+      "version": "2.0.3-beta",
+      "cdnUrl": "https://cdn.jsdelivr.net/npm/p5.brush@2.0.3-beta/dist/p5.brush.js",
+      "globalName": "brush",
+      "renderers": ["p5"],
+      "license": "MIT",
+      "copyright": "Copyright (c) 2024 Alejandro Campos Uribe",
+      "url": "https://github.com/acamposuribe/p5.brush",
+      "rendererVersionRequirement": "2.x"
+    }
+  ],
+  "parameters": [
+    {
+      "key": "objectCount",
+      "label": "Objects",
+      "min": 3,
+      "max": 8,
+      "step": 1,
+      "default": 5
+    },
+    {
+      "key": "hatchSpacing",
+      "label": "Hatch Spacing",
+      "min": 3,
+      "max": 12,
+      "step": 1,
+      "default": 6
+    },
+    {
+      "key": "crossHatch",
+      "label": "Cross-Hatch",
+      "min": 0,
+      "max": 1,
+      "step": 1,
+      "default": 1
+    },
+    {
+      "key": "shadowDensity",
+      "label": "Shadow Density",
+      "min": 0.3,
+      "max": 1.0,
+      "step": 0.1,
+      "default": 0.7
+    },
+    {
+      "key": "outlineWeight",
+      "label": "Outline Weight",
+      "min": 0.5,
+      "max": 3.0,
+      "step": 0.25,
+      "default": 1.5
+    }
+  ],
+  "colors": [
+    { "key": "paper", "label": "Paper", "default": "#f2ece0" },
+    { "key": "ink", "label": "Ink", "default": "#1a1a1a" },
+    { "key": "shadow", "label": "Shadow", "default": "#3a3a3a" },
+    { "key": "table", "label": "Table", "default": "#6a6a5a" }
+  ],
+  "state": {
+    "seed": 256,
+    "params": {
+      "objectCount": 5,
+      "hatchSpacing": 6,
+      "crossHatch": 1,
+      "shadowDensity": 0.7,
+      "outlineWeight": 1.5
+    },
+    "colorPalette": ["#f2ece0", "#1a1a1a", "#3a3a3a", "#6a6a5a"]
+  },
+  "snapshots": [],
+  "algorithm": "function sketch(p, state) {\n  var W = state.canvas.width, H = state.canvas.height;\n  var SEED = state.seed;\n  var PARAMS = state.params;\n  var C = state.colorPalette;\n\n  function initializeSystem() {}\n\n  p.setup = function() {\n    p.createCanvas(W, H, p.WEBGL);\n    p.randomSeed(SEED);\n    p.noiseSeed(SEED);\n  };\n\n  p.draw = function() {\n    var ox = -W / 2, oy = -H / 2;\n    p.background(C[0]);\n\n    var tableY = H * 0.65;\n    var sp = PARAMS.hatchSpacing;\n    var doCross = PARAMS.crossHatch === 1;\n    var shadowD = PARAMS.shadowDensity;\n    var outW = PARAMS.outlineWeight;\n\n    // Table surface — horizontal hatching\n    brush.set('HB', C[3], 0.4);\n    brush.hatch(sp * 1.5, 0, { rand: 0.08 });\n    brush.rect(ox, oy + tableY, W, H - tableY);\n    brush.noHatch();\n\n    // Table edge line\n    brush.set('pen', C[1], outW * 0.8);\n    brush.line(ox, oy + tableY, ox + W, oy + tableY);\n\n    // Generate objects along the table\n    var objects = [];\n    var count = PARAMS.objectCount;\n    for (var i = 0; i < count; i++) {\n      var cx = W * 0.15 + (W * 0.7) * i / (count - 1 || 1) + p.random(-20, 20);\n      var shape = p.random() > 0.5 ? 'vase' : (p.random() > 0.5 ? 'bottle' : 'bowl');\n      objects.push({ cx: cx, shape: shape });\n    }\n\n    // Draw each object\n    for (var oi = 0; oi < objects.length; oi++) {\n      var obj = objects[oi];\n      drawObject(obj.cx, tableY, obj.shape, oi);\n    }\n\n    function drawObject(cx, baseY, shape, idx) {\n      var objH, objW, bottomW;\n\n      if (shape === 'vase') {\n        objH = p.random(100, 160);\n        objW = p.random(40, 65);\n        bottomW = objW * 0.7;\n        drawVase(cx, baseY, objW, objH, bottomW, idx);\n      } else if (shape === 'bottle') {\n        objH = p.random(130, 190);\n        objW = p.random(30, 50);\n        drawBottle(cx, baseY, objW, objH, idx);\n      } else {\n        objH = p.random(35, 55);\n        objW = p.random(55, 85);\n        drawBowl(cx, baseY, objW, objH, idx);\n      }\n    }\n\n    function drawVase(cx, baseY, w, h, bw, idx) {\n      // Outline\n      brush.noFill();\n      brush.set('pen', C[1], outW);\n      brush.beginShape();\n      brush.vertex(ox + cx - bw/2, oy + baseY);\n      brush.vertex(ox + cx - w/2, oy + baseY - h * 0.5);\n      brush.vertex(ox + cx - w/3, oy + baseY - h * 0.8);\n      brush.vertex(ox + cx - w/5, oy + baseY - h * 0.85);\n      brush.vertex(ox + cx - w/5, oy + baseY - h);\n      brush.vertex(ox + cx + w/5, oy + baseY - h);\n      brush.vertex(ox + cx + w/5, oy + baseY - h * 0.85);\n      brush.vertex(ox + cx + w/3, oy + baseY - h * 0.8);\n      brush.vertex(ox + cx + w/2, oy + baseY - h * 0.5);\n      brush.vertex(ox + cx + bw/2, oy + baseY);\n      brush.endShape(p.CLOSE);\n\n      // Hatching for shadow side\n      brush.noStroke();\n      brush.set('HB', C[2], 0.5 * shadowD);\n      var angle = 45 + idx * 15;\n      brush.hatch(sp, angle, { rand: 0.05 });\n      brush.rect(ox + cx, oy + baseY - h * 0.8, w / 2 - 5, h * 0.7);\n      if (doCross) {\n        brush.hatch(sp, angle + 90, { rand: 0.05 });\n        brush.rect(ox + cx + w * 0.1, oy + baseY - h * 0.6, w / 3, h * 0.35);\n      }\n      brush.noHatch();\n    }\n\n    function drawBottle(cx, baseY, w, h, idx) {\n      var neckW = w * 0.3;\n      brush.noFill();\n      brush.set('pen', C[1], outW);\n      brush.beginShape();\n      brush.vertex(ox + cx - w/2, oy + baseY);\n      brush.vertex(ox + cx - w/2, oy + baseY - h * 0.55);\n      brush.vertex(ox + cx - neckW, oy + baseY - h * 0.65);\n      brush.vertex(ox + cx - neckW, oy + baseY - h * 0.95);\n      brush.vertex(ox + cx - neckW * 1.3, oy + baseY - h);\n      brush.vertex(ox + cx + neckW * 1.3, oy + baseY - h);\n      brush.vertex(ox + cx + neckW, oy + baseY - h * 0.95);\n      brush.vertex(ox + cx + neckW, oy + baseY - h * 0.65);\n      brush.vertex(ox + cx + w/2, oy + baseY - h * 0.55);\n      brush.vertex(ox + cx + w/2, oy + baseY);\n      brush.endShape(p.CLOSE);\n\n      // Body hatching\n      brush.noStroke();\n      brush.set('HB', C[2], 0.5 * shadowD);\n      var angle = 60 + idx * 12;\n      brush.hatch(sp, angle, { rand: 0.04 });\n      brush.rect(ox + cx, oy + baseY - h * 0.5, w / 2, h * 0.45);\n      if (doCross) {\n        brush.hatch(sp * 0.8, angle + 85, { rand: 0.04 });\n        brush.rect(ox + cx + w * 0.05, oy + baseY - h * 0.4, w / 3, h * 0.25);\n      }\n      brush.noHatch();\n    }\n\n    function drawBowl(cx, baseY, w, h, idx) {\n      brush.noFill();\n      brush.set('pen', C[1], outW);\n      // Bowl as half-ellipse\n      brush.beginShape();\n      brush.vertex(ox + cx - w/2, oy + baseY - h * 0.1);\n      for (var a = Math.PI; a <= Math.PI * 2; a += 0.2) {\n        brush.vertex(ox + cx + Math.cos(a) * w/2, oy + baseY - h * 0.1 + Math.sin(a) * h * 0.9);\n      }\n      brush.vertex(ox + cx + w/2, oy + baseY - h * 0.1);\n      brush.endShape();\n      // Rim\n      brush.line(ox + cx - w/2 - 5, oy + baseY - h * 0.1, ox + cx + w/2 + 5, oy + baseY - h * 0.1);\n\n      // Interior hatching\n      brush.noStroke();\n      brush.set('HB', C[2], 0.4 * shadowD);\n      brush.hatch(sp * 1.2, 30 + idx * 20, { rand: 0.06 });\n      brush.circle(ox + cx + w * 0.1, oy + baseY + h * 0.3, w * 0.35);\n      brush.noHatch();\n    }\n\n    // Cast shadows on table\n    for (var si = 0; si < objects.length; si++) {\n      var scx = objects[si].cx;\n      brush.set('HB', C[2], 0.3 * shadowD);\n      brush.hatch(sp * 0.8, 15, { rand: 0.06 });\n      var sw = p.random(40, 70);\n      brush.beginShape();\n      brush.vertex(ox + scx - 5, oy + tableY);\n      brush.vertex(ox + scx + sw, oy + tableY + 5);\n      brush.vertex(ox + scx + sw * 0.7, oy + tableY + p.random(15, 30));\n      brush.vertex(ox + scx + 5, oy + tableY + p.random(8, 15));\n      brush.endShape(p.CLOSE);\n      brush.noHatch();\n    }\n\n    p.noLoop();\n  };\n\n  return { initializeSystem: initializeSystem };\n}"
+}
