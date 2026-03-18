@@ -1,0 +1,90 @@
+{
+  "genart": "1.1",
+  "id": "charcoal-gesture",
+  "title": "Charcoal Gesture",
+  "created": "2026-03-17T00:00:00Z",
+  "modified": "2026-03-17T00:00:00Z",
+  "renderer": {
+    "type": "p5",
+    "version": "2.x"
+  },
+  "canvas": {
+    "width": 600,
+    "height": 800
+  },
+  "libraries": [
+    {
+      "name": "p5.brush",
+      "version": "2.0.3-beta",
+      "cdnUrl": "https://cdn.jsdelivr.net/npm/p5.brush@2.0.3-beta/dist/p5.brush.js",
+      "globalName": "brush",
+      "renderers": ["p5"],
+      "license": "MIT",
+      "copyright": "Copyright (c) 2024 Alejandro Campos Uribe",
+      "url": "https://github.com/acamposuribe/p5.brush",
+      "rendererVersionRequirement": "2.x"
+    }
+  ],
+  "parameters": [
+    {
+      "key": "poseVariation",
+      "label": "Pose Variation",
+      "min": 0.0,
+      "max": 1.0,
+      "step": 0.1,
+      "default": 0.5
+    },
+    {
+      "key": "strokeWeight",
+      "label": "Stroke Weight",
+      "min": 2.0,
+      "max": 6.0,
+      "step": 0.5,
+      "default": 3.5
+    },
+    {
+      "key": "gestureLines",
+      "label": "Gesture Lines",
+      "min": 2,
+      "max": 7,
+      "step": 1,
+      "default": 4
+    },
+    {
+      "key": "shadowOpacity",
+      "label": "Shadow Opacity",
+      "min": 0.1,
+      "max": 0.6,
+      "step": 0.05,
+      "default": 0.3
+    },
+    {
+      "key": "groundDetail",
+      "label": "Ground Detail",
+      "min": 0.0,
+      "max": 1.0,
+      "step": 0.1,
+      "default": 0.5
+    }
+  ],
+  "colors": [
+    { "key": "paper", "label": "Paper", "default": "#f0e8d8" },
+    { "key": "charcoal", "label": "Charcoal", "default": "#2a2220" },
+    { "key": "midGray", "label": "Mid Gray", "default": "#5a4a40" },
+    { "key": "lightGray", "label": "Light Gray", "default": "#8a7a6a" },
+    { "key": "highlight", "label": "Highlight", "default": "#c8b8a0" }
+  ],
+  "state": {
+    "seed": 77,
+    "params": {
+      "poseVariation": 0.5,
+      "strokeWeight": 3.5,
+      "gestureLines": 4,
+      "shadowOpacity": 0.3,
+      "groundDetail": 0.5
+    },
+    "colorPalette": ["#f0e8d8", "#2a2220", "#5a4a40", "#8a7a6a", "#c8b8a0"]
+  },
+  "snapshots": [],
+  "algorithm": "function sketch(p, state) {\n  var W = state.canvas.width, H = state.canvas.height;\n  var SEED = state.seed;\n  var PARAMS = state.params;\n  var C = state.colorPalette;\n\n  function initializeSystem() {}\n\n  p.setup = function() {\n    p.createCanvas(W, H, p.WEBGL);\n    p.randomSeed(SEED);\n    p.noiseSeed(SEED);\n  };\n\n  p.draw = function() {\n    var ox = -W / 2, oy = -H / 2;\n    p.background(C[0]);\n\n    var pv = PARAMS.poseVariation;\n    var sw = PARAMS.strokeWeight;\n    var gl = PARAMS.gestureLines;\n    var so = PARAMS.shadowOpacity;\n    var gd = PARAMS.groundDetail;\n\n    // Figure proportions (8-head canon, simplified)\n    var figH = H * 0.65;\n    var headH = figH / 8;\n    var cx = W / 2 + (pv - 0.5) * 40;\n    var footY = H * 0.82;\n    var hipY = footY - figH * 0.45;\n    var shoulderY = footY - figH * 0.75;\n    var headY = footY - figH;\n    var waistY = (hipY + shoulderY) / 2;\n\n    // Pose: slight contrapposto based on poseVariation\n    var lean = (pv - 0.5) * 25;\n    var hipShift = lean * 0.6;\n    var shoulderShift = -lean * 0.4;\n\n    // Body segments: [startX, startY, endX, endY, weight]\n    var segments = [\n      // Torso\n      [cx + hipShift, hipY, cx + shoulderShift, shoulderY, sw * 1.2],\n      // Hips to waist\n      [cx + hipShift * 1.2, hipY + headH * 0.3, cx + hipShift, hipY, sw * 1.0],\n      // Neck\n      [cx + shoulderShift, shoulderY, cx + shoulderShift * 0.5, headY + headH, sw * 0.6],\n      // Left leg (upper)\n      [cx + hipShift - 8, hipY, cx + hipShift - 15 + lean * 0.3, footY - figH * 0.22, sw * 1.0],\n      // Left leg (lower)\n      [cx + hipShift - 15 + lean * 0.3, footY - figH * 0.22, cx - 20 + lean * 0.5, footY, sw * 0.8],\n      // Right leg (upper) — weight-bearing\n      [cx + hipShift + 8, hipY, cx + hipShift + 5, footY - figH * 0.22, sw * 1.1],\n      // Right leg (lower)\n      [cx + hipShift + 5, footY - figH * 0.22, cx + 10, footY, sw * 0.9],\n      // Left arm (upper)\n      [cx + shoulderShift - 15, shoulderY + 5, cx + shoulderShift - 30 - pv * 15, shoulderY + figH * 0.18, sw * 0.7],\n      // Left arm (lower)\n      [cx + shoulderShift - 30 - pv * 15, shoulderY + figH * 0.18, cx + shoulderShift - 35 - pv * 20, shoulderY + figH * 0.32, sw * 0.5],\n      // Right arm (upper)\n      [cx + shoulderShift + 15, shoulderY + 5, cx + shoulderShift + 25 + pv * 10, shoulderY + figH * 0.15, sw * 0.7],\n      // Right arm (lower)\n      [cx + shoulderShift + 25 + pv * 10, shoulderY + figH * 0.15, cx + shoulderShift + 20 + pv * 18, shoulderY + figH * 0.3, sw * 0.5]\n    ];\n\n    // Shadow masses — large watercolor washes on shadow side\n    brush.noStroke();\n    brush.fill(p.color(C[2]), Math.round(so * 255));\n    brush.fillBleed(0.4);\n    // Torso shadow\n    var shadowSide = lean > 0 ? -1 : 1;\n    brush.beginShape();\n    brush.vertex(ox + cx + shoulderShift + shadowSide * 5, oy + shoulderY);\n    brush.vertex(ox + cx + shoulderShift + shadowSide * 20, oy + shoulderY + 10);\n    brush.vertex(ox + cx + hipShift + shadowSide * 18, oy + hipY - 5);\n    brush.vertex(ox + cx + hipShift + shadowSide * 3, oy + hipY);\n    brush.endShape(p.CLOSE);\n    // Leg shadow (weight-bearing side)\n    brush.fill(p.color(C[2]), Math.round(so * 0.7 * 255));\n    brush.fillBleed(0.35);\n    brush.beginShape();\n    brush.vertex(ox + cx + hipShift + 3, oy + hipY);\n    brush.vertex(ox + cx + hipShift + 18, oy + hipY + 5);\n    brush.vertex(ox + cx + 20, oy + footY - 10);\n    brush.vertex(ox + cx + 5, oy + footY - 5);\n    brush.endShape(p.CLOSE);\n    brush.noFill();\n\n    // Head — charcoal oval\n    brush.set('charcoal', C[1], sw * 0.8);\n    var headCx = cx + shoulderShift * 0.5;\n    var headCy = headY + headH * 0.5;\n    brush.beginShape();\n    for (var ha = 0; ha < Math.PI * 2; ha += 0.4) {\n      brush.vertex(ox + headCx + Math.cos(ha) * headH * 0.35, oy + headCy + Math.sin(ha) * headH * 0.5);\n    }\n    brush.endShape(p.CLOSE);\n\n    // Draw body segments with charcoal\n    for (var si = 0; si < segments.length; si++) {\n      var seg = segments[si];\n      var jitter = p.noise(si * 3.7, SEED * 0.01) * 4 - 2;\n      brush.set('charcoal', C[1], seg[4]);\n      brush.line(ox + seg[0] + jitter, oy + seg[1], ox + seg[2] + jitter * 0.5, oy + seg[3]);\n    }\n\n    // Gestural sweep lines — long flowing lines tracing the figure's action line\n    brush.field('curved');\n    brush.set('charcoal', C[3], 0.6);\n    for (var gi = 0; gi < gl; gi++) {\n      var gxOff = p.random(-15, 15);\n      var startY2 = headY + p.random(-10, headH);\n      var endY2 = footY + p.random(-5, 5);\n      brush.beginShape();\n      var gestSteps = 8;\n      for (var gs = 0; gs <= gestSteps; gs++) {\n        var gt = gs / gestSteps;\n        var gy = startY2 + (endY2 - startY2) * gt;\n        // Follow the body centerline with sweep\n        var bodyX = cx + shoulderShift * (1 - gt) + hipShift * gt;\n        var sweep = Math.sin(gt * Math.PI) * (20 + gi * 8) * (gi % 2 === 0 ? 1 : -1);\n        brush.vertex(ox + bodyX + sweep + gxOff, oy + gy);\n      }\n      brush.endShape();\n    }\n    brush.noField();\n\n    // Ground shadow — horizontal strokes under feet\n    brush.set('charcoal', C[2], 0.5 + gd * 0.5);\n    var groundStrokes = Math.floor(5 + gd * 10);\n    for (var fi = 0; fi < groundStrokes; fi++) {\n      var fy = footY + p.random(2, 15 + gd * 10);\n      var fxStart = cx + p.random(-50, -10);\n      var fxEnd = cx + p.random(10, 50);\n      var fw = 0.3 + (1 - (fy - footY) / (25 + gd * 10)) * 0.5;\n      brush.set('charcoal', C[2], fw);\n      brush.line(ox + fxStart, oy + fy, ox + fxEnd, oy + fy + p.random(-2, 2));\n    }\n\n    // Faint background vertical — studio wall edge\n    brush.set('charcoal', C[3], 0.2);\n    brush.line(ox + W * 0.75, oy + H * 0.05, ox + W * 0.76, oy + H * 0.6);\n\n    brush.noStroke();\n    p.noLoop();\n  };\n\n  return { initializeSystem: initializeSystem };\n}"
+}

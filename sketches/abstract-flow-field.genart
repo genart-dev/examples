@@ -1,0 +1,90 @@
+{
+  "genart": "1.1",
+  "id": "abstract-flow-field",
+  "title": "Abstract Flow Field",
+  "created": "2026-03-17T00:00:00Z",
+  "modified": "2026-03-17T00:00:00Z",
+  "renderer": {
+    "type": "p5",
+    "version": "2.x"
+  },
+  "canvas": {
+    "width": 700,
+    "height": 700
+  },
+  "libraries": [
+    {
+      "name": "p5.brush",
+      "version": "2.0.3-beta",
+      "cdnUrl": "https://cdn.jsdelivr.net/npm/p5.brush@2.0.3-beta/dist/p5.brush.js",
+      "globalName": "brush",
+      "renderers": ["p5"],
+      "license": "MIT",
+      "copyright": "Copyright (c) 2024 Alejandro Campos Uribe",
+      "url": "https://github.com/acamposuribe/p5.brush",
+      "rendererVersionRequirement": "2.x"
+    }
+  ],
+  "parameters": [
+    {
+      "key": "strokeCount",
+      "label": "Stroke Count",
+      "min": 200,
+      "max": 800,
+      "step": 50,
+      "default": 500
+    },
+    {
+      "key": "strokeLength",
+      "label": "Stroke Length",
+      "min": 15,
+      "max": 60,
+      "step": 5,
+      "default": 30
+    },
+    {
+      "key": "fieldType",
+      "label": "Field Type",
+      "min": 0,
+      "max": 6,
+      "step": 1,
+      "default": 0
+    },
+    {
+      "key": "layerCount",
+      "label": "Layer Count",
+      "min": 1,
+      "max": 3,
+      "step": 1,
+      "default": 3
+    },
+    {
+      "key": "backgroundWashes",
+      "label": "Background Washes",
+      "min": 0,
+      "max": 5,
+      "step": 1,
+      "default": 3
+    }
+  ],
+  "colors": [
+    { "key": "paper", "label": "Paper", "default": "#f5f0e6" },
+    { "key": "ink", "label": "Ink", "default": "#1a2a3a" },
+    { "key": "mid", "label": "Mid Tone", "default": "#4a6a8a" },
+    { "key": "accent1", "label": "Accent 1", "default": "#8aaa6a" },
+    { "key": "accent2", "label": "Accent 2", "default": "#c8885a" }
+  ],
+  "state": {
+    "seed": 42,
+    "params": {
+      "strokeCount": 500,
+      "strokeLength": 30,
+      "fieldType": 0,
+      "layerCount": 3,
+      "backgroundWashes": 3
+    },
+    "colorPalette": ["#f5f0e6", "#1a2a3a", "#4a6a8a", "#8aaa6a", "#c8885a"]
+  },
+  "snapshots": [],
+  "algorithm": "function sketch(p, state) {\n  var W = state.canvas.width, H = state.canvas.height;\n  var SEED = state.seed;\n  var PARAMS = state.params;\n  var C = state.colorPalette;\n\n  function initializeSystem() {}\n\n  p.setup = function() {\n    p.createCanvas(W, H, p.WEBGL);\n    p.randomSeed(SEED);\n    p.noiseSeed(SEED);\n  };\n\n  p.draw = function() {\n    var ox = -W / 2, oy = -H / 2;\n    p.background(C[0]);\n\n    var fields = ['hand', 'curved', 'zigzag', 'waves', 'seabed', 'spiral', 'columns'];\n    var fieldName = fields[Math.min(PARAMS.fieldType, fields.length - 1)];\n    var count = PARAMS.strokeCount;\n    var sLen = PARAMS.strokeLength;\n    var layers = PARAMS.layerCount;\n    var cx = W / 2;\n    var cy = H / 2;\n    var maxR = W * 0.48;\n\n    // Background washes — large watercolor blobs for underlayer\n    brush.noStroke();\n    var washColors = [C[2], C[3], C[4]];\n    for (var wi = 0; wi < PARAMS.backgroundWashes; wi++) {\n      var wx = p.random(W * 0.2, W * 0.8);\n      var wy = p.random(H * 0.2, H * 0.8);\n      var wr = p.random(120, 220);\n      brush.fill(p.color(washColors[wi % 3]), 38);\n      brush.fillBleed(0.55);\n      brush.circle(ox + wx, oy + wy, wr);\n    }\n    brush.noFill();\n\n    // Activate the vector field for all stroke layers\n    brush.field(fieldName);\n\n    // Layer config: [brushType, color, baseWeight, countFraction]\n    var layerDefs = [\n      ['HB', C[2], 0.4, 0.5],\n      ['charcoal', C[1], 1.0, 0.35],\n      ['pen', C[1], 0.6, 0.15]\n    ];\n\n    for (var li = 0; li < Math.min(layers, 3); li++) {\n      var def = layerDefs[li];\n      var lCount = Math.floor(count * def[3]);\n\n      for (var si = 0; si < lCount; si++) {\n        // Position from jittered grid with center-biased density\n        var angle = p.random(p.TWO_PI);\n        var radius = Math.pow(p.random(), 0.6) * maxR;\n        var px = cx + Math.cos(angle) * radius;\n        var py = cy + Math.sin(angle) * radius;\n\n        // Edge fade — reduce weight near canvas edges\n        var edgeDist = Math.min(px, py, W - px, H - py);\n        var edgeFade = Math.min(1, edgeDist / 80);\n        if (edgeFade < 0.1) continue;\n\n        var w = def[2] * edgeFade;\n\n        // Flow direction from noise\n        var flowAngle = p.noise(px * 0.005, py * 0.005) * p.TWO_PI * 2;\n        var endX = px + Math.cos(flowAngle) * sLen;\n        var endY = py + Math.sin(flowAngle) * sLen;\n\n        brush.set(def[0], def[1], w);\n        brush.line(ox + px, oy + py, ox + endX, oy + endY);\n      }\n    }\n\n    brush.noField();\n    brush.noStroke();\n\n    p.noLoop();\n  };\n\n  return { initializeSystem: initializeSystem };\n}"
+}
