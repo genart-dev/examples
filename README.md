@@ -1,6 +1,6 @@
 # @genart-dev/examples
 
-14 curated generative art sketches across 5 rendering engines, each created from a single AI prompt. Published to npm for use in the [genart.dev](https://genart.dev/gallery) gallery.
+Curated generative art sketches across 5 rendering engines, each created from a single AI prompt. Published to npm for use in the [genart.dev](https://genart.dev/gallery) gallery.
 
 ## Install
 
@@ -209,6 +209,83 @@ Grid cells filled with geometric primitives by seeded RNG. Systematic compositio
 </tr>
 </table>
 
+### p5.brush (p5.js + [p5.brush](https://github.com/acamposuribe/p5.brush) library)
+
+<table>
+<tr>
+<td width="300"><img src="renders/watercolor-landscape.png" width="280" /></td>
+<td>
+
+**Watercolor Landscape**
+
+> Create a watercolor landscape using p5.brush — layered hill washes with bleed, soft clouds, and charcoal foreground texture. Atmospheric depth from back to front.
+
+p5.brush watercolor washes create layered hills with natural bleed. Charcoal foreground strokes and soft cloud forms add atmospheric depth.
+
+</td>
+</tr>
+<tr>
+<td width="300"><img src="renders/ink-botanicals.png" width="280" /></td>
+<td>
+
+**Ink Botanicals**
+
+> Draw botanical specimens in pen and watercolor — branching stems with leaves and flowers, using p5.brush pen strokes for outlines and watercolor fills for washes.
+
+Recursive botanical forms drawn with p5.brush pen strokes and watercolor leaf washes. Each seed grows a unique specimen arrangement.
+
+</td>
+</tr>
+<tr>
+<td width="300"><img src="renders/hatched-still-life.png" width="280" /></td>
+<td>
+
+**Hatched Still Life**
+
+> Render a still life of vases, bottles, and bowls using cross-hatching — p5.brush HB pencil hatching at varying angles and densities to create form and shadow.
+
+Cross-hatched still life using p5.brush HB pencil. Varying hatch angle and density build volume and cast shadow on each object.
+
+</td>
+</tr>
+<tr>
+<td width="300"><img src="renders/charcoal-gesture.png" width="280" /></td>
+<td>
+
+**Charcoal Gesture**
+
+> Draw expressive figure gesture studies using p5.brush charcoal — quick, energetic strokes capturing movement and weight with minimal detail.
+
+Gestural figure studies in charcoal. Bold strokes capture weight and motion with p5.brush's pressure-sensitive mark-making.
+
+</td>
+</tr>
+<tr>
+<td width="300"><img src="renders/abstract-flow-field.png" width="280" /></td>
+<td>
+
+**Abstract Flow Field**
+
+> Create an abstract flow field painting using p5.brush — long, flowing brush strokes following a Perlin noise vector field with rich, painterly texture.
+
+Noise-driven flow field rendered with p5.brush strokes. Ink and marker trails accumulate into a dense, painterly composition.
+
+</td>
+</tr>
+<tr>
+<td width="300"><img src="renders/brush-catalog.png" width="280" /></td>
+<td>
+
+**Brush Catalog**
+
+> Create a comprehensive catalog of p5.brush capabilities — all 7 stroke brushes at 3 weights, watercolor fills at varying bleed, and hatching patterns.
+
+A systematic catalog of p5.brush: 7 stroke brushes, watercolor fills with bleed control, and hatching at varying density and angle.
+
+</td>
+</tr>
+</table>
+
 ---
 
 ## Sketch format
@@ -220,6 +297,7 @@ Each `.genart` file is a self-contained JSON document with renderer type, parame
 | Engine | Sketches | WebGL |
 |--------|----------|-------|
 | p5.js | Murmuration, Tide Pool, Lichen | No |
+| p5.js + p5.brush | Watercolor Landscape, Ink Botanicals, Hatched Still Life, Charcoal Gesture, Abstract Flow Field, Brush Catalog | No |
 | Canvas 2D | Erosion, Textile, Phase Space | No |
 | Three.js | Coral, Constellation, Origami | Yes |
 | GLSL | Aurora, Mycelium, Interference | Yes |
